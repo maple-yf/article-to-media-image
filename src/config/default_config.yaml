@@ -1,0 +1,16 @@
+defaults:
+  template: tech_modern
+  output_path: ~/article-cards/{timestamp}-{template}.html
+  timestamp_format: "%Y%m%d-%H%M%S"
+
+output:
+  base_dir: ~/article-cards
+  filename_template: "{timestamp}-{template}.html"
+
+templates:
+  available:
+    - minimal
+    - gradient
+    - card
+    - dark
+    - tech_modern
