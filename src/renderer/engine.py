@@ -4,6 +4,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 from ..config import Settings
 from .context import build_template_context
 from ..utils.validator import validate_segments
+from ..utils.file import write_html_file
 
 
 class RenderEngine:
@@ -75,3 +76,30 @@ class RenderEngine:
         # Render
         jinja_template = self._jinja_env.get_template(template_path)
         return jinja_template.render(**context)
+
+    def render_to_file(
+        self,
+        segments: List[Dict[str, Any]],
+        template: str,
+        output_path: Optional[Path] = None,
+    ) -> Path:
+        """
+        Render segments to HTML file.
+
+        Args:
+            segments: List of segment dictionaries
+            template: Template name to use
+            output_path: Optional output path (uses default if not provided)
+
+        Returns:
+            Path to the written file
+        """
+        # Generate output path if not provided
+        if output_path is None:
+            output_path = self.settings.get_output_path(template)
+
+        # Render HTML
+        html = self.render(segments, template)
+
+        # Write to file
+        return write_html_file(output_path, html)
