@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Cards - {{ template_name }}</title>
+    <style>
+        {% include 'minimal/style.css' %}
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% for segment in segments %}
+        <div class="card {% if segment.is_first %}card-first{% endif %} {% if segment.is_last %}card-last{% endif %}">
+            {% if segment.type == 'title' %}
+            <div class="card-title">
+                <span class="card-index">0{{ segment.index }}</span>
+                <h1>{{ segment.text }}</h1>
+            </div>
+            {% elif segment.type == 'content' %}
+            <div class="card-content">
+                <p>{{ segment.text }}</p>
+            </div>
+            {% elif segment.type == 'quote' %}
+            <div class="card-quote">
+                <p>{{ segment.text }}</p>
+            </div>
+            {% elif segment.type == 'highlight' %}
+            <div class="card-highlight">
+                <p>{{ segment.text }}</p>
+            </div>
+            {% elif segment.type == 'code' %}
+            <div class="card-code">
+                <pre><code>{{ segment.text }}</code></pre>
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

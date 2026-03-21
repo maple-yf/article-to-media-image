@@ -151,7 +151,8 @@ ENV/
 
 # Output
 article-cards/
-*.html
+# Ignore generated HTML files in output directory
+article-cards/*.html
 
 # Git worktrees
 .worktrees/
