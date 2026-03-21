@@ -34,3 +34,5 @@ Configure in your MCP client settings:
 ## Configuration
 
 Default config: `~/.article-to-media-image/config.yaml`
+
+> **Note:** The MCP server (`src/main.py`) will be implemented in Task 12. Until then, the package structure and templates can be used directly via Python API.
