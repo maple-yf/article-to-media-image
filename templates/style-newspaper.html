@@ -28,7 +28,7 @@
     align-items: flex-start;
     min-height: 100vh;
     padding: 40px 20px;
-    background: #D4CFC8;
+    background: #1a1a2e;
     font-family: var(--sans);
     color: var(--ink);
   }
@@ -373,162 +373,225 @@
     letter-spacing: 0;
     text-transform: none;
   }
+
+  .slide-card {
+    width: 810px;
+    height: 1080px;
+    background: inherit;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .card-inner {
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    border-radius: 18px;
+    padding: 60px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .slide-number {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #667eea;
+    background: rgba(102, 126, 234, 0.1);
+    padding: 6px 14px;
+    border-radius: 20px;
+    letter-spacing: 2px;
+  }
 </style>
 </head>
 <body>
 <div class="container">
 
-  <!-- MASTHEAD 报头 -->
-  <div class="masthead">
-    <span class="coord">SEC-00</span>
-    <div class="masthead-rule-top"></div>
-    <div class="masthead-rule-thin"></div>
-    <div class="masthead-meta">
-      <span>特刊</span>
-      <span>深度洞察 · 战略分析</span>
-      <span>2026 年 3 月 19 日</span>
+  <!-- CARD 01: Masthead + MOD-1 -->
+  <div class="slide-card" data-slide="1">
+    <div class="card-inner">
+      <!-- MASTHEAD 报头 -->
+      <div class="masthead">
+        <span class="coord">SEC-00</span>
+        <div class="masthead-rule-top"></div>
+        <div class="masthead-rule-thin"></div>
+        <div class="masthead-meta">
+          <span>特刊</span>
+          <span>深度洞察 · 战略分析</span>
+          <span>2026 年 3 月 19 日</span>
+        </div>
+        <div class="masthead-title">Agent认知：OS与Application</div>
+        <div class="masthead-subtitle">"垂类不应做Agent，应做Agent上面的应用"</div>
+        <div class="masthead-rule-bottom-double"></div>
+        <div class="masthead-rule-bottom-double2"></div>
+      </div>
+
+      <div class="content-area">
+        <!-- MOD-1: 头条 — 核心论点（单栏） -->
+        <div class="headline-block">
+          <span class="coord">A-01</span>
+          <div class="section-label">头条 · LEAD STORY</div>
+          <h2>垂类做OS是找死，战场完全不同</h2>
+          <div class="lead">Agent是一种交互范式，就像手机是一种交互范式。你不会为了购物专门买一部手机。垂类不应该尝试做Agent，应该做Agent上面的应用。</div>
+          <div class="body-text">Agent的战场是推理能力、编排效率、交互体验。垂类的优势是领域深度、业务理解、行业数据——这些优势在OS战场上一点用都没有。你拿领域知识去跟OpenAI、Anthropic比推理能力，是拿刀去打坦克。而且OS层的市场结构天然收敛：PC时代活下来Windows和Mac，移动时代活下来iOS和Android。Agent OS也不会有几十个赢家。</div>
+        </div>
+      </div>
+      <span class="slide-number">01</span>
     </div>
-    <div class="masthead-title">Agent认知：OS与Application</div>
-    <div class="masthead-subtitle">"垂类不应做Agent，应做Agent上面的应用"</div>
-    <div class="masthead-rule-bottom-double"></div>
-    <div class="masthead-rule-bottom-double2"></div>
   </div>
 
-  <div class="content-area">
+  <!-- CARD 02: MOD-2 + MOD-3 -->
+  <div class="slide-card" data-slide="2">
+    <div class="card-inner">
+      <div class="content-area">
+        <div class="rule-double"></div>
 
-    <!-- MOD-1: 头条 — 核心论点（单栏） -->
-    <div class="headline-block">
-      <span class="coord">A-01</span>
-      <div class="section-label">头条 · LEAD STORY</div>
-      <h2>垂类做OS是找死，战场完全不同</h2>
-      <div class="lead">Agent是一种交互范式，就像手机是一种交互范式。你不会为了购物专门买一部手机。垂类不应该尝试做Agent，应该做Agent上面的应用。</div>
-      <div class="body-text">Agent的战场是推理能力、编排效率、交互体验。垂类的优势是领域深度、业务理解、行业数据——这些优势在OS战场上一点用都没有。你拿领域知识去跟OpenAI、Anthropic比推理能力，是拿刀去打坦克。而且OS层的市场结构天然收敛：PC时代活下来Windows和Mac，移动时代活下来iOS和Android。Agent OS也不会有几十个赢家。</div>
-    </div>
-
-    <div class="rule-double"></div>
-
-    <!-- MOD-2: 两个物理约束（双栏并列对比） -->
-    <div>
-      <span class="coord">B-01</span>
-      <div class="section-label">物理约束 · CONSTRAINTS</div>
-      <div class="constraints-grid">
-        <div class="constraints-col">
-          <div class="constraint-number">01</div>
-          <div class="constraint-name">上下文容量</div>
-          <div class="constraint-desc">Context是有限的容器，塞得越多性能越差。那些塞不进context的领域知识和用户历史，需要Application在外面管着。</div>
+        <!-- MOD-2: 两个物理约束（双栏并列对比） -->
+        <div>
+          <span class="coord">B-01</span>
+          <div class="section-label">物理约束 · CONSTRAINTS</div>
+          <div class="constraints-grid">
+            <div class="constraints-col">
+              <div class="constraint-number">01</div>
+              <div class="constraint-name">上下文容量</div>
+              <div class="constraint-desc">Context是有限的容器，塞得越多性能越差。那些塞不进context的领域知识和用户历史，需要Application在外面管着。</div>
+            </div>
+            <div class="constraints-col-rule"></div>
+            <div class="constraints-col">
+              <div class="constraint-number">02</div>
+              <div class="constraint-name">注意力带宽</div>
+              <div class="constraint-desc">左手画圆、右手画方，合在一起两个都变形。Agent同时做法律推理、追踪意图、规划行动——每件事的质量都下降。注意力是零和的。</div>
+            </div>
+          </div>
         </div>
-        <div class="constraints-col-rule"></div>
-        <div class="constraints-col">
-          <div class="constraint-number">02</div>
-          <div class="constraint-name">注意力带宽</div>
-          <div class="constraint-desc">左手画圆、右手画方，合在一起两个都变形。Agent同时做法律推理、追踪意图、规划行动——每件事的质量都下降。注意力是零和的。</div>
-        </div>
-      </div>
-    </div>
 
-    <div class="rule-double"></div>
+        <div class="rule-double"></div>
 
-    <!-- MOD-3: 三层光谱（单栏堆叠） -->
-    <div>
-      <span class="coord">C-01</span>
-      <div class="section-label">三层光谱 · SPECTRUM</div>
+        <!-- MOD-3: 三层光谱（单栏堆叠） -->
+        <div>
+          <span class="coord">C-01</span>
+          <div class="section-label">三层光谱 · SPECTRUM</div>
 
-      <div class="spectrum-item">
-        <div class="spectrum-tag-col">
-          <span class="spectrum-tag tag-low">壁垒：零</span>
-        </div>
-        <div class="spectrum-content">
-          <h4>指令 Prompt</h4>
-          <p>给Agent一个点拨方向，但推理工作仍然是Agent自己干的，带宽不减。而且prompt是文本，文本可以被复制。</p>
-        </div>
-      </div>
+          <div class="spectrum-item">
+            <div class="spectrum-tag-col">
+              <span class="spectrum-tag tag-low">壁垒：零</span>
+            </div>
+            <div class="spectrum-content">
+              <h4>指令 Prompt</h4>
+              <p>给Agent一个点拨方向，但推理工作仍然是Agent自己干的，带宽不减。而且prompt是文本，文本可以被复制。</p>
+            </div>
+          </div>
 
-      <div class="spectrum-item">
-        <div class="spectrum-tag-col">
-          <span class="spectrum-tag tag-mid">壁垒：低</span>
-        </div>
-        <div class="spectrum-content">
-          <h4>工具 Script</h4>
-          <p>封装好的外部逻辑，从"指路"变成了"代劳"，带宽降低。但没有外部状态，别人看懂思路就能重写一个。</p>
-        </div>
-      </div>
+          <div class="spectrum-item">
+            <div class="spectrum-tag-col">
+              <span class="spectrum-tag tag-mid">壁垒：低</span>
+            </div>
+            <div class="spectrum-content">
+              <h4>工具 Script</h4>
+              <p>封装好的外部逻辑，从"指路"变成了"代劳"，带宽降低。但没有外部状态，别人看懂思路就能重写一个。</p>
+            </div>
+          </div>
 
-      <div class="spectrum-item">
-        <div class="spectrum-tag-col">
-          <span class="spectrum-tag tag-high">壁垒：高</span>
-        </div>
-        <div class="spectrum-content">
-          <h4>服务 Application</h4>
-          <p>外部代劳 + 持久状态 + 基础设施。Skill背后有领域状态、基础设施成本、规模经济，就不再是Skill，是Agent-native Application。</p>
+          <div class="spectrum-item">
+            <div class="spectrum-tag-col">
+              <span class="spectrum-tag tag-high">壁垒：高</span>
+            </div>
+            <div class="spectrum-content">
+              <h4>服务 Application</h4>
+              <p>外部代劳 + 持久状态 + 基础设施。Skill背后有领域状态、基础设施成本、规模经济，就不再是Skill，是Agent-native Application。</p>
+            </div>
+          </div>
         </div>
       </div>
+      <span class="slide-number">02</span>
     </div>
-
-    <div class="rule-single"></div>
-
-    <!-- MOD-4: 壁垒对比表（三线表） -->
-    <div class="news-table-wrap">
-      <span class="coord">D-01</span>
-      <div class="section-label">壁垒对比 · BARRIER MATRIX</div>
-      <table class="news-table">
-        <thead>
-          <tr>
-            <th style="width:22%">维度</th>
-            <th style="width:24%">Prompt</th>
-            <th style="width:24%">Script</th>
-            <th style="width:30%">Application</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="strong">执行方式</td>
-            <td>Agent自己推理</td>
-            <td>外部代劳</td>
-            <td class="highlight-cell">外部代劳+持久状态</td>
-          </tr>
-          <tr>
-            <td class="strong">带宽消耗</td>
-            <td class="tag-red">不减</td>
-            <td>降低</td>
-            <td class="tag-green">大幅降低</td>
-          </tr>
-          <tr>
-            <td class="strong">可复制性</td>
-            <td class="tag-red">文本即复制</td>
-            <td class="tag-red">逻辑可复现</td>
-            <td class="tag-green">不可复制</td>
-          </tr>
-          <tr>
-            <td class="strong">商业天花板</td>
-            <td>卖copy</td>
-            <td>卖copy</td>
-            <td class="highlight-cell">认知共生飞轮</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="rule-single"></div>
-
-    <!-- MOD-5: 编者按 / 核心洞察 -->
-    <div class="editorial-box">
-      <span class="coord">E-01</span>
-      <span class="editorial-label">核心洞察</span>
-      <blockquote>
-        好的Application让Agent OS更聪明，更聪明的OS更精准地调用Application——<span class="em-red">飞轮转起来了</span>。这是认知共生：一个通用智能和一个专精智能通过接口耦合，比各自单独运行都更强。<span class="em-red">The best context is no context.</span> Agent越轻量，表现越好。
-      </blockquote>
-      <div class="editorial-source">—— Agent认知笔记</div>
-    </div>
-
-    <div style="flex:1; min-height: 20px;"></div>
-
   </div>
 
-  <!-- FOOTER -->
-  <div class="footer-bar">
-    <span class="footer-left">Agent Insight</span>
-    <span class="footer-center">"The best context is no context"</span>
-    <span class="footer-right">2026</span>
+  <!-- CARD 03: MOD-4 -->
+  <div class="slide-card" data-slide="3">
+    <div class="card-inner">
+      <div class="content-area">
+        <div class="rule-single"></div>
+
+        <!-- MOD-4: 壁垒对比表（三线表） -->
+        <div class="news-table-wrap">
+          <span class="coord">D-01</span>
+          <div class="section-label">壁垒对比 · BARRIER MATRIX</div>
+          <table class="news-table">
+            <thead>
+              <tr>
+                <th style="width:22%">维度</th>
+                <th style="width:24%">Prompt</th>
+                <th style="width:24%">Script</th>
+                <th style="width:30%">Application</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="strong">执行方式</td>
+                <td>Agent自己推理</td>
+                <td>外部代劳</td>
+                <td class="highlight-cell">外部代劳+持久状态</td>
+              </tr>
+              <tr>
+                <td class="strong">带宽消耗</td>
+                <td class="tag-red">不减</td>
+                <td>降低</td>
+                <td class="tag-green">大幅降低</td>
+              </tr>
+              <tr>
+                <td class="strong">可复制性</td>
+                <td class="tag-red">文本即复制</td>
+                <td class="tag-red">逻辑可复现</td>
+                <td class="tag-green">不可复制</td>
+              </tr>
+              <tr>
+                <td class="strong">商业天花板</td>
+                <td>卖copy</td>
+                <td>卖copy</td>
+                <td class="highlight-cell">认知共生飞轮</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <span class="slide-number">03</span>
+    </div>
+  </div>
+
+  <!-- CARD 04: MOD-5 + Footer -->
+  <div class="slide-card" data-slide="4">
+    <div class="card-inner">
+      <div class="content-area">
+        <div class="rule-single"></div>
+
+        <!-- MOD-5: 编者按 / 核心洞察 -->
+        <div class="editorial-box">
+          <span class="coord">E-01</span>
+          <span class="editorial-label">核心洞察</span>
+          <blockquote>
+            好的Application让Agent OS更聪明，更聪明的OS更精准地调用Application——<span class="em-red">飞轮转起来了</span>。这是认知共生：一个通用智能和一个专精智能通过接口耦合，比各自单独运行都更强。<span class="em-red">The best context is no context.</span> Agent越轻量，表现越好。
+          </blockquote>
+          <div class="editorial-source">—— Agent认知笔记</div>
+        </div>
+
+        <div style="flex:1; min-height: 20px;"></div>
+      </div>
+
+      <!-- FOOTER -->
+      <div class="footer-bar">
+        <span class="footer-left">Agent Insight</span>
+        <span class="footer-center">"The best context is no context"</span>
+        <span class="footer-right">2026</span>
+      </div>
+      <span class="slide-number">04</span>
+    </div>
   </div>
 
 </div>
