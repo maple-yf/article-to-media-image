@@ -151,7 +151,7 @@
 
   /* ========== WARNING (MOD-3) ========== */
   .warning {
-    background: #1a1a1a;
+    background: #1a1a2e;
     color: #E91E63;
     border-left: 6px solid #E91E63;
     padding: 28px 32px;
@@ -264,164 +264,223 @@
     border-top: 1px solid #ccc;
     margin-top: auto;
   }
+
+  .slide-card {
+    width: 810px;
+    height: 1080px;
+    background: inherit;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .card-inner {
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    border-radius: 18px;
+    padding: 60px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .slide-number {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #667eea;
+    background: rgba(102, 126, 234, 0.1);
+    padding: 6px 14px;
+    border-radius: 20px;
+    letter-spacing: 2px;
+  }
 </style>
 </head>
 <body>
 <div class="container">
 
-  <!-- HEADER -->
-  <div class="header">
-    <span class="coord">SEC-00</span>
-    <h1>Agent认知：OS与Application</h1>
-    <div class="subtitle">COGNITIVE MAP · AGENT ARCHITECTURE · 2026</div>
-  </div>
+  <!-- CARD 01: Header + MOD-1 -->
+  <div class="slide-card" data-slide="1">
+    <div class="card-inner">
+      <!-- HEADER -->
+      <div class="header">
+        <span class="coord">SEC-00</span>
+        <h1>Agent认知：OS与Application</h1>
+        <div class="subtitle">COGNITIVE MAP · AGENT ARCHITECTURE · 2026</div>
+      </div>
 
-  <!-- MOD-1: 三层光谱 -->
-  <div class="module">
-    <span class="coord">A-01</span>
-    <h2>三层光谱：从指令到服务</h2>
-    <div class="grid-3col">
-      <div class="spectrum-card">
-        <div class="name">指令</div>
-        <div class="en">PROMPT</div>
-        <div class="desc">给Agent点拨方向<br>活还是Agent干</div>
-        <div class="barrier" style="color:#999;">壁垒：<span class="pink">零</span></div>
+      <!-- MOD-1: 三层光谱 -->
+      <div class="module">
+        <span class="coord">A-01</span>
+        <h2>三层光谱：从指令到服务</h2>
+        <div class="grid-3col">
+          <div class="spectrum-card">
+            <div class="name">指令</div>
+            <div class="en">PROMPT</div>
+            <div class="desc">给Agent点拨方向<br>活还是Agent干</div>
+            <div class="barrier" style="color:#999;">壁垒：<span class="pink">零</span></div>
+          </div>
+          <div class="spectrum-card">
+            <div class="name">工具</div>
+            <div class="en">SCRIPT</div>
+            <div class="desc">外部代劳返回结果<br>带宽降低</div>
+            <div class="barrier" style="color:#999;">壁垒：<span style="color:#E6A817;font-weight:700;">低</span></div>
+          </div>
+          <div class="spectrum-card best">
+            <div class="name">服务 ★</div>
+            <div class="en">APPLICATION</div>
+            <div class="desc">代劳+持久状态<br>+基础设施</div>
+            <div class="barrier" style="color:#999;">壁垒：<span class="blue">高</span></div>
+          </div>
+        </div>
+        <!-- 壁垒条 -->
+        <div class="scale-bar" style="margin-top:20px;">
+          <div class="scale-segment" style="flex:1; background:#B8D8BE; color:#1a1a1a;">可复制</div>
+          <div class="scale-segment" style="flex:1; background:#E6A817;">可复现</div>
+          <div class="scale-segment" style="flex:2; background:#E91E63;">不可复制</div>
+        </div>
+        <div class="scale-label">
+          <span>Prompt</span><span>Script</span><span style="text-align:right;">Application →</span>
+        </div>
       </div>
-      <div class="spectrum-card">
-        <div class="name">工具</div>
-        <div class="en">SCRIPT</div>
-        <div class="desc">外部代劳返回结果<br>带宽降低</div>
-        <div class="barrier" style="color:#999;">壁垒：<span style="color:#E6A817;font-weight:700;">低</span></div>
-      </div>
-      <div class="spectrum-card best">
-        <div class="name">服务 ★</div>
-        <div class="en">APPLICATION</div>
-        <div class="desc">代劳+持久状态<br>+基础设施</div>
-        <div class="barrier" style="color:#999;">壁垒：<span class="blue">高</span></div>
-      </div>
-    </div>
-    <!-- 壁垒条 -->
-    <div class="scale-bar" style="margin-top:20px;">
-      <div class="scale-segment" style="flex:1; background:#B8D8BE; color:#1a1a1a;">可复制</div>
-      <div class="scale-segment" style="flex:1; background:#E6A817;">可复现</div>
-      <div class="scale-segment" style="flex:2; background:#E91E63;">不可复制</div>
-    </div>
-    <div class="scale-label">
-      <span>Prompt</span><span>Script</span><span style="text-align:right;">Application →</span>
-    </div>
-  </div>
-
-  <!-- MOD-2: 两个物理约束 + OS vs Application 双栏 -->
-  <div class="grid-2col">
-    <!-- 两个物理约束 -->
-    <div class="module">
-      <span class="coord">B-05</span>
-      <h2>两个物理约束</h2>
-      <div style="margin-bottom:20px;">
-        <div class="tag" style="margin-bottom:12px;">约束 ①</div>
-        <div style="font-size:32px; font-weight:800; color:#1a1a1a; margin:8px 0;">上下文容量</div>
-        <div style="font-size:28px; color:#555; line-height:1.5;">Context是有限容器<br>塞得越多<span class="highlight">性能越差</span></div>
-      </div>
-      <hr style="border:none;border-top:1px solid #ccc;margin:16px 0;">
-      <div>
-        <div class="tag" style="margin-bottom:12px;">约束 ②</div>
-        <div style="font-size:32px; font-weight:800; color:#1a1a1a; margin:8px 0;">注意力带宽</div>
-        <div style="font-size:28px; color:#555; line-height:1.5;">多任务互相干扰<br>注意力是<span class="pink">零和的</span></div>
-      </div>
-    </div>
-
-    <!-- OS vs Application -->
-    <div class="module">
-      <span class="coord">C-12</span>
-      <h2>OS vs Application</h2>
-      <div style="margin-bottom:16px; padding-bottom:16px; border-bottom:1px solid #ccc;">
-        <div class="tag" style="background:#3A7BD5; margin-bottom:10px;">AGENT OS</div>
-        <div style="font-size:34px; font-weight:800; color:#3A7BD5; margin:6px 0;">命题：WHAT</div>
-        <div style="font-size:28px; color:#555; line-height:1.5;">决定<span class="highlight">做什么</span><br>持有用户意图<br>持有跨域上下文</div>
-      </div>
-      <div>
-        <div class="tag" style="background:#E91E63; margin-bottom:10px;">APPLICATION</div>
-        <div style="font-size:34px; font-weight:800; color:#E91E63; margin:6px 0;">命题：HOW</div>
-        <div style="font-size:28px; color:#555; line-height:1.5;">决定<span class="highlight">怎么做</span><br>持有领域状态<br>持有业务历史</div>
-      </div>
+      <span class="slide-number">01</span>
     </div>
   </div>
 
-  <!-- MOD-3: 避坑警告 -->
-  <div class="warning">
-    <span class="coord">D-03</span>
-    <h2>⚠ 避坑警告</h2>
-    <ul>
-      <li>垂类做Agent OS是找死——你拿领域知识跟OpenAI比推理能力，是拿刀打坦克</li>
-      <li>Skill天花板是卖copy——prompt可复制，无状态script可复现，做得越好抄得越容易</li>
-      <li>OS层天然收敛——PC剩Win/Mac，移动剩iOS/Android，Agent OS不会有几十个赢家</li>
-    </ul>
-  </div>
+  <!-- CARD 02: MOD-2 Grid -->
+  <div class="slide-card" data-slide="2">
+    <div class="card-inner">
+      <!-- MOD-2: 两个物理约束 + OS vs Application 双栏 -->
+      <div class="grid-2col">
+        <!-- 两个物理约束 -->
+        <div class="module">
+          <span class="coord">B-05</span>
+          <h2>两个物理约束</h2>
+          <div style="margin-bottom:20px;">
+            <div class="tag" style="margin-bottom:12px;">约束 ①</div>
+            <div style="font-size:32px; font-weight:800; color:#1a1a1a; margin:8px 0;">上下文容量</div>
+            <div style="font-size:28px; color:#555; line-height:1.5;">Context是有限容器<br>塞得越多<span class="highlight">性能越差</span></div>
+          </div>
+          <hr style="border:none;border-top:1px solid #ccc;margin:16px 0;">
+          <div>
+            <div class="tag" style="margin-bottom:12px;">约束 ②</div>
+            <div style="font-size:32px; font-weight:800; color:#1a1a1a; margin:8px 0;">注意力带宽</div>
+            <div style="font-size:28px; color:#555; line-height:1.5;">多任务互相干扰<br>注意力是<span class="pink">零和的</span></div>
+          </div>
+        </div>
 
-  <!-- MOD-4: 核心概念速查 -->
-  <div class="module">
-    <span class="coord">E-08</span>
-    <h2>核心概念速查</h2>
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th>概念</th>
-          <th>本质</th>
-          <th>价值</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td style="font-weight:700;">能力解锁</td>
-          <td>突破上下文容量</td>
-          <td class="blue">做不到 → 做到了</td>
-        </tr>
-        <tr>
-          <td style="font-weight:700;">认知卸载</td>
-          <td>释放注意力带宽</td>
-          <td class="blue">做得累 → 做得轻松</td>
-        </tr>
-        <tr>
-          <td style="font-weight:700;">认知共生</td>
-          <td>OS与App飞轮效应</td>
-          <td class="pink">1+1 &gt; 2</td>
-        </tr>
-        <tr>
-          <td style="font-weight:700;">领域状态</td>
-          <td>≠ Memory，是业务状态机</td>
-          <td class="blue">越用越厚，越难迁移</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- MOD-5: 状态栏 -->
-  <div class="module" style="padding:0;">
-    <span class="coord">F-15</span>
-    <div class="status-bar">
-      <div class="status-item">
-        <div class="value">3</div>
-        <div class="label">层光谱</div>
+        <!-- OS vs Application -->
+        <div class="module">
+          <span class="coord">C-12</span>
+          <h2>OS vs Application</h2>
+          <div style="margin-bottom:16px; padding-bottom:16px; border-bottom:1px solid #ccc;">
+            <div class="tag" style="background:#3A7BD5; margin-bottom:10px;">AGENT OS</div>
+            <div style="font-size:34px; font-weight:800; color:#3A7BD5; margin:6px 0;">命题：WHAT</div>
+            <div style="font-size:28px; color:#555; line-height:1.5;">决定<span class="highlight">做什么</span><br>持有用户意图<br>持有跨域上下文</div>
+          </div>
+          <div>
+            <div class="tag" style="background:#E91E63; margin-bottom:10px;">APPLICATION</div>
+            <div style="font-size:34px; font-weight:800; color:#E91E63; margin:6px 0;">命题：HOW</div>
+            <div style="font-size:28px; color:#555; line-height:1.5;">决定<span class="highlight">怎么做</span><br>持有领域状态<br>持有业务历史</div>
+          </div>
+        </div>
       </div>
-      <div class="status-item">
-        <div class="value">2</div>
-        <div class="label">物理约束</div>
-      </div>
-      <div class="status-item">
-        <div class="value">3</div>
-        <div class="label">不可复制壁垒</div>
-      </div>
-      <div class="status-item">
-        <div class="value" style="font-size:40px; line-height:1.6;">∅</div>
-        <div class="label">最好的上下文</div>
-      </div>
+      <span class="slide-number">02</span>
     </div>
   </div>
 
-  <!-- FOOTER -->
-  <div class="footer">
-    <span>Agent Cognitive Map · OS vs Application</span>
-    <span>REV 1.0 · 2026</span>
+  <!-- CARD 03: MOD-3 + MOD-4 -->
+  <div class="slide-card" data-slide="3">
+    <div class="card-inner">
+      <!-- MOD-3: 避坑警告 -->
+      <div class="warning">
+        <span class="coord">D-03</span>
+        <h2>⚠ 避坑警告</h2>
+        <ul>
+          <li>垂类做Agent OS是找死——你拿领域知识跟OpenAI比推理能力，是拿刀打坦克</li>
+          <li>Skill天花板是卖copy——prompt可复制，无状态script可复现，做得越好抄得越容易</li>
+          <li>OS层天然收敛——PC剩Win/Mac，移动剩iOS/Android，Agent OS不会有几十个赢家</li>
+        </ul>
+      </div>
+
+      <!-- MOD-4: 核心概念速查 -->
+      <div class="module">
+        <span class="coord">E-08</span>
+        <h2>核心概念速查</h2>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>概念</th>
+              <th>本质</th>
+              <th>价值</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="font-weight:700;">能力解锁</td>
+              <td>突破上下文容量</td>
+              <td class="blue">做不到 → 做到了</td>
+            </tr>
+            <tr>
+              <td style="font-weight:700;">认知卸载</td>
+              <td>释放注意力带宽</td>
+              <td class="blue">做得累 → 做得轻松</td>
+            </tr>
+            <tr>
+              <td style="font-weight:700;">认知共生</td>
+              <td>OS与App飞轮效应</td>
+              <td class="pink">1+1 &gt; 2</td>
+            </tr>
+            <tr>
+              <td style="font-weight:700;">领域状态</td>
+              <td>≠ Memory，是业务状态机</td>
+              <td class="blue">越用越厚，越难迁移</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <span class="slide-number">03</span>
+    </div>
+  </div>
+
+  <!-- CARD 04: MOD-5 + Footer -->
+  <div class="slide-card" data-slide="4">
+    <div class="card-inner">
+      <!-- MOD-5: 状态栏 -->
+      <div class="module" style="padding:0;">
+        <span class="coord">F-15</span>
+        <div class="status-bar">
+          <div class="status-item">
+            <div class="value">3</div>
+            <div class="label">层光谱</div>
+          </div>
+          <div class="status-item">
+            <div class="value">2</div>
+            <div class="label">物理约束</div>
+          </div>
+          <div class="status-item">
+            <div class="value">3</div>
+            <div class="label">不可复制壁垒</div>
+          </div>
+          <div class="status-item">
+            <div class="value" style="font-size:40px; line-height:1.6;">∅</div>
+            <div class="label">最好的上下文</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER -->
+      <div class="footer">
+        <span>Agent Cognitive Map · OS vs Application</span>
+        <span>REV 1.0 · 2026</span>
+      </div>
+      <span class="slide-number">04</span>
+    </div>
   </div>
 
 </div>
