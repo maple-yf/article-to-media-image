@@ -16,7 +16,7 @@
     align-items: flex-start;
     min-height: 100vh;
     padding: 40px 20px;
-    background: #F5F7FA;
+    background: #1a1a2e;
     font-family: 'Noto Sans SC', 'Inter', sans-serif;
   }
 
@@ -404,165 +404,224 @@
     color: #007BFF;
     font-weight: 600;
   }
+
+  .slide-card {
+    width: 810px;
+    height: 1080px;
+    background: inherit;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .card-inner {
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    border-radius: 18px;
+    padding: 60px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .slide-number {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #667eea;
+    background: rgba(102, 126, 234, 0.1);
+    padding: 6px 14px;
+    border-radius: 20px;
+    letter-spacing: 2px;
+  }
 </style>
 </head>
 <body>
 <div class="container">
 
-  <!-- HEADER -->
-  <div class="header">
-    <span class="coord">SEC-00</span>
-    <div class="badge">QUICK START GUIDE</div>
-    <h1>Agent<span class="blue">认知</span>：OS与Application</h1>
-    <p class="subtitle">从安装到理解，五分钟掌握Agent核心概念</p>
-  </div>
+  <!-- CARD 01: Header + MOD-1 -->
+  <div class="slide-card" data-slide="1">
+    <div class="card-inner">
+      <!-- HEADER -->
+      <div class="header">
+        <span class="coord">SEC-00</span>
+        <div class="badge">QUICK START GUIDE</div>
+        <h1>Agent<span class="blue">认知</span>：OS与Application</h1>
+        <p class="subtitle">从安装到理解，五分钟掌握Agent核心概念</p>
+      </div>
 
-  <!-- MOD-1: 步骤展示 -->
-  <div class="step-section">
-    <span class="coord">A-01</span>
-    <div class="step-item">
-      <div class="step-circle">1</div>
-      <div class="step-content">
-        <h3>理解两个物理约束</h3>
-        <p>Agent有两个像光速一样不能许愿消失的物理约束：上下文容量和注意力带宽。</p>
-        <div class="code-block">
+      <!-- MOD-1: 步骤展示 -->
+      <div class="step-section">
+        <span class="coord">A-01</span>
+        <div class="step-item">
+          <div class="step-circle">1</div>
+          <div class="step-content">
+            <h3>理解两个物理约束</h3>
+            <p>Agent有两个像光速一样不能许愿消失的物理约束：上下文容量和注意力带宽。</p>
+            <div class="code-block">
 <pre><code><span class="comment">// 物理约束不是bug</span>
 <span class="keyword">const</span> constraints = {
   capacity: <span class="string">"上下文有限，塞得越多性能越差"</span>,
   bandwidth: <span class="string">"注意力零和，多任务互相干扰"</span>
 };</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-circle">2</div>
+          <div class="step-content">
+            <h3>识别战场：OS vs Application</h3>
+            <p>OS的命题是WHAT（做什么），Application的命题是HOW（怎么做）。垂类不该做OS，该做Application。</p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="step-item">
-      <div class="step-circle">2</div>
-      <div class="step-content">
-        <h3>识别战场：OS vs Application</h3>
-        <p>OS的命题是WHAT（做什么），Application的命题是HOW（怎么做）。垂类不该做OS，该做Application。</p>
-      </div>
+      <span class="slide-number">01</span>
     </div>
   </div>
 
-  <!-- MOD-2: 功能卡片 -->
-  <div class="feature-section">
-    <span class="coord">B-05</span>
-    <h2>Application的两种核心价值</h2>
-    <div class="feature-grid">
-      <div class="feature-card">
-        <div class="icon">🔓</div>
-        <div class="text">
-          <h4>能力解锁</h4>
-          <p>突破上下文容量——做不到的事做到了</p>
+  <!-- CARD 02: MOD-2 + MOD-3 -->
+  <div class="slide-card" data-slide="2">
+    <div class="card-inner">
+      <!-- MOD-2: 功能卡片 -->
+      <div class="feature-section">
+        <span class="coord">B-05</span>
+        <h2>Application的两种核心价值</h2>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="icon">🔓</div>
+            <div class="text">
+              <h4>能力解锁</h4>
+              <p>突破上下文容量——做不到的事做到了</p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="icon">🧠</div>
+            <div class="text">
+              <h4>认知卸载</h4>
+              <p>释放注意力带宽——干扰消失了</p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="icon">♻️</div>
+            <div class="text">
+              <h4>认知共生</h4>
+              <p>好App让OS更聪明，飞轮转起来</p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="icon">📈</div>
+            <div class="text">
+              <h4>越用越厚</h4>
+              <p>领域状态沉淀，真正的护城河</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="feature-card">
-        <div class="icon">🧠</div>
-        <div class="text">
-          <h4>认知卸载</h4>
-          <p>释放注意力带宽——干扰消失了</p>
+
+      <!-- MOD-3: 核心数据 -->
+      <div class="data-section">
+        <span class="coord">C-12</span>
+        <div class="data-card">
+          <div class="val">2<span class="unit">个</span></div>
+          <div class="label">物理约束</div>
+        </div>
+        <div class="data-card green">
+          <div class="val">3<span class="unit">层</span></div>
+          <div class="label">光谱递进</div>
+        </div>
+        <div class="data-card orange">
+          <div class="val">3<span class="unit">样</span></div>
+          <div class="label">不可复制壁垒</div>
         </div>
       </div>
-      <div class="feature-card">
-        <div class="icon">♻️</div>
-        <div class="text">
-          <h4>认知共生</h4>
-          <p>好App让OS更聪明，飞轮转起来</p>
+      <span class="slide-number">02</span>
+    </div>
+  </div>
+
+  <!-- CARD 03: MOD-4 + MOD-5 -->
+  <div class="slide-card" data-slide="3">
+    <div class="card-inner">
+      <!-- MOD-4: 三层光谱 -->
+      <div class="spectrum-section">
+        <span class="coord">D-03</span>
+        <h2>从指令到服务的三层光谱</h2>
+        <div class="spectrum-grid">
+          <div class="spectrum-card low">
+            <div class="badge">壁垒 = 零</div>
+            <h4>Prompt 指令</h4>
+            <p>给Agent指路<br>活还是它自己干</p>
+          </div>
+          <div class="spectrum-card mid">
+            <div class="badge">壁垒 = 低</div>
+            <h4>Script 工具</h4>
+            <p>外部代劳<br>但无状态可复现</p>
+          </div>
+          <div class="spectrum-card high">
+            <div class="badge">壁垒 = 高</div>
+            <h4>Application</h4>
+            <p>代劳+状态+设施<br>不可复制</p>
+          </div>
         </div>
       </div>
-      <div class="feature-card">
-        <div class="icon">📈</div>
-        <div class="text">
-          <h4>越用越厚</h4>
-          <p>领域状态沉淀，真正的护城河</p>
+
+      <!-- MOD-5: 核心洞察 -->
+      <div class="insight-section">
+        <span class="coord">E-08</span>
+        <h2>核心洞察</h2>
+        <p>好的Application把领域推理从Agent注意力里搬走，<span class="highlight">干扰消失，其他任务更准</span>，于是更精准地调用更多Application。这是<span class="highlight">认知共生飞轮</span>。</p>
+        <div class="quote">The best context is no context. Agent越轻，表现越好。</div>
+      </div>
+      <span class="slide-number">03</span>
+    </div>
+  </div>
+
+  <!-- CARD 04: MOD-6 + MOD-7 + Footer -->
+  <div class="slide-card" data-slide="4">
+    <div class="card-inner">
+      <!-- MOD-6: 避坑指南 -->
+      <div class="warning-section">
+        <span class="coord">F-15</span>
+        <h3>⚠️ 避坑指南</h3>
+        <div class="warning-grid">
+          <div class="warning-item">
+            <h4>战场错位</h4>
+            <p>垂类做OS是找死，领域深度没用</p>
+          </div>
+          <div class="warning-item">
+            <h4>Skill裸奔</h4>
+            <p>接口背后什么都没有，天花板是卖copy</p>
+          </div>
+          <div class="warning-item">
+            <h4>概念混淆</h4>
+            <p>领域状态≠Memory，别搞混了</p>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <!-- MOD-3: 核心数据 -->
-  <div class="data-section">
-    <span class="coord">C-12</span>
-    <div class="data-card">
-      <div class="val">2<span class="unit">个</span></div>
-      <div class="label">物理约束</div>
-    </div>
-    <div class="data-card green">
-      <div class="val">3<span class="unit">层</span></div>
-      <div class="label">光谱递进</div>
-    </div>
-    <div class="data-card orange">
-      <div class="val">3<span class="unit">样</span></div>
-      <div class="label">不可复制壁垒</div>
-    </div>
-  </div>
+      <!-- MOD-7: CTA -->
+      <div class="cta-section">
+        <span class="coord">G-20</span>
+        <h3>开始构建你的第一个Application</h3>
+        <p>理解原理后，动手实践才能真正掌握</p>
+        <div class="cta-btn">
+          <span>查看文档</span>
+          <span>→</span>
+        </div>
+      </div>
 
-  <!-- MOD-4: 三层光谱 -->
-  <div class="spectrum-section">
-    <span class="coord">D-03</span>
-    <h2>从指令到服务的三层光谱</h2>
-    <div class="spectrum-grid">
-      <div class="spectrum-card low">
-        <div class="badge">壁垒 = 零</div>
-        <h4>Prompt 指令</h4>
-        <p>给Agent指路<br>活还是它自己干</p>
+      <!-- FOOTER -->
+      <div class="footer">
+        <span>AGENT COGNITION</span>
+        <span class="blue">STEP BY STEP</span>
+        <span>2026</span>
       </div>
-      <div class="spectrum-card mid">
-        <div class="badge">壁垒 = 低</div>
-        <h4>Script 工具</h4>
-        <p>外部代劳<br>但无状态可复现</p>
-      </div>
-      <div class="spectrum-card high">
-        <div class="badge">壁垒 = 高</div>
-        <h4>Application</h4>
-        <p>代劳+状态+设施<br>不可复制</p>
-      </div>
+      <span class="slide-number">04</span>
     </div>
-  </div>
-
-  <!-- MOD-5: 核心洞察 -->
-  <div class="insight-section">
-    <span class="coord">E-08</span>
-    <h2>核心洞察</h2>
-    <p>好的Application把领域推理从Agent注意力里搬走，<span class="highlight">干扰消失，其他任务更准</span>，于是更精准地调用更多Application。这是<span class="highlight">认知共生飞轮</span>。</p>
-    <div class="quote">The best context is no context. Agent越轻，表现越好。</div>
-  </div>
-
-  <!-- MOD-6: 避坑指南 -->
-  <div class="warning-section">
-    <span class="coord">F-15</span>
-    <h3>⚠️ 避坑指南</h3>
-    <div class="warning-grid">
-      <div class="warning-item">
-        <h4>战场错位</h4>
-        <p>垂类做OS是找死，领域深度没用</p>
-      </div>
-      <div class="warning-item">
-        <h4>Skill裸奔</h4>
-        <p>接口背后什么都没有，天花板是卖copy</p>
-      </div>
-      <div class="warning-item">
-        <h4>概念混淆</h4>
-        <p>领域状态≠Memory，别搞混了</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- MOD-7: CTA -->
-  <div class="cta-section">
-    <span class="coord">G-20</span>
-    <h3>开始构建你的第一个Application</h3>
-    <p>理解原理后，动手实践才能真正掌握</p>
-    <div class="cta-btn">
-      <span>查看文档</span>
-      <span>→</span>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <div class="footer">
-    <span>AGENT COGNITION</span>
-    <span class="blue">STEP BY STEP</span>
-    <span>2026</span>
   </div>
 
 </div>
