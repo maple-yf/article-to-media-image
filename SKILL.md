@@ -1,6 +1,6 @@
 ---
 name: article-to-media-image
-description: 文章转分享卡片。将文章/笔记转化为精美 HTML 卡片图片，支持多种视觉风格。触发场景：文章转图、笔记转卡片、生成分享图、文章可视化、内容卡片化。
+description: 文章转分享卡片。将文章/笔记转化为精美 HTML 卡片图片，支持多种视觉风格。触发场景：卡片图、信息图、文章转图、笔记转卡片、生成分享图、文章可视化、内容卡片化。
 ---
 
 # 文章转分享卡片
@@ -54,9 +54,10 @@ AI 应按以下步骤学习模板：
 | `rules/01-技术底线.md` | **必读**：字号、宽度等硬性约束 |
 | `rules/02-截图流程.md` | 截图交付流程 |
 | `rules/03-风格灵感.md` | 风格说明 |
-| `templates/` | 北欧极简风格模板 + README |
+| `templates/` | 14种风格模板 + README |
 | `scripts/post-process.sh` | 工具 | 一键后处理（fix CSS + 注入字号兜底） |
 | `scripts/fix-html.js` | 工具 | CSS 修复脚本（被 post-process.sh 调用） |
+| `scripts/validate-templates.sh` | 工具 | 验证模板结构 |
 
 ## Segment 类型
 
@@ -77,4 +78,14 @@ AI 应使用以下 segment 类型：
 - 最小字号：正文 30px，标题 72px
 - 使用 min-height 而非固定 height
 - 禁止 overflow: hidden
+
+## Slide Card Layout
+
+Templates use independent card viewport design:
+- 3:4 card ratio (810×1080px)
+- 80px inter-card spacing
+- Group-specific theming (A-E)
+- Dark canvas (#1a1a2e) for contrast
+
+See `templates/README.md` for details.
 
