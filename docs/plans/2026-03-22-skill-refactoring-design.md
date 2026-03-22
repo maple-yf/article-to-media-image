@@ -1,7 +1,7 @@
 # Article to Media Image - Skill 重构设计
 
 **日期：** 2026-03-22
-**状态：** 设计阶段
+**状态：** 已完成
 
 ---
 
@@ -38,15 +38,16 @@ article-to-media-image/
 
 ### 3.1 Skill 目录结构
 ```
-~/.claude/skills/article-to-media-image/  (或 ~/.agents/skills/)
+~/.agents/skills/article-to-media-image/
 ├── SKILL.md                              # Skill 元数据和使用说明
+├── README.md                             # 使用说明
 ├── scripts/
-│   ├── __init__.py
-│   ├── core.py                           # 核心渲染逻辑（从 engine.py 提取）
+│   ├── __init__.py                       # 包初始化
+│   ├── core.py                           # 核心渲染逻辑
 │   ├── mcp_server.py                     # MCP Server 入口
 │   └── cli.py                            # CLI 入口
 ├── assets/
-│   └── templates/                        # 5 个模板目录
+│   └── templates/                        # 5 个模板目录（从原项目复制）
 │       ├── minimal/
 │       ├── gradient/
 │       ├── card/
@@ -65,7 +66,8 @@ article-to-media-image/
   "mcpServers": {
     "article-to-media-image": {
       "command": "python",
-      "args": ["-m", "scripts.mcp_server"]
+      "args": ["-m", "scripts.mcp_server"],
+      "cwd": "~/.agents/skills/article-to-media-image"
     }
   }
 }
@@ -73,11 +75,7 @@ article-to-media-image/
 
 #### CLI 调用（终端使用）
 ```bash
-# 安装后
-article-to-card --template tech_modern --output output.html segments.json
-
-# 或 Python 模块调用
-python -m scripts.cli --template minimal segments.json
+python -m scripts.cli --template tech_modern segments.json
 ```
 
 #### API 调用（代码使用）
@@ -86,7 +84,7 @@ from scripts.core import ArticleCardRenderer
 
 renderer = ArticleCardRenderer()
 html = renderer.render(segments, template="tech_modern")
-renderer.to_file(html, "output.html")
+renderer.to_file(segments, template="minimal")
 ```
 
 ---
@@ -96,28 +94,36 @@ renderer.to_file(html, "output.html")
 1. **解耦传输层** - 渲染逻辑与调用方式无关
 2. **统一接口** - 三种方式使用相同的核心逻辑
 3. **渐进披露** - SKILL.md 提供快速入门，references/ 提供详细文档
-4. **向后兼容** - 保持现有 MCP 配置可用
+4. **自包含** - 模板文件随 Skill 打包，无需外部依赖
+5. **零配置** - 无需环境变量，开箱即用
 
 ---
 
 ## 5. 重构步骤
 
-### Phase 1: 提取核心逻辑
+### Phase 1: 提取核心逻辑 ✅
 - 从 `src/renderer/engine.py` 提取纯渲染逻辑
 - 创建 `scripts/core.py` 作为独立核心
 
-### Phase 2: 创建适配器
+### Phase 2: 创建适配器 ✅
 - `scripts/mcp_server.py` - MCP 适配器
 - `scripts/cli.py` - CLI 适配器
 
-### Phase 3: 编写 SKILL.md
-- 元数据（name, description）
-- 快速入门
-- 调用方式说明
+### Phase 3: 打包模板 ✅
+- 复制原项目模板到 `assets/templates/`
+- 移除环境变量依赖
+- Skill 完全独立运行
 
-### Phase 4: 测试验证
-- 测试三种调用方式
-- 确保功能一致
+### Phase 4: 编写文档 ✅
+- SKILL.md 主文件
+- references/api-reference.md
+- references/template-guide.md
+- README.md
+
+### Phase 5: 测试验证 ✅
+- 测试 API 调用方式 ✅
+- 测试 CLI 调用方式 ✅
+- 验证 MCP 模块导入 ✅
 
 ---
 
@@ -125,17 +131,20 @@ renderer.to_file(html, "output.html")
 
 ### 新建文件
 - `SKILL.md` - Skill 主文件
+- `README.md` - 使用说明
 - `scripts/__init__.py` - 包初始化
-- `scripts/core.py` - 核心逻辑
-- `scripts/mcp_server.py` - MCP 适配器
-- `scripts/cli.py` - CLI 适配器
+- `scripts/core.py` - 核心逻辑（无环境变量依赖）
+- `scripts/mcp_server.py` - MCP 适配器（无环境变量依赖）
+- `scripts/cli.py` - CLI 适配器（移除 --project-path 参数）
 - `references/api-reference.md` - API 文档
+- `references/template-guide.md` - 模板指南
 
-### 移动文件
-- `src/renderer/templates/` → `assets/templates/`
+### 复制文件
+- `src/renderer/templates/*` → `assets/templates/*`
 
-### 保留原项目
-原 `article-to-media-image` 项目保持不变，Skill 引用其模板
+### 移除内容
+- 删除 `references/test_segments.json`
+- 移除所有 `ARTICLE_PROJECT_PATH` 环境变量相关代码
 
 ---
 
@@ -144,7 +153,7 @@ renderer.to_file(html, "output.html")
 ```
 scripts/core.py
     ↓ 依赖
-assets/templates/
+assets/templates/    # 模板文件随 Skill 打包
     ↓ 被使用
 scripts/mcp_server.py
 scripts/cli.py
@@ -155,19 +164,23 @@ scripts/cli.py
 ## 8. 已确认决策
 
 1. **Skill 安装位置**: `~/.agents/skills/` （跨平台通用）
-2. **模板组织方式**: 引用原项目（单一来源）
-3. **环境变量**: `ARTICLE_PROJECT_PATH` 指向原项目路径
+2. **模板组织方式**: 复制到 Skill 内部（自包含）
+3. **环境变量**: 移除所有环境变量依赖
+
+---
 
 ## 9. 实施状态
 
 ### 已完成 ✅
 
-- [x] 创建 Skill 目录结构 `~/.agents/skills/article-to-media-image/`
+- [x] 创建 Skill 目录结构
+- [x] 复制模板文件到 `assets/templates/`
 - [x] 编写 SKILL.md 主文件
 - [x] 创建 scripts/core.py 核心渲染逻辑
 - [x] 创建 scripts/mcp_server.py MCP 适配器
 - [x] 创建 scripts/cli.py CLI 适配器
 - [x] 创建 references/ 文档
+- [x] 移除所有环境变量依赖
 - [x] 测试 API 调用方式 - ✅ 通过
 - [x] 测试 CLI 调用方式 - ✅ 通过
 - [x] 验证 MCP 模块导入 - ✅ 通过
@@ -183,10 +196,16 @@ scripts/cli.py
 │   ├── core.py                 # 核心渲染逻辑
 │   ├── mcp_server.py           # MCP 适配器
 │   └── cli.py                  # CLI 适配器
+├── assets/
+│   └── templates/              # 打包的模板文件
+│       ├── minimal/
+│       ├── gradient/
+│       ├── card/
+│       ├── dark/
+│       └── tech_modern/
 └── references/
     ├── api-reference.md        # API 完整文档
-    ├── template-guide.md       # 模板自定义指南
-    └── test_segments.json      # 测试数据
+    └── template-guide.md       # 模板自定义指南
 ```
 
 ## 10. 使用方法
@@ -201,10 +220,7 @@ scripts/cli.py
     "article-to-media-image": {
       "command": "python",
       "args": ["-m", "scripts.mcp_server"],
-      "cwd": "~/.agents/skills/article-to-media-image",
-      "env": {
-        "ARTICLE_PROJECT_PATH": "/Users/mapleyf/projects/myDev/article-to-media-image"
-      }
+      "cwd": "~/.agents/skills/article-to-media-image"
     }
   }
 }
@@ -213,7 +229,7 @@ scripts/cli.py
 ### CLI 使用
 
 ```bash
-export ARTICLE_PROJECT_PATH=~/projects/article-to-media-image
+cd ~/.agents/skills/article-to-media-image
 python -m scripts.cli --template tech_modern segments.json
 ```
 
@@ -225,3 +241,41 @@ from scripts.core import ArticleCardRenderer
 renderer = ArticleCardRenderer()
 html = renderer.render(segments, template="tech_modern")
 ```
+
+### 测试
+
+```bash
+cd ~/.agents/skills/article-to-media-image
+python3 -c "
+from scripts.core import ArticleCardRenderer
+
+segments = [
+    {'type': 'title', 'text': 'Test'},
+    {'type': 'content', 'text': 'Content here'}
+]
+
+renderer = ArticleCardRenderer()
+output = renderer.render_to_file(segments, 'minimal')
+print(f'Generated: {output}')
+"
+```
+
+---
+
+## 11. 关键变更
+
+### 变更前（依赖原项目）
+- 需要设置 `ARTICLE_PROJECT_PATH` 环境变量
+- 模板文件从原项目引用
+- Skill 无法独立使用
+
+### 变更后（自包含）
+- 无需任何环境变量
+- 模板文件打包在 Skill 内部
+- Skill 完全独立，可单独分发
+- 开箱即用，零配置
+
+---
+
+**重构完成日期:** 2026-03-22
+**测试状态:** ✅ 全部通过
