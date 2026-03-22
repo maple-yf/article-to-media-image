@@ -16,7 +16,7 @@
     align-items: flex-start;
     min-height: 100vh;
     padding: 40px 20px;
-    background: #000;
+    background: #1a1a2e;
     font-family: 'Noto Sans SC', sans-serif;
   }
 
@@ -25,11 +25,10 @@
     min-height: 1440px;
     background: #0A0A0F;
     position: relative;
-    
     padding: 52px;
     display: flex;
     flex-direction: column;
-    gap: 22px;
+    gap: 80px;
     background-image:
       repeating-linear-gradient(
         0deg,
@@ -38,6 +37,64 @@
         rgba(255,255,255,0.008) 2px,
         rgba(255,255,255,0.008) 4px
       );
+  }
+
+  .slide-card {
+    width: 810px;
+    height: 1080px;
+    background: #0A0A0F;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,255,178,0.15), 0 0 40px rgba(0,255,178,0.1);
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(0,255,178,0.3);
+  }
+
+  .slide-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #00FFB2, #00D4FF, #7B61FF, #FF006E, #00FFB2);
+    background-size: 400% 400%;
+    z-index: -1;
+    border-radius: 22px;
+    animation: glowBorder 8s linear infinite;
+  }
+
+  @keyframes glowBorder {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .card-inner {
+    width: 100%;
+    height: 100%;
+    background: #0A0A0F;
+    border-radius: 18px;
+    padding: 60px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .slide-number {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #00FFB2;
+    background: rgba(0,255,178,0.1);
+    padding: 6px 14px;
+    border-radius: 20px;
+    letter-spacing: 2px;
+    font-family: 'IBM Plex Mono', monospace;
+    text-shadow: 0 0 10px rgba(0,255,178,0.5);
   }
 
   /* Glow line at top */
@@ -332,129 +389,153 @@
 <body>
 <div class="container">
 
-  <!-- HEADER -->
-  <div class="header">
-    <span class="coord">SEC-00</span>
-    <div class="sys-line">SYS.INIT — AGENT COGNITION MODULE</div>
-    <h1>Agent认知：<span class="glow">OS与Application</span></h1>
-    <div class="meta-row">
-      <span>物理约束 × 2</span>
-      <span>不可复制 × 3</span>
-      <span>价值维度 × 2</span>
-    </div>
-  </div>
-
-  <!-- MOD-1: 核心数据 -->
-  <div class="status-strip">
-    <span class="coord">A-01</span>
-    <div class="stat-cell">
-      <div class="val">2<span class="suffix">个</span></div>
-      <div class="lbl">物理约束</div>
-    </div>
-    <div class="stat-cell alt">
-      <div class="val">3<span class="suffix">样</span></div>
-      <div class="lbl">不可复制</div>
-    </div>
-    <div class="stat-cell">
-      <div class="val">2<span class="suffix">种</span></div>
-      <div class="lbl">价值维度</div>
-    </div>
-    <div class="stat-cell alt">
-      <div class="val">3<span class="suffix">层</span></div>
-      <div class="lbl">能力光谱</div>
-    </div>
-  </div>
-
-  <!-- MOD-2: 三层光谱 Prompt → Script → Application -->
-  <div class="module">
-    <span class="coord">B-05</span>
-    <h2>THREE-LAYER SPECTRUM</h2>
-    <div class="grid-3col">
-      <div class="matrix-card">
-        <div class="name">Prompt 指令</div>
-        <div class="desc">给Agent点拨方向，活还是Agent干，带宽不减。文本可复制，壁垒为零。</div>
-        <div class="arrow">指路 →</div>
-      </div>
-      <div class="matrix-card">
-        <div class="name">Script 工具</div>
-        <div class="desc">外部代劳返回结果，带宽降低。但没有外部状态，逻辑可复现，壁垒低。</div>
-        <div class="arrow">代劳 →</div>
-      </div>
-      <div class="matrix-card active">
-        <div class="badge">TARGET</div>
-        <div class="name">Application 服务</div>
-        <div class="desc">外部代劳 + 持久状态 + 基础设施。带宽容量都大幅降低，不可复制。</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- MOD-3: 两种价值 × 两个约束 -->
-  <div class="module blue">
-    <span class="coord">C-12</span>
-    <h2>VALUE × CONSTRAINT</h2>
-    <div class="bar-group">
-      <div class="bar-item">
-        <span class="bar-label">能力解锁</span>
-        <div class="bar-track"><div class="bar-fill" style="width:95%"></div></div>
-        <span class="bar-val">破墙</span>
-      </div>
-      <div class="bar-note">→ 突破上下文容量：塞不进context的知识，Application在外面管</div>
-      <div class="bar-item">
-        <span class="bar-label">认知卸载</span>
-        <div class="bar-track"><div class="bar-fill" style="width:90%"></div></div>
-        <span class="bar-val">减负</span>
-      </div>
-      <div class="bar-note">→ 释放注意力带宽：领域推理搬到外部，干扰消失，每件事更准</div>
-      <div class="bar-item">
-        <span class="bar-label">容量约束</span>
-        <div class="bar-track"><div class="bar-fill danger" style="width:75%"></div></div>
-        <span class="bar-val">硬顶</span>
-      </div>
-      <div class="bar-note">→ Context有限容器，塞得越多性能越差</div>
-      <div class="bar-item">
-        <span class="bar-label">带宽约束</span>
-        <div class="bar-track"><div class="bar-fill danger" style="width:70%"></div></div>
-        <span class="bar-val">零和</span>
-      </div>
-      <div class="bar-note">→ 注意力在任务间打架，双手互搏两个都变形</div>
-    </div>
-  </div>
-
-  <div class="grid-2col">
-    <!-- MOD-4: 核心观点 -->
-    <div class="module">
-      <span class="coord">D-03</span>
-      <h2>CORE INSIGHT</h2>
-      <p class="deep-text">
-        好的Application让Agent OS<span class="hl">变得更聪明</span>。法律App把推理搬走，注意力不再被干扰，其他事更准，于是更精准调用更多App——<span class="hl">认知共生飞轮</span>转起来了。<br><br>The best context is <span class="hl">no context</span>。Agent越轻，表现越好。
-      </p>
-    </div>
-
-    <!-- MOD-5: 避坑警告 -->
-    <div class="module warn">
-      <span class="coord">E-08</span>
-      <h2>WARNING</h2>
-      <div class="warn-list">
-        <div class="warn-item">
-          <span class="icon">[!]</span>
-          <span><strong>垂类做OS = 拿刀打坦克</strong>　拿领域知识跟OpenAI比推理能力，战场完全不同</span>
+  <!-- Slide 1: Header + Status Strip -->
+  <div class="slide-card">
+    <span class="slide-number">01</span>
+    <div class="card-inner">
+      <!-- HEADER -->
+      <div class="header">
+        <span class="coord">SEC-00</span>
+        <div class="sys-line">SYS.INIT — AGENT COGNITION MODULE</div>
+        <h1>Agent认知：<span class="glow">OS与Application</span></h1>
+        <div class="meta-row">
+          <span>物理约束 × 2</span>
+          <span>不可复制 × 3</span>
+          <span>价值维度 × 2</span>
         </div>
-        <div class="warn-item">
-          <span class="icon">[!]</span>
-          <span><strong>Skill无状态 = 裸奔</strong>　接口背后什么都没有，做得越好抄得越容易</span>
+      </div>
+
+      <!-- MOD-1: 核心数据 -->
+      <div class="status-strip">
+        <span class="coord">A-01</span>
+        <div class="stat-cell">
+          <div class="val">2<span class="suffix">个</span></div>
+          <div class="lbl">物理约束</div>
         </div>
-        <div class="warn-item">
-          <span class="icon">[!]</span>
-          <span><strong>领域状态 ≠ Memory</strong>　Memory是OS层课题，领域状态是业务状态机</span>
+        <div class="stat-cell alt">
+          <div class="val">3<span class="suffix">样</span></div>
+          <div class="lbl">不可复制</div>
+        </div>
+        <div class="stat-cell">
+          <div class="val">2<span class="suffix">种</span></div>
+          <div class="lbl">价值维度</div>
+        </div>
+        <div class="stat-cell alt">
+          <div class="val">3<span class="suffix">层</span></div>
+          <div class="lbl">能力光谱</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- FOOTER -->
-  <div class="footer">
-    <span>AGENT COGNITION · DARK-TECH</span>
-    <span>OS × APPLICATION · 2026</span>
+  <!-- Slide 2: Three-Layer Spectrum -->
+  <div class="slide-card">
+    <span class="slide-number">02</span>
+    <div class="card-inner">
+      <!-- MOD-2: 三层光谱 Prompt → Script → Application -->
+      <div class="module">
+        <span class="coord">B-05</span>
+        <h2>THREE-LAYER SPECTRUM</h2>
+        <div class="grid-3col">
+          <div class="matrix-card">
+            <div class="name">Prompt 指令</div>
+            <div class="desc">给Agent点拨方向，活还是Agent干，带宽不减。文本可复制，壁垒为零。</div>
+            <div class="arrow">指路 →</div>
+          </div>
+          <div class="matrix-card">
+            <div class="name">Script 工具</div>
+            <div class="desc">外部代劳返回结果，带宽降低。但没有外部状态，逻辑可复现，壁垒低。</div>
+            <div class="arrow">代劳 →</div>
+          </div>
+          <div class="matrix-card active">
+            <div class="badge">TARGET</div>
+            <div class="name">Application 服务</div>
+            <div class="desc">外部代劳 + 持久状态 + 基础设施。带宽容量都大幅降低，不可复制。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 3: Value × Constraint -->
+  <div class="slide-card">
+    <span class="slide-number">03</span>
+    <div class="card-inner">
+      <!-- MOD-3: 两种价值 × 两个约束 -->
+      <div class="module blue">
+        <span class="coord">C-12</span>
+        <h2>VALUE × CONSTRAINT</h2>
+        <div class="bar-group">
+          <div class="bar-item">
+            <span class="bar-label">能力解锁</span>
+            <div class="bar-track"><div class="bar-fill" style="width:95%"></div></div>
+            <span class="bar-val">破墙</span>
+          </div>
+          <div class="bar-note">→ 突破上下文容量：塞不进context的知识，Application在外面管</div>
+          <div class="bar-item">
+            <span class="bar-label">认知卸载</span>
+            <div class="bar-track"><div class="bar-fill" style="width:90%"></div></div>
+            <span class="bar-val">减负</span>
+          </div>
+          <div class="bar-note">→ 释放注意力带宽：领域推理搬到外部，干扰消失，每件事更准</div>
+          <div class="bar-item">
+            <span class="bar-label">容量约束</span>
+            <div class="bar-track"><div class="bar-fill danger" style="width:75%"></div></div>
+            <span class="bar-val">硬顶</span>
+          </div>
+          <div class="bar-note">→ Context有限容器，塞得越多性能越差</div>
+          <div class="bar-item">
+            <span class="bar-label">带宽约束</span>
+            <div class="bar-track"><div class="bar-fill danger" style="width:70%"></div></div>
+            <span class="bar-val">零和</span>
+          </div>
+          <div class="bar-note">→ 注意力在任务间打架，双手互搏两个都变形</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 4: Core Insight + Warning -->
+  <div class="slide-card">
+    <span class="slide-number">04</span>
+    <div class="card-inner">
+      <div class="grid-2col">
+        <!-- MOD-4: 核心观点 -->
+        <div class="module">
+          <span class="coord">D-03</span>
+          <h2>CORE INSIGHT</h2>
+          <p class="deep-text">
+            好的Application让Agent OS<span class="hl">变得更聪明</span>。法律App把推理搬走，注意力不再被干扰，其他事更准，于是更精准调用更多App——<span class="hl">认知共生飞轮</span>转起来了。<br><br>The best context is <span class="hl">no context</span>。Agent越轻，表现越好。
+          </p>
+        </div>
+
+        <!-- MOD-5: 避坑警告 -->
+        <div class="module warn">
+          <span class="coord">E-08</span>
+          <h2>WARNING</h2>
+          <div class="warn-list">
+            <div class="warn-item">
+              <span class="icon">[!]</span>
+              <span><strong>垂类做OS = 拿刀打坦克</strong>　拿领域知识跟OpenAI比推理能力，战场完全不同</span>
+            </div>
+            <div class="warn-item">
+              <span class="icon">[!]</span>
+              <span><strong>Skill无状态 = 裸奔</strong>　接口背后什么都没有，做得越好抄得越容易</span>
+            </div>
+            <div class="warn-item">
+              <span class="icon">[!]</span>
+              <span><strong>领域状态 ≠ Memory</strong>　Memory是OS层课题，领域状态是业务状态机</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER -->
+      <div class="footer">
+        <span>AGENT COGNITION · DARK-TECH</span>
+        <span>OS × APPLICATION · 2026</span>
+      </div>
+    </div>
   </div>
 
 </div>
