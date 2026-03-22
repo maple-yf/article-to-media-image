@@ -30,7 +30,7 @@
     align-items: flex-start;
     min-height: 100vh;
     padding: 40px 20px;
-    background: #94A3B8;
+    background: #1a1a2e;
     font-family: 'Noto Sans SC', 'DM Sans', sans-serif;
   }
 
@@ -291,134 +291,195 @@
     font-weight: 500;
     border-top: 1px solid var(--sky);
   }
+
+  .slide-card {
+    width: 810px;
+    height: 1080px;
+    background: inherit;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .card-inner {
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    border-radius: 18px;
+    padding: 60px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .slide-number {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #667eea;
+    background: rgba(102, 126, 234, 0.1);
+    padding: 6px 14px;
+    border-radius: 20px;
+    letter-spacing: 2px;
+  }
 </style>
 </head>
 <body>
 <div class="container">
 
-  <!-- HEADER -->
-  <div class="header-bar">
-    <span class="coord">SEC-00</span>
-    <div class="tag">AGENT INSIGHT</div>
-    <h1>Agent认知：OS与Application</h1>
-    <div class="subtitle">垂类别做OS，Skill别当产品——围绕两个物理约束构建真壁垒</div>
+  <!-- CARD 01: Header -->
+  <div class="slide-card" data-slide="1">
+    <div class="card-inner">
+      <!-- HEADER -->
+      <div class="header-bar">
+        <span class="coord">SEC-00</span>
+        <div class="tag">AGENT INSIGHT</div>
+        <h1>Agent认知：OS与Application</h1>
+        <div class="subtitle">垂类别做OS，Skill别当产品——围绕两个物理约束构建真壁垒</div>
+      </div>
+      <span class="slide-number">01</span>
+    </div>
   </div>
 
-  <div class="content-area">
-
-    <!-- MOD-1: KPI -->
-    <div>
-      <span class="coord">A-01</span>
-      <div class="sec-head">
-        <span class="num">01</span>
-        <h2>核心数字</h2>
-      </div>
-      <div class="kpi-row">
-        <div class="kpi-card">
-          <div class="label">物理约束</div>
-          <div class="number">2<span class="unit"> 个</span></div>
-          <div class="desc">上下文容量 + 注意力带宽</div>
-        </div>
-        <div class="kpi-card">
-          <div class="label">不可复制</div>
-          <div class="number">3<span class="unit"> 样</span></div>
-          <div class="desc">领域状态 · 基础设施 · 规模经济</div>
-        </div>
-        <div class="kpi-card">
-          <div class="label">提供价值</div>
-          <div class="number">2<span class="unit"> 种</span></div>
-          <div class="desc">能力解锁 + 认知卸载</div>
-        </div>
-        <div class="kpi-card">
-          <div class="label">演进光谱</div>
-          <div class="number">3<span class="unit"> 层</span></div>
-          <div class="desc">Prompt → Script → App</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- MOD-2 + MOD-3: 光谱 + 结论 -->
-    <div class="grid-60-40">
-      <div>
-        <span class="coord">B-05</span>
-        <div class="sec-head">
-          <span class="num">02</span>
-          <h2>三层光谱：从指令到服务</h2>
-        </div>
-        <div class="spectrum">
-          <div class="spectrum-item low">
-            <div class="s-left">
-              <div class="s-label">指令</div>
-              <span class="s-en">Prompt</span>
-            </div>
-            <div>
-              <div class="s-desc">给Agent点拨方向，活还是Agent干，带宽不减</div>
-              <span class="s-tag zero">壁垒为零 · 文本可复制</span>
-            </div>
+  <!-- CARD 02: MOD-1 KPI -->
+  <div class="slide-card" data-slide="2">
+    <div class="card-inner">
+      <div class="content-area">
+        <!-- MOD-1: KPI -->
+        <div>
+          <span class="coord">A-01</span>
+          <div class="sec-head">
+            <span class="num">01</span>
+            <h2>核心数字</h2>
           </div>
-          <div class="spectrum-item mid">
-            <div class="s-left">
-              <div class="s-label">工具</div>
-              <span class="s-en">Script</span>
+          <div class="kpi-row">
+            <div class="kpi-card">
+              <div class="label">物理约束</div>
+              <div class="number">2<span class="unit"> 个</span></div>
+              <div class="desc">上下文容量 + 注意力带宽</div>
             </div>
-            <div>
-              <div class="s-desc">外部代劳返回结果，带宽降低，但无外部状态</div>
-              <span class="s-tag medium">壁垒低 · 逻辑可复现</span>
+            <div class="kpi-card">
+              <div class="label">不可复制</div>
+              <div class="number">3<span class="unit"> 样</span></div>
+              <div class="desc">领域状态 · 基础设施 · 规模经济</div>
             </div>
-          </div>
-          <div class="spectrum-item">
-            <div class="s-left">
-              <div class="s-label">服务</div>
-              <span class="s-en">Application</span>
+            <div class="kpi-card">
+              <div class="label">提供价值</div>
+              <div class="number">2<span class="unit"> 种</span></div>
+              <div class="desc">能力解锁 + 认知卸载</div>
             </div>
-            <div>
-              <div class="s-desc">外部代劳 + 持久状态 + 基础设施，不可复制</div>
-              <span class="s-tag high">壁垒高 · 越用越厚</span>
+            <div class="kpi-card">
+              <div class="label">演进光谱</div>
+              <div class="number">3<span class="unit"> 层</span></div>
+              <div class="desc">Prompt → Script → App</div>
             </div>
           </div>
         </div>
       </div>
-
-      <div>
-        <span class="coord">D-03</span>
-        <div class="sec-head">
-          <span class="num">03</span>
-          <h2>核心结论</h2>
-        </div>
-        <div class="callout">
-          <span class="big-quote">The best context is no context.</span>
-          <p>好的Application让Agent OS更聪明，更聪明的OS更精准地调用Application</p>
-          <p class="sub">这是<span class="em">认知共生</span>——通用智能与专精智能通过接口耦合，比各自单独运行都更强</p>
-        </div>
-      </div>
+      <span class="slide-number">02</span>
     </div>
-
-    <!-- MOD-4: 避坑警告 -->
-    <div class="risk-box">
-      <span class="coord">E-08</span>
-      <div class="sec-head">
-        <span class="num">!</span>
-        <h2>避坑警告</h2>
-      </div>
-      <div class="risk-item">
-        <span class="idx">R1</span>
-        <span><strong>垂类做OS是找死</strong> — 战场错、对手错、结局已定，OS层天然收敛到2-3家</span>
-      </div>
-      <div class="risk-item">
-        <span class="idx">R2</span>
-        <span><strong>Skill天花板是卖copy</strong> — 做得越好抄得越容易，接口背后什么都没有就是裸奔</span>
-      </div>
-      <div class="risk-item">
-        <span class="idx">R3</span>
-        <span><strong>领域状态 ≠ Memory</strong> — Memory是OS层课题，领域状态是业务上下文，是你的根据地</span>
-      </div>
-    </div>
-
   </div>
 
-  <div class="footer-bar">
-    <span>AGENT COGNITION · INSIGHT BRIEF</span>
-    <span>OS × APPLICATION · 2026</span>
+  <!-- CARD 03: MOD-2 + MOD-3 -->
+  <div class="slide-card" data-slide="3">
+    <div class="card-inner">
+      <div class="content-area">
+        <!-- MOD-2 + MOD-3: 光谱 + 结论 -->
+        <div class="grid-60-40">
+          <div>
+            <span class="coord">B-05</span>
+            <div class="sec-head">
+              <span class="num">02</span>
+              <h2>三层光谱：从指令到服务</h2>
+            </div>
+            <div class="spectrum">
+              <div class="spectrum-item low">
+                <div class="s-left">
+                  <div class="s-label">指令</div>
+                  <span class="s-en">Prompt</span>
+                </div>
+                <div>
+                  <div class="s-desc">给Agent点拨方向，活还是Agent干，带宽不减</div>
+                  <span class="s-tag zero">壁垒为零 · 文本可复制</span>
+                </div>
+              </div>
+              <div class="spectrum-item mid">
+                <div class="s-left">
+                  <div class="s-label">工具</div>
+                  <span class="s-en">Script</span>
+                </div>
+                <div>
+                  <div class="s-desc">外部代劳返回结果，带宽降低，但无外部状态</div>
+                  <span class="s-tag medium">壁垒低 · 逻辑可复现</span>
+                </div>
+              </div>
+              <div class="spectrum-item">
+                <div class="s-left">
+                  <div class="s-label">服务</div>
+                  <span class="s-en">Application</span>
+                </div>
+                <div>
+                  <div class="s-desc">外部代劳 + 持久状态 + 基础设施，不可复制</div>
+                  <span class="s-tag high">壁垒高 · 越用越厚</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <span class="coord">D-03</span>
+            <div class="sec-head">
+              <span class="num">03</span>
+              <h2>核心结论</h2>
+            </div>
+            <div class="callout">
+              <span class="big-quote">The best context is no context.</span>
+              <p>好的Application让Agent OS更聪明，更聪明的OS更精准地调用Application</p>
+              <p class="sub">这是<span class="em">认知共生</span>——通用智能与专精智能通过接口耦合，比各自单独运行都更强</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span class="slide-number">03</span>
+    </div>
+  </div>
+
+  <!-- CARD 04: MOD-4 + Footer -->
+  <div class="slide-card" data-slide="4">
+    <div class="card-inner">
+      <div class="content-area">
+        <!-- MOD-4: 避坑警告 -->
+        <div class="risk-box">
+          <span class="coord">E-08</span>
+          <div class="sec-head">
+            <span class="num">!</span>
+            <h2>避坑警告</h2>
+          </div>
+          <div class="risk-item">
+            <span class="idx">R1</span>
+            <span><strong>垂类做OS是找死</strong> — 战场错、对手错、结局已定，OS层天然收敛到2-3家</span>
+          </div>
+          <div class="risk-item">
+            <span class="idx">R2</span>
+            <span><strong>Skill天花板是卖copy</strong> — 做得越好抄得越容易，接口背后什么都没有就是裸奔</span>
+          </div>
+          <div class="risk-item">
+            <span class="idx">R3</span>
+            <span><strong>领域状态 ≠ Memory</strong> — Memory是OS层课题，领域状态是业务上下文，是你的根据地</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bar">
+        <span>AGENT COGNITION · INSIGHT BRIEF</span>
+        <span>OS × APPLICATION · 2026</span>
+      </div>
+      <span class="slide-number">04</span>
+    </div>
   </div>
 
 </div>
