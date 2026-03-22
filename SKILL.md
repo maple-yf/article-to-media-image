@@ -26,37 +26,6 @@ description: 文章转分享卡片。将文章/笔记转化为精美 HTML 卡片
 | `dark` | 开发者内容、技术文章 | 深色背景，霓虹强调 |
 | `tech_modern` | 科技资讯、AI 相关 | 几何线条，未来感 |
 
-## 使用方式
-
-### 作为 CLI 工具
-
-```bash
-# 基本使用
-article-to-card --template minimal --output card.html
-
-# JSON 输入
-article-to-card -t dark -s '[{"type":"title","text":"标题"}]'
-
-# 管道输入
-echo '{"segments":[...]}' | article-to-card -t gradient
-```
-
-### 作为 Python 库
-
-```python
-from src.renderer.engine import RenderEngine
-
-engine = RenderEngine()
-segments = [
-    {"type": "title", "text": "文章标题"},
-    {"type": "content", "text": "内容段落..."},
-    {"type": "highlight", "text": "关键洞察"}
-]
-
-output_path = engine.render_to_file(segments, template="tech_modern")
-print(f"Generated: {output_path}")
-```
-
 ## 工作流程
 
 ```
@@ -74,6 +43,28 @@ print(f"Generated: {output_path}")
 ⑤ 截图交付 — 按 rules/02-截图流程.md 执行
 ```
 
+## 模板学习指南
+
+AI 应按以下步骤学习模板：
+
+1. **阅读 SKILL.md** — 了解设计理念和工作流程
+2. **分析用户内容** — 判断内容类型和调性
+3. **参考 rules/03-风格灵感.md** — 选择合适的风格
+4. **阅读 templates/[风格]/README.md** — 了解该风格的设计要点
+5. **参考 templates/[风格]/template.html** — 学习代码结构
+6. **生成 HTML** — 遵守 rules/01-技术底线.md 直接生成
+7. **截图交付** — 按 rules/02-截图流程.md 执行
+
+**模板选择原则：**
+
+| 内容类型 | 自动选择风格 |
+|---------|-------------|
+| 技术文档/严肃分析 | `minimal` |
+| 生活感悟/情感故事 | `gradient` |
+| 知识分享/教程总结 | `card` |
+| 开发者内容/代码 | `dark` |
+| 科技资讯/AI 相关 | `tech_modern` |
+
 ## 目录结构
 
 | 文件 | 说明 |
@@ -81,8 +72,11 @@ print(f"Generated: {output_path}")
 | `rules/01-技术底线.md` | **必读**：字号、宽度等硬性约束 |
 | `rules/02-截图流程.md` | 截图交付流程 |
 | `rules/03-风格灵感.md` | 5 种模板的风格说明 |
-| `templates/` | HTML 模板文件 |
-| `scripts/post-process.sh` | 后处理脚本（可选） |
+| `templates/minimal/` | 北欧极简风格模板 + README |
+| `templates/gradient/` | 杂志渐变风格模板 + README |
+| `templates/card/` | 信息卡片风格模板 + README |
+| `templates/dark/` | 暗色科技风格模板 + README |
+| `templates/tech_modern/` | 现代科技风格模板 + README |
 
 ## Segment 类型
 
@@ -104,16 +98,3 @@ AI 应使用以下 segment 类型：
 - 使用 min-height 而非固定 height
 - 禁止 overflow: hidden
 
-## 安装
-
-```bash
-# 克隆仓库
-git clone <repo-url>
-cd article-to-media-image
-
-# 安装依赖
-pip install -e .
-
-# 验证安装
-article-to-card --help
-```
