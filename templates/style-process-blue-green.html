@@ -16,7 +16,7 @@
     align-items: flex-start;
     min-height: 100vh;
     padding: 40px 20px;
-    background: #F0F4F8;
+    background: #1a1a2e;
     font-family: 'Noto Sans SC', 'Inter', sans-serif;
   }
 
@@ -422,178 +422,237 @@
     color: #10B981;
     font-weight: 600;
   }
+
+  .slide-card {
+    width: 810px;
+    height: 1080px;
+    background: inherit;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .card-inner {
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    border-radius: 18px;
+    padding: 60px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .slide-number {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #667eea;
+    background: rgba(102, 126, 234, 0.1);
+    padding: 6px 14px;
+    border-radius: 20px;
+    letter-spacing: 2px;
+  }
 </style>
 </head>
 <body>
 <div class="container">
 
-  <!-- HEADER -->
-  <div class="header">
-    <span class="coord">SEC-00</span>
-    <div class="badge">EVENT DRIVEN ARCHITECTURE</div>
-    <h1>Agent<span class="blue">认知</span>：OS与Application</h1>
-    <p class="subtitle">从物理约束出发，理解Agent生态的分工逻辑</p>
-  </div>
+  <!-- CARD 01: Header + MOD-1 -->
+  <div class="slide-card" data-slide="1">
+    <div class="card-inner">
+      <!-- HEADER -->
+      <div class="header">
+        <span class="coord">SEC-00</span>
+        <div class="badge">EVENT DRIVEN ARCHITECTURE</div>
+        <h1>Agent<span class="blue">认知</span>：OS与Application</h1>
+        <p class="subtitle">从物理约束出发，理解Agent生态的分工逻辑</p>
+      </div>
 
-  <!-- MOD-1: 流程步骤 -->
-  <div class="process-section">
-    <span class="coord">A-01</span>
-    <h2>Agent认知的五个核心步骤</h2>
-    <div class="process-grid">
-      <div class="process-step">
-        <div class="num">1</div>
-        <div class="step-name">理解约束</div>
-        <div class="step-sub">物理限制</div>
-        <div class="arrow">→</div>
+      <!-- MOD-1: 流程步骤 -->
+      <div class="process-section">
+        <span class="coord">A-01</span>
+        <h2>Agent认知的五个核心步骤</h2>
+        <div class="process-grid">
+          <div class="process-step">
+            <div class="num">1</div>
+            <div class="step-name">理解约束</div>
+            <div class="step-sub">物理限制</div>
+            <div class="arrow">→</div>
+          </div>
+          <div class="process-step">
+            <div class="num">2</div>
+            <div class="step-name">识别战场</div>
+            <div class="step-sub">OS vs App</div>
+            <div class="arrow">→</div>
+          </div>
+          <div class="process-step">
+            <div class="num">3</div>
+            <div class="step-name">三层光谱</div>
+            <div class="step-sub">递进关系</div>
+            <div class="arrow">→</div>
+          </div>
+          <div class="process-step">
+            <div class="num">4</div>
+            <div class="step-name">构建壁垒</div>
+            <div class="step-sub">不可复制</div>
+            <div class="arrow">→</div>
+          </div>
+          <div class="process-step">
+            <div class="num">5</div>
+            <div class="step-name">认知共生</div>
+            <div class="step-sub">飞轮效应</div>
+          </div>
+        </div>
       </div>
-      <div class="process-step">
-        <div class="num">2</div>
-        <div class="step-name">识别战场</div>
-        <div class="step-sub">OS vs App</div>
-        <div class="arrow">→</div>
-      </div>
-      <div class="process-step">
-        <div class="num">3</div>
-        <div class="step-name">三层光谱</div>
-        <div class="step-sub">递进关系</div>
-        <div class="arrow">→</div>
-      </div>
-      <div class="process-step">
-        <div class="num">4</div>
-        <div class="step-name">构建壁垒</div>
-        <div class="step-sub">不可复制</div>
-        <div class="arrow">→</div>
-      </div>
-      <div class="process-step">
-        <div class="num">5</div>
-        <div class="step-name">认知共生</div>
-        <div class="step-sub">飞轮效应</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- MOD-2: 双列对比 -->
-  <div class="dual-card-section">
-    <span class="coord">B-05</span>
-    <div class="dual-card blue">
-      <h3>SQLite + FTS5</h3>
-      <p>全文检索引擎，高效存储文本索引。适合结构化数据和关键词搜索。</p>
-      <div class="btn">查看文档</div>
-    </div>
-    <div class="dual-card green">
-      <h3>Chroma 向量库</h3>
-      <p>语义理解与向量检索，支持Embedding相似度匹配。适合模糊搜索。</p>
-      <div class="btn">查看文档</div>
+      <span class="slide-number">01</span>
     </div>
   </div>
 
-  <!-- MOD-3: 三层光谱 -->
-  <div class="spectrum-section">
-    <span class="coord">C-12</span>
-    <h2>从指令到服务的三层光谱</h2>
-    <div class="spectrum-cards">
-      <div class="spectrum-card low">
-        <div class="tag">壁垒 = 零</div>
-        <h4>Prompt 指令</h4>
-        <p>给Agent点拨方向<br>活还是Agent干</p>
+  <!-- CARD 02: MOD-2 + MOD-3 -->
+  <div class="slide-card" data-slide="2">
+    <div class="card-inner">
+      <!-- MOD-2: 双列对比 -->
+      <div class="dual-card-section">
+        <span class="coord">B-05</span>
+        <div class="dual-card blue">
+          <h3>SQLite + FTS5</h3>
+          <p>全文检索引擎，高效存储文本索引。适合结构化数据和关键词搜索。</p>
+          <div class="btn">查看文档</div>
+        </div>
+        <div class="dual-card green">
+          <h3>Chroma 向量库</h3>
+          <p>语义理解与向量检索，支持Embedding相似度匹配。适合模糊搜索。</p>
+          <div class="btn">查看文档</div>
+        </div>
       </div>
-      <div class="spectrum-card mid">
-        <div class="tag">壁垒 = 低</div>
-        <h4>Script 工具</h4>
-        <p>外部代劳返回结果<br>但无外部状态</p>
+
+      <!-- MOD-3: 三层光谱 -->
+      <div class="spectrum-section">
+        <span class="coord">C-12</span>
+        <h2>从指令到服务的三层光谱</h2>
+        <div class="spectrum-cards">
+          <div class="spectrum-card low">
+            <div class="tag">壁垒 = 零</div>
+            <h4>Prompt 指令</h4>
+            <p>给Agent点拨方向<br>活还是Agent干</p>
+          </div>
+          <div class="spectrum-card mid">
+            <div class="tag">壁垒 = 低</div>
+            <h4>Script 工具</h4>
+            <p>外部代劳返回结果<br>但无外部状态</p>
+          </div>
+          <div class="spectrum-card high">
+            <div class="tag">壁垒 = 高</div>
+            <h4>Application</h4>
+            <p>外部代劳+持久状态<br>+基础设施</p>
+          </div>
+        </div>
       </div>
-      <div class="spectrum-card high">
-        <div class="tag">壁垒 = 高</div>
-        <h4>Application</h4>
-        <p>外部代劳+持久状态<br>+基础设施</p>
-      </div>
+      <span class="slide-number">02</span>
     </div>
   </div>
 
-  <!-- MOD-4: 核心思想 -->
-  <div class="info-box">
-    <span class="coord">D-03</span>
-    <div class="icon">💡</div>
-    <div class="content">
-      <h3>核心思想</h3>
-      <p>Agent有两个物理约束：上下文容量和注意力带宽。这不是bug，像光速一样只能围绕它做工程。Application通过把领域推理搬走，释放OS的带宽，让两者都变得更强。</p>
+  <!-- CARD 03: MOD-4 + MOD-5 -->
+  <div class="slide-card" data-slide="3">
+    <div class="card-inner">
+      <!-- MOD-4: 核心思想 -->
+      <div class="info-box">
+        <span class="coord">D-03</span>
+        <div class="icon">💡</div>
+        <div class="content">
+          <h3>核心思想</h3>
+          <p>Agent有两个物理约束：上下文容量和注意力带宽。这不是bug，像光速一样只能围绕它做工程。Application通过把领域推理搬走，释放OS的带宽，让两者都变得更强。</p>
+        </div>
+      </div>
+
+      <!-- MOD-5: 核心数据 -->
+      <div class="value-section">
+        <span class="coord">E-08</span>
+        <div class="value-card">
+          <div class="val">2<span class="unit">个</span></div>
+          <div class="label">物理约束</div>
+        </div>
+        <div class="value-card">
+          <div class="val">3<span class="unit">层</span></div>
+          <div class="label">光谱递进</div>
+        </div>
+        <div class="value-card">
+          <div class="val">3<span class="unit">样</span></div>
+          <div class="label">不可复制</div>
+        </div>
+        <div class="value-card">
+          <div class="val">2<span class="unit">种</span></div>
+          <div class="label">核心价值</div>
+        </div>
+      </div>
+      <span class="slide-number">03</span>
     </div>
   </div>
 
-  <!-- MOD-5: 核心数据 -->
-  <div class="value-section">
-    <span class="coord">E-08</span>
-    <div class="value-card">
-      <div class="val">2<span class="unit">个</span></div>
-      <div class="label">物理约束</div>
-    </div>
-    <div class="value-card">
-      <div class="val">3<span class="unit">层</span></div>
-      <div class="label">光谱递进</div>
-    </div>
-    <div class="value-card">
-      <div class="val">3<span class="unit">样</span></div>
-      <div class="label">不可复制</div>
-    </div>
-    <div class="value-card">
-      <div class="val">2<span class="unit">种</span></div>
-      <div class="label">核心价值</div>
-    </div>
-  </div>
+  <!-- CARD 04: MOD-6 + MOD-7 + Footer -->
+  <div class="slide-card" data-slide="4">
+    <div class="card-inner">
+      <!-- MOD-6: 生命周期 -->
+      <div class="lifecycle-section">
+        <span class="coord">F-15</span>
+        <h2>一次记忆的完整生命周期</h2>
+        <div class="lifecycle-grid">
+          <div class="lifecycle-step">
+            <div class="icon">📝</div>
+            <h4>捕获</h4>
+            <p>自动捕获编码会话操作</p>
+          </div>
+          <div class="lifecycle-step">
+            <div class="icon">💾</div>
+            <h4>存储</h4>
+            <p>SQLite + Chroma混合存储</p>
+          </div>
+          <div class="lifecycle-step">
+            <div class="icon">🔍</div>
+            <h4>检索</h4>
+            <p>三层渐进检索策略</p>
+          </div>
+          <div class="lifecycle-step">
+            <div class="icon">♻️</div>
+            <h4>复用</h4>
+            <p>跨会话记住架构决策</p>
+          </div>
+        </div>
+      </div>
 
-  <!-- MOD-6: 生命周期 -->
-  <div class="lifecycle-section">
-    <span class="coord">F-15</span>
-    <h2>一次记忆的完整生命周期</h2>
-    <div class="lifecycle-grid">
-      <div class="lifecycle-step">
-        <div class="icon">📝</div>
-        <h4>捕获</h4>
-        <p>自动捕获编码会话操作</p>
+      <!-- MOD-7: 避坑警告 -->
+      <div class="warning-section">
+        <span class="coord">G-20</span>
+        <h3>⚠️ 避坑指南</h3>
+        <div class="warning-grid">
+          <div class="warning-item">
+            <h4>战场错位</h4>
+            <p>垂类做OS是找死，领域深度在OS战场上没用</p>
+          </div>
+          <div class="warning-item">
+            <h4>Skill裸奔</h4>
+            <p>接口背后什么都没有，天花板就是卖copy</p>
+          </div>
+          <div class="warning-item">
+            <h4>概念混淆</h4>
+            <p>领域状态≠Memory，一个是业务上下文</p>
+          </div>
+        </div>
       </div>
-      <div class="lifecycle-step">
-        <div class="icon">💾</div>
-        <h4>存储</h4>
-        <p>SQLite + Chroma混合存储</p>
-      </div>
-      <div class="lifecycle-step">
-        <div class="icon">🔍</div>
-        <h4>检索</h4>
-        <p>三层渐进检索策略</p>
-      </div>
-      <div class="lifecycle-step">
-        <div class="icon">♻️</div>
-        <h4>复用</h4>
-        <p>跨会话记住架构决策</p>
-      </div>
-    </div>
-  </div>
 
-  <!-- MOD-7: 避坑警告 -->
-  <div class="warning-section">
-    <span class="coord">G-20</span>
-    <h3>⚠️ 避坑指南</h3>
-    <div class="warning-grid">
-      <div class="warning-item">
-        <h4>战场错位</h4>
-        <p>垂类做OS是找死，领域深度在OS战场上没用</p>
+      <!-- FOOTER -->
+      <div class="footer">
+        <span>AGENT COGNITION</span>
+        <span><span class="blue">BLUE</span> × <span class="green">GREEN</span> PROCESS</span>
+        <span>2026</span>
       </div>
-      <div class="warning-item">
-        <h4>Skill裸奔</h4>
-        <p>接口背后什么都没有，天花板就是卖copy</p>
-      </div>
-      <div class="warning-item">
-        <h4>概念混淆</h4>
-        <p>领域状态≠Memory，一个是业务上下文</p>
-      </div>
+      <span class="slide-number">04</span>
     </div>
-  </div>
-
-  <!-- FOOTER -->
-  <div class="footer">
-    <span>AGENT COGNITION</span>
-    <span><span class="blue">BLUE</span> × <span class="green">GREEN</span> PROCESS</span>
-    <span>2026</span>
   </div>
 
 </div>
