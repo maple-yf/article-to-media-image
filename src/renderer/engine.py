@@ -22,7 +22,7 @@ class RenderEngine:
 
     def _create_jinja_environment(self) -> Environment:
         """Create Jinja2 environment with template directory."""
-        template_dir = Path(__file__).parent / "templates"
+        template_dir = Path(__file__).parent.parent.parent / "templates"
 
         return Environment(
             loader=FileSystemLoader(template_dir),
