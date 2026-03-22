@@ -100,6 +100,86 @@ article-to-card --list-templates
 
 生成 HTML 时请遵守 `rules/01-技术底线.md` 的规范。
 
+## OpenClaw Skill 使用
+
+### 安装到 OpenClaw
+
+```bash
+# 创建软链接到 OpenClaw skills 目录
+ln -sfn /path/to/article-to-media-image ~/.openclaw/skills/article-to-media-image
+```
+
+### 使用示例
+
+**场景 1：技术文章转卡**
+```
+你: 把这篇技术文章转成卡片
+[粘贴 Go 并发编程文章]
+
+AI: [分析后] 这是一篇技术文档，我选择 minimal 风格。
+    [调用 article-to-card 生成 HTML]
+    ✅ 卡片已生成：~/article-cards/xxx-minimal.html
+```
+
+**场景 2：生活感悟**
+```
+你: 帮我把这段感悟做成好看的图片
+[粘贴内容]
+
+AI: 这是情感类内容，我选择 gradient 暖色渐变风格。
+    ✅ 卡片已生成：~/article-cards/xxx-gradient.html
+```
+
+**场景 3：开发者内容**
+```
+你: 用暗色主题生成这张代码教程的卡片
+
+AI: 使用 dark 模板，深色背景 + 霓虹强调。
+    ✅ 卡片已生成：~/article-cards/xxx-dark.html
+```
+
+**场景 4：科技资讯**
+```
+你: 用科技现代风格生成这张 AI 新闻的卡片
+
+AI: 使用 tech_modern 模板，几何线条 + 青紫渐变。
+    ✅ 卡片已生成：~/article-cards/xxx-tech_modern.html
+```
+
+**场景 5：知识总结**
+```
+你: 把这篇教程总结成信息卡片
+
+AI: 使用 card 模板，模块化卡片 + 图标装饰。
+    ✅ 卡片已生成：~/article-cards/xxx-card.html
+```
+
+### 触发词
+
+以下关键词会自动触发此 skill：
+- 文章转图
+- 笔记转卡片
+- 生成分享图
+- 文章可视化
+- 内容卡片化
+
+### 风格自动选择
+
+| 内容类型 | 自动选择风格 |
+|---------|-------------|
+| 技术文档/严肃分析 | `minimal` |
+| 生活感悟/情感故事 | `gradient` |
+| 知识分享/教程总结 | `card` |
+| 开发者内容/代码 | `dark` |
+| 科技资讯/AI 相关 | `tech_modern``
+
+也可以手动指定风格：
+```
+你: 用科技现代风格生成这张卡片
+你: 用北欧极简风格
+你: 用暗色科技主题
+```
+
 ## License
 
 MIT License
