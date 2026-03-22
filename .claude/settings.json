@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la /Users/mapleyf/projects/myDev/article-to-media-image/templates/infographic.html*)",
+      "Read(//class=\"\"\"\"card-inner\"\"\"\"/ {count++} /<\\\\/div>/ && count > 0 {if \\(match\\($0, /<\\\\/div>/**)",
+      "Bash(grep -E \"^  \\\\..* \\\\{\" templates/infographic.html)",
+      "Bash(cut -d'{' -f1)",
+      "Bash(ls -la /Users/mapleyf/projects/myDev/article-to-media-image/templates/*.html)",
+      "Bash(ls /Users/mapleyf/projects/myDev/article-to-media-image/templates/*.html)",
+      "Bash(for file:*)",
+      "Read(//Users/mapleyf/projects/myDev/article-to-media-image/templates/**)",
+      "Bash(python3:*)",
+      "Bash(for f:*)",
+      "Read(//Users/mapleyf/projects/myDev/article-to-media-image/**)",
+      "Bash(ls -1 /Users/mapleyf/projects/myDev/article-to-media-image/templates/*.html)",
+      "Bash(chmod +x /Users/mapleyf/projects/myDev/article-to-media-image/scripts/validate-templates.sh)",
+      "Bash(/Users/mapleyf/projects/myDev/article-to-media-image/scripts/validate-templates.sh)",
+      "Bash(ls /Users/mapleyf/projects/myDev/article-to-media-image/templates/*.bak)",
+      "Bash(bash scripts/validate-templates.sh)"
+    ],
+    "additionalDirectories": [
+      "/tmp",
+      "/Users/mapleyf/projects/myDev/article-to-media-image/templates"
+    ]
+  }
+}
