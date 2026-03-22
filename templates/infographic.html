@@ -14,26 +14,18 @@
     align-items: flex-start;
     min-height: 100vh;
     padding: 40px 20px;
+    background: #1a1a2e;
     font-family: -apple-system, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', sans-serif;
   }
 
   /* ========== CONTAINER: 3:4 PORTRAIT ========== */
   .container {
     width: 1080px;
-    height: 1440px;
-    background-color: #F2F2F2;
-    /* 蓝图网格 */
-    background-image:
-      repeating-linear-gradient(0deg, transparent, transparent 19px, #E8E8E8 19px, #E8E8E8 20px),
-      repeating-linear-gradient(90deg, transparent, transparent 19px, #E8E8E8 19px, #E8E8E8 20px),
-      repeating-linear-gradient(0deg, transparent, transparent 99px, #DBDBDB 99px, #DBDBDB 100px),
-      repeating-linear-gradient(90deg, transparent, transparent 99px, #DBDBDB 99px, #DBDBDB 100px);
-    position: relative;
-    overflow: hidden;
-    padding: 40px;
+    min-height: 100vh;
+    padding: 60px 135px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 80px;
   }
 
   /* ========== COORD LABEL (hidden, code-level marker only) ========== */
@@ -257,171 +249,234 @@
     padding-top: 8px;
     border-top: 1px solid #ccc;
   }
+
+  /* ========== SLIDE CARD ========== */
+  .slide-card {
+    width: 810px;
+    height: 1080px;
+    background: #F2F2F2;
+    border-radius: 2px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    border: 1px solid #2D2926;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .slide-card .card-inner {
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .slide-card .slide-number {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 48px;
+    font-weight: 900;
+    color: rgba(0,0,0,0.05);
+    font-family: 'SF Mono', monospace;
+  }
 </style>
 </head>
 <body>
 <div class="container">
 
-  <!-- HEADER -->
-  <div class="header">
-    <span class="coord">SEC-00</span>
-    <h1>【主标题：替换为文章核心主题】</h1>
-    <div class="subtitle">INFOGRAPHIC · DATA SHEET · v1.0</div>
-  </div>
-
-  <!-- MOD-1: 品牌矩阵 -->
-  <div class="module">
-    <span class="coord">A-01</span>
-    <h2>核心选项一览</h2>
-    <div class="grid-3col">
-      <div class="brand-card">
-        <div class="name">选项 A</div>
-        <div class="meta">说明文字</div>
+  <!-- SLIDE 1: 标题区 -->
+  <div class="slide-card" data-slide="1">
+    <div class="card-inner">
+      <div class="header">
+        <span class="coord">SEC-00</span>
+        <h1>【主标题：替换为文章核心主题】</h1>
+        <div class="subtitle">INFOGRAPHIC · DATA SHEET · v1.0</div>
       </div>
-      <div class="brand-card best">
-        <div class="name">选项 B ★</div>
-        <div class="meta">最佳选择</div>
-      </div>
-      <div class="brand-card">
-        <div class="name">选项 C</div>
-        <div class="meta">说明文字</div>
-      </div>
-      <div class="brand-card">
-        <div class="name">选项 D</div>
-        <div class="meta">说明文字</div>
-      </div>
-      <div class="brand-card">
-        <div class="name">选项 E</div>
-        <div class="meta">说明文字</div>
-      </div>
-      <div class="brand-card">
-        <div class="name">选项 F</div>
-        <div class="meta">说明文字</div>
-      </div>
+      <span class="slide-number">01</span>
     </div>
   </div>
 
-  <!-- MOD-2: 规格标尺 -->
-  <div class="module">
-    <span class="coord">B-05</span>
-    <h2>关键维度对比</h2>
-    <div class="scale-bar">
-      <div class="scale-segment" style="flex:3; background:#B8D8BE; color:#1a1a1a;">入门 30%</div>
-      <div class="scale-segment" style="flex:5; background:#3A7BD5;">进阶 50%</div>
-      <div class="scale-segment" style="flex:2; background:#E91E63;">专业 20%</div>
-    </div>
-    <div class="scale-label">
-      <span>0</span><span>|</span><span>|</span><span>|</span><span>MAX</span>
-    </div>
-  </div>
-
-  <!-- MOD-3 + MOD-4: 双栏 -->
-  <div class="grid-2col">
-    <!-- MOD-3: 深度剖析 -->
-    <div class="module">
-      <span class="coord">C-12</span>
-      <h2>深度剖析</h2>
-      <p style="font-size:14px; color:#333; line-height:1.8;">
-        核心观点描述。使用 <span class="highlight">荧光笔标记</span> 突出关键信息。
-        数据支撑：<span class="data-point">87%</span> 的用户认为此方案有效。
-      </p>
-    </div>
-
-    <!-- MOD-4: 场景对比 -->
-    <div class="module">
-      <span class="coord">D-03</span>
-      <h2>场景对比</h2>
-      <div style="font-size:14px; line-height:1.8;">
-        <div style="padding:8px 0; border-bottom:0.5px solid #ccc;">
-          <span class="tag">场景A</span>
-          <span style="margin-left:8px;">适合新手，上手快</span>
-        </div>
-        <div style="padding:8px 0; border-bottom:0.5px solid #ccc;">
-          <span class="tag">场景B</span>
-          <span style="margin-left:8px;">适合进阶，灵活度高</span>
-        </div>
-        <div style="padding:8px 0;">
-          <span class="tag">场景C</span>
-          <span style="margin-left:8px;">适合专业，深度定制</span>
+  <!-- SLIDE 2: 核心选项一览 -->
+  <div class="slide-card" data-slide="2">
+    <div class="card-inner">
+      <div class="module">
+        <span class="coord">A-01</span>
+        <h2>核心选项一览</h2>
+        <div class="grid-3col">
+          <div class="brand-card">
+            <div class="name">选项 A</div>
+            <div class="meta">说明文字</div>
+          </div>
+          <div class="brand-card best">
+            <div class="name">选项 B ★</div>
+            <div class="meta">最佳选择</div>
+          </div>
+          <div class="brand-card">
+            <div class="name">选项 C</div>
+            <div class="meta">说明文字</div>
+          </div>
+          <div class="brand-card">
+            <div class="name">选项 D</div>
+            <div class="meta">说明文字</div>
+          </div>
+          <div class="brand-card">
+            <div class="name">选项 E</div>
+            <div class="meta">说明文字</div>
+          </div>
+          <div class="brand-card">
+            <div class="name">选项 F</div>
+            <div class="meta">说明文字</div>
+          </div>
         </div>
       </div>
+      <span class="slide-number">02</span>
     </div>
   </div>
 
-  <!-- MOD-5: 避坑警告 -->
-  <div class="warning">
-    <span class="coord">E-08</span>
-    <h2 style="color:#E91E63; font-size:18px; margin-bottom:8px; padding-left:0;">⚠ 避坑指南</h2>
-    <ul>
-      <li>第一个常见错误：简要说明</li>
-      <li>第二个常见错误：简要说明</li>
-      <li>第三个常见错误：简要说明</li>
-    </ul>
-  </div>
-
-  <!-- MOD-6: 速查表 -->
-  <div class="module">
-    <span class="coord">F-15</span>
-    <h2>速查数据表</h2>
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th>指标</th>
-          <th>标准值</th>
-          <th>推荐值</th>
-          <th>备注</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>指标一</td>
-          <td>100</td>
-          <td class="blue">150+</td>
-          <td>越高越好</td>
-        </tr>
-        <tr>
-          <td>指标二</td>
-          <td>50%</td>
-          <td class="blue">80%</td>
-          <td>行业均值 60%</td>
-        </tr>
-        <tr>
-          <td>指标三</td>
-          <td>3 天</td>
-          <td class="pink">1 天</td>
-          <td>关键瓶颈</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- MOD-7: 状态栏 -->
-  <div class="module" style="padding:0;">
-    <span class="coord">G-20</span>
-    <div class="status-bar">
-      <div class="status-item">
-        <div class="value">6</div>
-        <div class="label">核心模块</div>
+  <!-- SLIDE 3: 关键维度对比 -->
+  <div class="slide-card" data-slide="3">
+    <div class="card-inner">
+      <div class="module">
+        <span class="coord">B-05</span>
+        <h2>关键维度对比</h2>
+        <div class="scale-bar">
+          <div class="scale-segment" style="flex:3; background:#B8D8BE; color:#1a1a1a;">入门 30%</div>
+          <div class="scale-segment" style="flex:5; background:#3A7BD5;">进阶 50%</div>
+          <div class="scale-segment" style="flex:2; background:#E91E63;">专业 20%</div>
+        </div>
+        <div class="scale-label">
+          <span>0</span><span>|</span><span>|</span><span>|</span><span>MAX</span>
+        </div>
       </div>
-      <div class="status-item">
-        <div class="value">3</div>
-        <div class="label">避坑要点</div>
-      </div>
-      <div class="status-item">
-        <div class="value">87%</div>
-        <div class="label">有效率</div>
-      </div>
-      <div class="status-item">
-        <div class="value">★</div>
-        <div class="label">推荐指数</div>
-      </div>
+      <span class="slide-number">03</span>
     </div>
   </div>
 
-  <!-- FOOTER -->
-  <div class="footer">
-    <span>Generated by openclaw · article-to-html</span>
-    <span>REV 1.0 · 2026</span>
+  <!-- SLIDE 4: 深度剖析与场景对比 -->
+  <div class="slide-card" data-slide="4">
+    <div class="card-inner">
+      <div class="grid-2col">
+        <!-- MOD-3: 深度剖析 -->
+        <div class="module">
+          <span class="coord">C-12</span>
+          <h2>深度剖析</h2>
+          <p style="font-size:14px; color:#333; line-height:1.8;">
+            核心观点描述。使用 <span class="highlight">荧光笔标记</span> 突出关键信息。
+            数据支撑：<span class="data-point">87%</span> 的用户认为此方案有效。
+          </p>
+        </div>
+
+        <!-- MOD-4: 场景对比 -->
+        <div class="module">
+          <span class="coord">D-03</span>
+          <h2>场景对比</h2>
+          <div style="font-size:14px; line-height:1.8;">
+            <div style="padding:8px 0; border-bottom:0.5px solid #ccc;">
+              <span class="tag">场景A</span>
+              <span style="margin-left:8px;">适合新手，上手快</span>
+            </div>
+            <div style="padding:8px 0; border-bottom:0.5px solid #ccc;">
+              <span class="tag">场景B</span>
+              <span style="margin-left:8px;">适合进阶，灵活度高</span>
+            </div>
+            <div style="padding:8px 0;">
+              <span class="tag">场景C</span>
+              <span style="margin-left:8px;">适合专业，深度定制</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span class="slide-number">04</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 5: 避坑指南 -->
+  <div class="slide-card" data-slide="5">
+    <div class="card-inner">
+      <div class="warning">
+        <span class="coord">E-08</span>
+        <h2 style="color:#E91E63; font-size:18px; margin-bottom:8px; padding-left:0;">⚠ 避坑指南</h2>
+        <ul>
+          <li>第一个常见错误：简要说明</li>
+          <li>第二个常见错误：简要说明</li>
+          <li>第三个常见错误：简要说明</li>
+        </ul>
+      </div>
+      <span class="slide-number">05</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 6: 速查数据与总结 -->
+  <div class="slide-card" data-slide="6">
+    <div class="card-inner">
+      <!-- MOD-6: 速查表 -->
+      <div class="module">
+        <span class="coord">F-15</span>
+        <h2>速查数据表</h2>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>指标</th>
+              <th>标准值</th>
+              <th>推荐值</th>
+              <th>备注</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>指标一</td>
+              <td>100</td>
+              <td class="blue">150+</td>
+              <td>越高越好</td>
+            </tr>
+            <tr>
+              <td>指标二</td>
+              <td>50%</td>
+              <td class="blue">80%</td>
+              <td>行业均值 60%</td>
+            </tr>
+            <tr>
+              <td>指标三</td>
+              <td>3 天</td>
+              <td class="pink">1 天</td>
+              <td>关键瓶颈</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- MOD-7: 状态栏 -->
+      <div class="module" style="padding:0;">
+        <span class="coord">G-20</span>
+        <div class="status-bar">
+          <div class="status-item">
+            <div class="value">6</div>
+            <div class="label">核心模块</div>
+          </div>
+          <div class="status-item">
+            <div class="value">3</div>
+            <div class="label">避坑要点</div>
+          </div>
+          <div class="status-item">
+            <div class="value">87%</div>
+            <div class="label">有效率</div>
+          </div>
+          <div class="status-item">
+            <div class="value">★</div>
+            <div class="label">推荐指数</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER -->
+      <div class="footer">
+        <span>Generated by openclaw · article-to-html</span>
+        <span>REV 1.0 · 2026</span>
+      </div>
+
+      <span class="slide-number">06</span>
+    </div>
   </div>
 
 </div>
