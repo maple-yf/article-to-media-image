@@ -16,7 +16,7 @@
     align-items: flex-start;
     min-height: 100vh;
     padding: 40px 20px;
-    background: #E8E6E1;
+    background: #1a1a2e;
     font-family: 'Inter', sans-serif;
     color: #2C2C2C;
   }
@@ -26,9 +26,46 @@
     min-height: 1440px;
     background: #FAFAF8;
     position: relative;
-    
     display: flex;
     flex-direction: column;
+    gap: 80px;
+  }
+
+  .slide-card {
+    width: 810px;
+    height: 1080px;
+    background: #FAFAF8;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(0,0,0,0.04);
+  }
+
+  .card-inner {
+    width: 100%;
+    height: 100%;
+    background: #FAFAF8;
+    border-radius: 16px;
+    padding: 60px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .slide-number {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #B0A898;
+    background: rgba(176, 168, 152, 0.15);
+    padding: 6px 14px;
+    border-radius: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
   }
 
   /* ===== HEADER (MOD-1) ===== */
@@ -458,171 +495,187 @@
 <body>
 <div class="container">
 
-  <!-- MOD-1: HEADER -->
-  <div class="header">
-    <span class="coord">SEC-00</span>
-    <div class="header-top">
-      <span class="header-tag">Insight</span>
-      <span class="header-date">2026 · 03</span>
-    </div>
-    <h1>Agent认知：OS与Application</h1>
-    <p class="lead">垂类不应该做Agent，应该做Agent上面的应用。从Prompt到Script到Application，是逐步把复杂度搬到Agent外部的过程。</p>
-    <div class="header-line"></div>
-  </div>
-
-  <!-- MOD-2: OPTION GRID — 三层光谱 -->
-  <div class="option-grid">
-    <span class="coord">A-01</span>
-    <div class="section-label">三层光谱</div>
-    <div class="grid-wrap">
-      <div class="grid-card">
-        <div class="grid-card-num">01</div>
-        <div class="grid-card-title">Prompt 指令</div>
-        <div class="grid-card-desc">给Agent点拨方向，但活还是Agent干，带宽不减。文本可复制，壁垒为零。</div>
-      </div>
-      <div class="grid-card">
-        <div class="grid-card-num">02</div>
-        <div class="grid-card-title">Script 工具</div>
-        <div class="grid-card-desc">外部代劳返回结果，带宽降低。但没有外部状态，逻辑可复现，壁垒低。</div>
-      </div>
-      <div class="grid-card featured">
-        <div class="grid-card-num">03</div>
-        <div class="grid-card-title">Application</div>
-        <div class="grid-card-desc">外部代劳＋持久状态＋基础设施，带宽和容量都大幅降低。不可复制。</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="grid-divider"></div>
-
-  <!-- MOD-3: COMPARISON — 各层对比 -->
-  <div class="comparison">
-    <span class="coord">B-05</span>
-    <div class="section-label">Comparison</div>
-    <div class="compare-header">
-      <span>维度</span>
-      <span>Prompt</span>
-      <span>Script</span>
-      <span>Application</span>
-    </div>
-    <div class="compare-row">
-      <span class="compare-label">壁垒</span>
-      <span class="compare-val"><span class="compare-pip pip-red"></span>零</span>
-      <span class="compare-val"><span class="compare-pip pip-amber"></span>低</span>
-      <span class="compare-val"><span class="compare-pip pip-green"></span>高</span>
-    </div>
-    <div class="compare-row">
-      <span class="compare-label">带宽释放</span>
-      <span class="compare-val"><span class="compare-pip pip-red"></span>无</span>
-      <span class="compare-val"><span class="compare-pip pip-amber"></span>部分</span>
-      <span class="compare-val"><span class="compare-pip pip-green"></span>大幅</span>
-    </div>
-    <div class="compare-row">
-      <span class="compare-label">可复制性</span>
-      <span class="compare-val"><span class="compare-pip pip-red"></span>一键</span>
-      <span class="compare-val"><span class="compare-pip pip-amber"></span>可复现</span>
-      <span class="compare-val"><span class="compare-pip pip-green"></span>不可</span>
-    </div>
-    <div class="compare-row">
-      <span class="compare-label">价值天花板</span>
-      <span class="compare-val"><span class="compare-pip pip-red"></span>卖copy</span>
-      <span class="compare-val"><span class="compare-pip pip-amber"></span>卖copy</span>
-      <span class="compare-val"><span class="compare-pip pip-green"></span>卖服务</span>
-    </div>
-  </div>
-
-  <!-- MID AREA: MOD-4 + MOD-5 -->
-  <div class="mid-area">
-    <div class="mid-divider-h"></div>
-    <div class="mid-divider-v"></div>
-
-    <!-- MOD-4: DEEP ANALYSIS — 认知共生 -->
-    <div class="deep-analysis">
-      <span class="coord">C-12</span>
-      <div class="section-label">Analysis</div>
-      <h3>认知共生：Application让OS更聪明</h3>
-      <p>
-        好的Application把领域推理从Agent注意力里搬走，<span class="em-mark">干扰消失，其他任务更准</span>，于是更精准地调用更多Application，飞轮转起来。
-      </p>
-      <div class="deep-stat-row">
-        <div class="deep-stat">
-          <div class="deep-stat-num">2</div>
-          <div class="deep-stat-label">物理约束：容量 + 带宽</div>
+  <!-- Slide 1: Header + Option Grid -->
+  <div class="slide-card">
+    <span class="slide-number">01</span>
+    <div class="card-inner">
+      <!-- MOD-1: HEADER -->
+      <div class="header">
+        <span class="coord">SEC-00</span>
+        <div class="header-top">
+          <span class="header-tag">Insight</span>
+          <span class="header-date">2026 · 03</span>
         </div>
-        <div class="deep-stat">
-          <div class="deep-stat-num">3</div>
-          <div class="deep-stat-label">不可复制：状态·设施·规模</div>
+        <h1>Agent认知：OS与Application</h1>
+        <p class="lead">垂类不应该做Agent，应该做Agent上面的应用。从Prompt到Script到Application，是逐步把复杂度搬到Agent外部的过程。</p>
+        <div class="header-line"></div>
+      </div>
+
+      <!-- MOD-2: OPTION GRID — 三层光谱 -->
+      <div class="option-grid">
+        <span class="coord">A-01</span>
+        <div class="section-label">三层光谱</div>
+        <div class="grid-wrap">
+          <div class="grid-card">
+            <div class="grid-card-num">01</div>
+            <div class="grid-card-title">Prompt 指令</div>
+            <div class="grid-card-desc">给Agent点拨方向，但活还是Agent干，带宽不减。文本可复制，壁垒为零。</div>
+          </div>
+          <div class="grid-card">
+            <div class="grid-card-num">02</div>
+            <div class="grid-card-title">Script 工具</div>
+            <div class="grid-card-desc">外部代劳返回结果，带宽降低。但没有外部状态，逻辑可复现，壁垒低。</div>
+          </div>
+          <div class="grid-card featured">
+            <div class="grid-card-num">03</div>
+            <div class="grid-card-title">Application</div>
+            <div class="grid-card-desc">外部代劳＋持久状态＋基础设施，带宽和容量都大幅降低。不可复制。</div>
+          </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- MOD-5: SCENARIO CARDS — 两种价值 -->
-    <div class="scenarios">
-      <span class="coord">D-03</span>
-      <div class="section-label">两种价值</div>
-      <div class="scenario-card">
-        <div class="scenario-icon icon-a">🔓</div>
-        <h4>能力解锁</h4>
-        <p>突破上下文容量——塞不进context的领域知识，Application在外面管着，调一下就能用</p>
-        <span class="scenario-tag tag-green">破容量瓶颈</span>
+  <!-- Slide 2: Comparison + Deep Analysis -->
+  <div class="slide-card">
+    <span class="slide-number">02</span>
+    <div class="card-inner">
+      <!-- MOD-3: COMPARISON — 各层对比 -->
+      <div class="comparison">
+        <span class="coord">B-05</span>
+        <div class="section-label">Comparison</div>
+        <div class="compare-header">
+          <span>维度</span>
+          <span>Prompt</span>
+          <span>Script</span>
+          <span>Application</span>
+        </div>
+        <div class="compare-row">
+          <span class="compare-label">壁垒</span>
+          <span class="compare-val"><span class="compare-pip pip-red"></span>零</span>
+          <span class="compare-val"><span class="compare-pip pip-amber"></span>低</span>
+          <span class="compare-val"><span class="compare-pip pip-green"></span>高</span>
+        </div>
+        <div class="compare-row">
+          <span class="compare-label">带宽释放</span>
+          <span class="compare-val"><span class="compare-pip pip-red"></span>无</span>
+          <span class="compare-val"><span class="compare-pip pip-amber"></span>部分</span>
+          <span class="compare-val"><span class="compare-pip pip-green"></span>大幅</span>
+        </div>
+        <div class="compare-row">
+          <span class="compare-label">可复制性</span>
+          <span class="compare-val"><span class="compare-pip pip-red"></span>一键</span>
+          <span class="compare-val"><span class="compare-pip pip-amber"></span>可复现</span>
+          <span class="compare-val"><span class="compare-pip pip-green"></span>不可</span>
+        </div>
+        <div class="compare-row">
+          <span class="compare-label">价值天花板</span>
+          <span class="compare-val"><span class="compare-pip pip-red"></span>卖copy</span>
+          <span class="compare-val"><span class="compare-pip pip-amber"></span>卖copy</span>
+          <span class="compare-val"><span class="compare-pip pip-green"></span>卖服务</span>
+        </div>
       </div>
-      <div class="scenario-card">
-        <div class="scenario-icon icon-b">🧠</div>
-        <h4>认知卸载</h4>
-        <p>释放注意力带宽——领域推理搬到外部，不再跟其他任务打架，每件事都做得更准</p>
-        <span class="scenario-tag tag-amber">释放带宽</span>
-      </div>
-      <div class="scenario-card">
-        <div class="scenario-icon icon-c">♻️</div>
-        <h4>飞轮效应</h4>
-        <p>OS越轻表现越好，更精准调用Application，Application获得更多数据，搬走更多认知负荷</p>
-        <span class="scenario-tag tag-red">认知共生</span>
+
+      <!-- MOD-4: DEEP ANALYSIS — 认知共生 -->
+      <div class="deep-analysis">
+        <span class="coord">C-12</span>
+        <div class="section-label">Analysis</div>
+        <h3>认知共生：Application让OS更聪明</h3>
+        <p>
+          好的Application把领域推理从Agent注意力里搬走，<span class="em-mark">干扰消失，其他任务更准</span>，于是更精准地调用更多Application，飞轮转起来。
+        </p>
+        <div class="deep-stat-row">
+          <div class="deep-stat">
+            <div class="deep-stat-num">2</div>
+            <div class="deep-stat-label">物理约束：容量 + 带宽</div>
+          </div>
+          <div class="deep-stat">
+            <div class="deep-stat-num">3</div>
+            <div class="deep-stat-label">不可复制：状态·设施·规模</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- MOD-6: WARNING — 垂类做OS的致命原因 -->
-  <div style="padding: 14px 0 0;">
-    <span class="coord">E-08</span>
-    <div class="warning-strip">
-      <div class="warning-badge">!</div>
-      <div class="warning-content">
-        <h4>垂类做OS的三个致命原因</h4>
-        <ul class="warning-list">
-          <li>战场错位——Agent战场是推理能力和编排效率，垂类的领域深度在OS战场上一点用都没有</li>
-          <li>市场收敛——OS层天然赢家通吃，PC两个、移动两个，Agent不会有几十个赢家</li>
-          <li>机会成本——花三年正面硬刚，本可以在自己领域建一座别人进不来的根据地</li>
-        </ul>
+  <!-- Slide 3: Scenarios + Warning -->
+  <div class="slide-card">
+    <span class="slide-number">03</span>
+    <div class="card-inner">
+      <!-- MOD-5: SCENARIO CARDS — 两种价值 -->
+      <div class="scenarios">
+        <span class="coord">D-03</span>
+        <div class="section-label">两种价值</div>
+        <div class="scenario-card">
+          <div class="scenario-icon icon-a">🔓</div>
+          <h4>能力解锁</h4>
+          <p>突破上下文容量——塞不进context的领域知识，Application在外面管着，调一下就能用</p>
+          <span class="scenario-tag tag-green">破容量瓶颈</span>
+        </div>
+        <div class="scenario-card">
+          <div class="scenario-icon icon-b">🧠</div>
+          <h4>认知卸载</h4>
+          <p>释放注意力带宽——领域推理搬到外部，不再跟其他任务打架，每件事都做得更准</p>
+          <span class="scenario-tag tag-amber">释放带宽</span>
+        </div>
+        <div class="scenario-card">
+          <div class="scenario-icon icon-c">♻️</div>
+          <h4>飞轮效应</h4>
+          <p>OS越轻表现越好，更精准调用Application，Application获得更多数据，搬走更多认知负荷</p>
+          <span class="scenario-tag tag-red">认知共生</span>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- MOD-7: BOTTOM SUMMARY -->
-  <div class="summary">
-    <span class="coord">F-15</span>
-    <div class="summary-line"></div>
-    <div class="summary-grid">
-      <div class="summary-item">
-        <div class="summary-item-num" style="color: #6B7F5E;">OS</div>
-        <div class="summary-item-label">命题是 WHAT · 做什么</div>
+  <!-- Slide 4: Warning + Summary -->
+  <div class="slide-card">
+    <span class="slide-number">04</span>
+    <div class="card-inner">
+      <!-- MOD-6: WARNING — 垂类做OS的致命原因 -->
+      <div style="padding: 14px 0 0;">
+        <span class="coord">E-08</span>
+        <div class="warning-strip">
+          <div class="warning-badge">!</div>
+          <div class="warning-content">
+            <h4>垂类做OS的三个致命原因</h4>
+            <ul class="warning-list">
+              <li>战场错位——Agent战场是推理能力和编排效率，垂类的领域深度在OS战场上一点用都没有</li>
+              <li>市场收敛——OS层天然赢家通吃，PC两个、移动两个，Agent不会有几十个赢家</li>
+              <li>机会成本——花三年正面硬刚，本可以在自己领域建一座别人进不来的根据地</li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div class="summary-item">
-        <div class="summary-item-num">App</div>
-        <div class="summary-item-label">命题是 HOW · 怎么做</div>
+
+      <!-- MOD-7: BOTTOM SUMMARY -->
+      <div class="summary">
+        <span class="coord">F-15</span>
+        <div class="summary-line"></div>
+        <div class="summary-grid">
+          <div class="summary-item">
+            <div class="summary-item-num" style="color: #6B7F5E;">OS</div>
+            <div class="summary-item-label">命题是 WHAT · 做什么</div>
+          </div>
+          <div class="summary-item">
+            <div class="summary-item-num">App</div>
+            <div class="summary-item-label">命题是 HOW · 怎么做</div>
+          </div>
+          <div class="summary-item">
+            <div class="summary-item-num" style="color: #C4654A; font-size: 38px; line-height: 1.65;">No ctx</div>
+            <div class="summary-item-label">最好的上下文是没有上下文</div>
+          </div>
+        </div>
+        <div class="footer">
+          <span class="footer-left">AGENT INSIGHT</span>
+          <div class="footer-center">
+            <div class="footer-line"></div>
+            <div class="footer-dot"></div>
+            <div class="footer-line"></div>
+          </div>
+          <span class="footer-right">NORDIC · 2026</span>
+        </div>
       </div>
-      <div class="summary-item">
-        <div class="summary-item-num" style="color: #C4654A; font-size: 38px; line-height: 1.65;">No ctx</div>
-        <div class="summary-item-label">最好的上下文是没有上下文</div>
-      </div>
-    </div>
-    <div class="footer">
-      <span class="footer-left">AGENT INSIGHT</span>
-      <div class="footer-center">
-        <div class="footer-line"></div>
-        <div class="footer-dot"></div>
-        <div class="footer-line"></div>
-      </div>
-      <span class="footer-right">NORDIC · 2026</span>
     </div>
   </div>
 
