@@ -1,62 +1,49 @@
 # Article to Media Image
 
-MCP Skill to convert articles into shareable card images.
+将文章/笔记转化为精美 HTML 卡片图片，支持 5 种视觉风格。
 
-## Features
+## 特性
 
-- **5 Beautiful Templates**: Minimal, Gradient, Card, Dark, Tech Modern
-- **Smart Segmentation**: Agent processes content, Skill renders
-- **One-Click Output**: HTML file ready for browser screenshots
-- **Flexible Config**: Customizable output paths and defaults
+- **5 种精美模板**: Minimal、Gradient、Card、Dark、Tech Modern
+- **CLI 工具**: 简单命令行接口
+- **Python 库**: 可作为 Python 包使用
+- **灵活配置**: 自定义输出路径和默认模板
 
-## Installation
+## 安装
 
 ```bash
-# Clone repository
+# 克隆仓库
 git clone <repo-url>
 cd article-to-media-image
 
-# Install dependencies
+# 安装依赖
 pip install -e .
 
-# Or install with pip
-pip install article-to-media-image
+# 验证安装
+article-to-card --help
 ```
 
-## MCP Configuration
+## 使用
 
-Add to your MCP client config (e.g., Claude Code settings):
+### CLI 工具
 
-```json
-{
-  "mcpServers": {
-    "article-to-media-image": {
-      "command": "python",
-      "args": ["-m", "src.main"]
-    }
-  }
-}
+```bash
+# 基本使用
+article-to-card --template minimal --output card.html << 'EOF'
+{"segments": [
+  {"type": "title", "text": "文章标题"},
+  {"type": "content", "text": "内容段落..."}
+]}
+EOF
+
+# 指定风格
+article-to-card -t dark -s '[{"type":"title","text":"标题"}]'
+
+# 管道输入
+echo '{"segments":[...]}' | article-to-card -t gradient
 ```
 
-## Usage
-
-### From Claude Code / Agent
-
-```
-User: Convert this article to cards
-
-Agent: I'll process the article and generate cards...
-
-[Agent calls article_to_card tool with processed segments]
-
-✅ Successfully generated 5 card(s)
-📁 Output: ~/article-cards/20260321-143022-tech_modern.html
-🎨 Template: tech_modern
-
-Open the HTML file in your browser and take screenshots.
-```
-
-### Direct Python Usage
+### Python 库
 
 ```python
 from src.renderer.engine import RenderEngine
@@ -64,67 +51,55 @@ from src.renderer.engine import RenderEngine
 engine = RenderEngine()
 
 segments = [
-    {"type": "title", "text": "My Article Title"},
-    {"type": "content", "text": "First paragraph..."},
-    {"type": "highlight", "text": "Key insight"},
+    {"type": "title", "text": "文章标题"},
+    {"type": "content", "text": "内容段落..."},
+    {"type": "highlight", "text": "关键洞察"},
 ]
 
-# Render to file
+# 渲染到文件
 output_path = engine.render_to_file(segments, template="tech_modern")
 print(f"Generated: {output_path}")
 ```
 
-## Templates
+## 模板
 
-| Template | Style | Best For |
-|----------|-------|----------|
-| `minimal` | Clean, minimalist | Technical docs, serious content |
-| `gradient` | Warm gradients | Lifestyle, emotional stories |
-| `card` | Information cards | Knowledge sharing, tutorials |
-| `dark` | Dark mode | Developers, night reading |
-| `tech_modern` | Modern tech | Tech, AI, developer content |
+| 模板 | 风格 | 适用场景 |
+|------|------|---------|
+| `minimal` | 北欧极简 | 技术文档、严肃分析 |
+| `gradient` | 杂志渐变 | 生活感悟、情感故事 |
+| `card` | 信息卡片 | 知识分享、教程总结 |
+| `dark` | 暗色科技 | 开发者内容、技术文章 |
+| `tech_modern` | 现代科技 | 科技资讯、AI 相关 |
 
-## Segment Types
+更多风格说明请参考 `rules/03-风格灵感.md`。
 
-Agents should use these segment types:
+## Segment 类型
 
-- `title`: Article/section title
-- `content`: Regular paragraph content
-- `quote`: Quotations or references
-- `highlight`: Key points or emphasis
-- `code`: Code snippets or commands
+| 类型 | 说明 |
+|------|------|
+| `title` | 文章/章节标题 |
+| `content` | 正文段落 |
+| `quote` | 引用内容 |
+| `highlight` | 强调/要点 |
+| `code` | 代码片段 |
 
-## Configuration
-
-Default config: `~/.article-to-media-image/config.yaml`
-
-```yaml
-defaults:
-  template: tech_modern
-  output_path: ~/article-cards/{timestamp}-{template}.html
-
-output:
-  base_dir: ~/article-cards
-  filename_template: "{timestamp}-{template}.html"
-```
-
-## Development
+## 开发
 
 ```bash
-# Install development dependencies
-pip install -e ".[test]"
+# 安装开发依赖
+pip install -e ".[dev]"
 
-# Run tests
+# 运行测试
 pytest tests/ -v
 
-# Run specific test file
-pytest tests/test_all_templates.py -v
+# 列出可用模板
+article-to-card --list-templates
 ```
+
+## 技术约束
+
+生成 HTML 时请遵守 `rules/01-技术底线.md` 的规范。
 
 ## License
 
-MIT License - see LICENSE file for details.
-
----
-
-> **Note:** The MCP server (`src/main.py`) is now fully implemented. Use the `article_to_card` tool to generate card images from article segments.
+MIT License
