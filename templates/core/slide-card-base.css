@@ -1,0 +1,78 @@
+/* ========== SLIDE CARD BASE STYLES ========== */
+/* 独立卡片视窗基础样式 - 适用于所有14个模版 */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* 外层容器 - 深色背景，垂直滚动 */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: #1a1a2e;
+  font-family: -apple-system, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', sans-serif;
+}
+
+.container {
+  width: 1080px;
+  min-height: 100vh;
+  padding: 60px 135px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--card-gap, 80px);
+}
+
+/* 独立卡片 - 3:4 比例 */
+.slide-card {
+  width: var(--card-width, 810px);
+  height: var(--card-height, 1080px);
+  background: var(--card-bg, #ffffff);
+  border-radius: var(--card-radius, 16px);
+  box-shadow: var(--card-shadow, 0 25px 50px rgba(0,0,0,0.4));
+  border: 1px solid rgba(255,255,255,0.1);
+  overflow: hidden;
+  position: relative;
+}
+
+/* 发光渐变边框效果 */
+.slide-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--card-radius, 16px);
+  padding: 2px;
+  background: var(--border-gradient, linear-gradient(135deg, #667eea, #764ba2));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+/* 卡片内部容器 */
+.slide-card .card-inner {
+  width: 100%;
+  height: 100%;
+  padding: var(--card-padding, 48px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--inner-gap, 32px);
+  overflow: hidden;
+}
+
+/* 段落编号水印 */
+.slide-card .slide-number {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  font-size: 72px;
+  font-weight: 900;
+  color: rgba(0,0,0,0.03);
+  font-family: 'Inter', 'SF Mono', monospace;
+  pointer-events: none;
+}
+
+/* 隐藏坐标标记（用于模块定位） */
+.coord { display: none; }

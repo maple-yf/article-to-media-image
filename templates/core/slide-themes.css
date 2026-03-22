@@ -1,0 +1,49 @@
+/* ========== SLIDE CARD THEME VARIABLES ========== */
+/* 各分组主题变量 */
+
+/* 默认主题 */
+:root {
+  --card-width: 810px;
+  --card-height: 1080px;
+  --card-gap: 80px;
+  --card-radius: 16px;
+  --card-padding: 48px;
+  --inner-gap: 32px;
+  --card-shadow: 0 25px 50px rgba(0,0,0,0.4);
+  --border-gradient: linear-gradient(135deg, #667eea, #764ba2);
+  --card-bg: #ffffff;
+}
+
+/* A组：卡片式 - 深蓝渐变 */
+.theme-card-blue {
+  --card-shadow: 0 30px 60px rgba(0,0,0,0.5);
+  --border-gradient: linear-gradient(135deg, #1E90FF, #00C853);
+  --card-bg: linear-gradient(180deg, #0A192F 0%, #142233 50%, #0F1F35 100%);
+}
+
+/* B组：扁平式 - 浅色简约 */
+.theme-flat-light {
+  --card-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  --border-gradient: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+  --card-radius: 12px;
+}
+
+/* C组：科技式 - 霓虹发光 */
+.theme-tech-glow {
+  --card-shadow: 0 25px 50px rgba(0,0,0,0.6), 0 0 30px rgba(102, 126, 234, 0.3);
+  --border-gradient: linear-gradient(135deg, #00f5ff, #667eea, #764ba2);
+}
+
+/* D组：信息图式 - 网格背景 */
+.theme-infographic {
+  --card-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  --border-gradient: linear-gradient(135deg, #B8D8BE, #3A7BD5);
+  --card-bg: #F2F2F2;
+}
+
+/* E组：叙事式 - 纸质纹理 */
+.theme-narrative {
+  --card-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  --border-gradient: linear-gradient(135deg, #d4c5a9, #c4b393);
+  --card-radius: 4px;
+}
