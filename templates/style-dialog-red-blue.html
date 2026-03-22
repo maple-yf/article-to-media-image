@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>红蓝对话风 · 【文章标题】</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  .coord { display: none; }
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 40px 20px;
+    background: #F0F2F5;
+    font-family: 'Noto Sans SC', 'Inter', sans-serif;
+  }
+
+  .container {
+    width: 1080px;
+    min-height: 1440px;
+    background: #FFFFFF;
+    position: relative;
+    padding: 40px 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  }
+
+  /* ===== HEADER ===== */
+  .header {
+    text-align: center;
+    padding: 20px 0 24px;
+    border-bottom: 2px solid #E63946;
+    position: relative;
+  }
+  .header .icon-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .header .icon-row .icon-box {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+  }
+  .header .icon-row .icon-box.red {
+    background: #FFE8E8;
+    color: #E63946;
+  }
+  .header .icon-row .icon-box.blue {
+    background: #E6F3FF;
+    color: #1D4ED8;
+  }
+  .header h1 {
+    font-size: 56px;
+    font-weight: 900;
+    color: #1A1A1A;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .header h1 .highlight {
+    color: #E63946;
+  }
+  .header .subtitle {
+    font-size: 22px;
+    color: #666666;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  /* ===== DIALOG SECTION ===== */
+  .dialog-section {
+    padding: 24px;
+    background: #FFE8E8;
+    border-radius: 12px;
+    position: relative;
+  }
+  .dialog-section::before {
+    content: '💬';
+    position: absolute;
+    top: -16px;
+    left: 24px;
+    width: 36px;
+    height: 36px;
+    background: #E63946;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+  .dialog-section h2 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #E63946;
+    margin-bottom: 16px;
+    margin-left: 12px;
+  }
+  .dialog-item {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.6);
+  }
+  .dialog-item:last-child {
+    margin-bottom: 0;
+  }
+  .dialog-item .role {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .dialog-item .role.user {
+    background: #1D4ED8;
+    color: #FFFFFF;
+  }
+  .dialog-item .role.ai {
+    background: #E63946;
+    color: #FFFFFF;
+  }
+  .dialog-item .role-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1A1A1A;
+    margin-bottom: 4px;
+  }
+  .dialog-item .role-name span {
+    color: #1D4ED8;
+  }
+  .dialog-item p {
+    font-size: 20px;
+    color: #333333;
+    line-height: 1.6;
+  }
+  .dialog-item p .highlight {
+    background: linear-gradient(180deg, transparent 60%, #FFE8E8 60%);
+    padding: 0 2px;
+    font-weight: 600;
+  }
+
+  /* ===== PROBLEM SECTION ===== */
+  .problem-section {
+    padding: 28px;
+    background: #FFF0F0;
+    border-left: 4px solid #E63946;
+    border-radius: 8px;
+  }
+  .problem-section h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #E63946;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .problem-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .problem-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 20px;
+    color: #333333;
+    line-height: 1.6;
+  }
+  .problem-item .num {
+    width: 28px;
+    height: 28px;
+    background: #E63946;
+    color: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* ===== FEATURE GRID (MOD-3) ===== */
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .feature-card {
+    padding: 24px;
+    border: 2px solid #E9ECEF;
+    border-radius: 12px;
+    transition: all 0.3s;
+  }
+  .feature-card:hover {
+    border-color: #1D4ED8;
+    box-shadow: 0 4px 20px rgba(29,78,216,0.1);
+  }
+  .feature-card .icon {
+    width: 48px;
+    height: 48px;
+    background: #E6F3FF;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+  .feature-card h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1A1A1A;
+    margin-bottom: 8px;
+  }
+  .feature-card p {
+    font-size: 18px;
+    color: #666666;
+    line-height: 1.6;
+  }
+
+  /* ===== CTA BUTTON (MOD-4) ===== */
+  .cta-button {
+    background: #E63946;
+    border-radius: 16px;
+    padding: 32px 40px;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(230,57,70,0.3);
+    transition: all 0.3s;
+  }
+  .cta-button:hover {
+    background: #D62839;
+    box-shadow: 0 6px 24px rgba(230,57,70,0.4);
+    transform: translateY(-2px);
+  }
+  .cta-button .main-text {
+    font-size: 36px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 8px;
+  }
+  .cta-button .sub-text {
+    font-size: 20px;
+    color: rgba(255,255,255,0.9);
+    font-weight: 400;
+  }
+
+  /* ===== COMPARISON TABLE (MOD-5) ===== */
+  .comparison-section {
+    padding: 24px;
+    background: #F8F9FA;
+    border-radius: 12px;
+  }
+  .comparison-section h2 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #1A1A1A;
+    margin-bottom: 20px;
+  }
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .comparison-table th {
+    background: #1D4ED8;
+    color: #FFFFFF;
+    padding: 14px 16px;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .comparison-table th:first-child {
+    border-radius: 8px 0 0 8px;
+  }
+  .comparison-table th:last-child {
+    border-radius: 0 8px 8px 0;
+  }
+  .comparison-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #E9ECEF;
+    font-size: 18px;
+    color: #333333;
+  }
+  .comparison-table tr:last-child td {
+    border-bottom: none;
+  }
+  .comparison-table .tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .comparison-table .tag.red {
+    background: #FFE8E8;
+    color: #E63946;
+  }
+  .comparison-table .tag.green {
+    background: #D4EDBC;
+    color: #166534;
+  }
+  .comparison-table .tag.blue {
+    background: #E6F3FF;
+    color: #1D4ED8;
+  }
+
+  /* ===== BOTTOM SECTION ===== */
+  .bottom-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+  }
+  .insight-box {
+    padding: 24px;
+    background: linear-gradient(135deg, #E6F3FF 0%, #F0F7FF 100%);
+    border-radius: 12px;
+    border: 1px solid #B8D4FE;
+  }
+  .insight-box h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1D4ED8;
+    margin-bottom: 12px;
+  }
+  .insight-box p {
+    font-size: 18px;
+    color: #333333;
+    line-height: 1.7;
+  }
+  .insight-box .highlight {
+    color: #1D4ED8;
+    font-weight: 700;
+  }
+  .quick-list {
+    padding: 24px;
+    background: #F8F9FA;
+    border-radius: 12px;
+  }
+  .quick-list h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1A1A1A;
+    margin-bottom: 14px;
+  }
+  .quick-list ul {
+    list-style: none;
+  }
+  .quick-list li {
+    font-size: 18px;
+    color: #333333;
+    padding: 8px 0;
+    padding-left: 24px;
+    position: relative;
+  }
+  .quick-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: #1D4ED8;
+    font-weight: 700;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0 0;
+    border-top: 1px solid #E9ECEF;
+    font-size: 16px;
+    color: #999999;
+  }
+  .footer .dot {
+    width: 8px;
+    height: 8px;
+    background: #E63946;
+    border-radius: 50%;
+    display: inline-block;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <span class="coord">SEC-00</span>
+    <div class="icon-row">
+      <div class="icon-box red">⚠️</div>
+      <div class="icon-box blue">💡</div>
+    </div>
+    <h1>Agent<span class="highlight">认知</span>：OS与Application</h1>
+    <p class="subtitle">垂类不该做Agent，该做Agent上面的应用</p>
+  </div>
+
+  <!-- MOD-1: 对话展示 -->
+  <div class="dialog-section">
+    <span class="coord">A-01</span>
+    <h2>每天都在上演的对话</h2>
+    <div class="dialog-item">
+      <div class="role user">👤</div>
+      <div>
+        <div class="role-name"><span>You</span> asks:</div>
+        <p>我想做一个垂直领域的Agent，直接在领域里打败OpenAI，行吗？</p>
+      </div>
+    </div>
+    <div class="dialog-item">
+      <div class="role ai">🤖</div>
+      <div>
+        <div class="role-name"><span>Claude</span> replies:</div>
+        <p>这是在<span class="highlight">拿刀打坦克</span>。Agent的战场是推理能力和编排效率，垂类的优势是领域深度——这些优势在OS战场上<span class="highlight">一点用都没有</span>。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOD-2: 问题列表 -->
+  <div class="problem-section">
+    <span class="coord">B-05</span>
+    <h2>⚠️ 垂类做OS的三个致命问题</h2>
+    <div class="problem-list">
+      <div class="problem-item">
+        <span class="num">1</span>
+        <span><strong>战场错位：</strong>拿领域知识跟OpenAI比推理能力，是完全不同的战场</span>
+      </div>
+      <div class="problem-item">
+        <span class="num">2</span>
+        <span><strong>对手错误：</strong>正面硬刚OpenAI、Anthropic，三年换一场必输的仗</span>
+      </div>
+      <div class="problem-item">
+        <span class="num">3</span>
+        <span><strong>结局已定：</strong>OS层天然收敛，PC剩Win/Mac，移动剩iOS/Android</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOD-3: 功能卡片 -->
+  <div class="feature-grid">
+    <span class="coord">C-12</span>
+    <div class="feature-card">
+      <div class="icon">🔓</div>
+      <h3>能力解锁</h3>
+      <p>突破上下文容量——塞不进context的领域知识，Application在外面管着</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🧠</div>
+      <h3>认知卸载</h3>
+      <p>释放注意力带宽——领域推理搬到外部，干扰消失每件事更准</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">♻️</div>
+      <h3>认知共生</h3>
+      <p>好App让OS更聪明，OS更精准调用App——飞轮转起来</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">📈</div>
+      <h3>飞轮效应</h3>
+      <p>越用越厚，越难迁移，真正的护城河慢慢建立起来</p>
+    </div>
+  </div>
+
+  <!-- MOD-4: CTA按钮 -->
+  <div class="cta-button">
+    <span class="coord">D-03</span>
+    <div class="main-text">The best context is no context.</div>
+    <div class="sub-text">Agent越轻，表现越好。好的Application帮Agent减负。</div>
+  </div>
+
+  <!-- MOD-5: 对比表格 -->
+  <div class="comparison-section">
+    <span class="coord">E-08</span>
+    <h2>三层光谱对比</h2>
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>形态</th>
+          <th>执行方式</th>
+          <th>壁垒</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Prompt 指令</td>
+          <td>Agent自己推理</td>
+          <td><span class="tag red">壁垒为零</span></td>
+        </tr>
+        <tr>
+          <td>Script 工具</td>
+          <td>外部代劳</td>
+          <td><span class="tag blue">壁垒低</span></td>
+        </tr>
+        <tr>
+          <td>Application</td>
+          <td>代劳+状态+设施</td>
+          <td><span class="tag green">壁垒高</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- BOTTOM: 洞察 + 速查 -->
+  <div class="bottom-section">
+    <div class="insight-box">
+      <span class="coord">F-15</span>
+      <h3>核心洞察</h3>
+      <p>
+        OS的命题是<span class="highlight">WHAT（做什么）</span>——在有限容量和带宽下帮用户完成尽可能多的事。<br><br>
+        Application的命题是<span class="highlight">HOW（怎么做）</span>——每次被调用时提供最大领域价值。
+      </p>
+    </div>
+    <div class="quick-list">
+      <h3>速查</h3>
+      <ul>
+        <li>上下文容量</li>
+        <li>注意力带宽</li>
+        <li>领域状态 ≠ Memory</li>
+        <li>越用越厚</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>AGENT COGNITION</span>
+    <span><span class="dot"></span></span>
+    <span>DIALOG STYLE · 2026</span>
+  </div>
+
+</div>
+</body>
+</html>

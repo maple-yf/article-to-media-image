@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>深蓝卡片科技风 · 【文章标题】</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  .coord { display: none; }
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 40px 20px;
+    background: #0A1628;
+    font-family: 'Noto Sans SC', 'Inter', sans-serif;
+  }
+
+  .container {
+    width: 1080px;
+    min-height: 1440px;
+    background: linear-gradient(180deg, #0A192F 0%, #142233 50%, #0F1F35 100%);
+    position: relative;
+    padding: 48px 52px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+
+  /* 顶部发光线 */
+  .container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 52px;
+    right: 52px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #1E90FF, transparent);
+  }
+
+  /* ===== HEADER ===== */
+  .header {
+    text-align: center;
+    padding: 20px 0 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+  }
+  .header .tag {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: #1E90FF;
+    background: rgba(30,144,255,0.15);
+    padding: 8px 20px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 64px;
+    font-weight: 900;
+    color: #FFFFFF;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    text-shadow: 0 0 30px rgba(30,144,255,0.3);
+  }
+  .header h1 .highlight {
+    color: #1E90FF;
+    text-shadow: 0 0 30px rgba(30,144,255,0.5);
+  }
+  .header .subtitle {
+    font-size: 24px;
+    color: #8899AC;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  /* ===== DATA STRIP (MOD-1) ===== */
+  .data-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .data-card {
+    padding: 24px 20px;
+    text-align: center;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+  .data-card.blue {
+    background: linear-gradient(135deg, rgba(30,144,255,0.2) 0%, rgba(30,144,255,0.05) 100%);
+    border: 1px solid rgba(30,144,255,0.3);
+  }
+  .data-card.green {
+    background: linear-gradient(135deg, rgba(0,200,83,0.2) 0%, rgba(0,200,83,0.05) 100%);
+    border: 1px solid rgba(0,200,83,0.3);
+  }
+  .data-card.orange {
+    background: linear-gradient(135deg, rgba(255,152,0,0.2) 0%, rgba(255,152,0,0.05) 100%);
+    border: 1px solid rgba(255,152,0,0.3);
+  }
+  .data-card.purple {
+    background: linear-gradient(135deg, rgba(139,92,246,0.2) 0%, rgba(139,92,246,0.05) 100%);
+    border: 1px solid rgba(139,92,246,0.3);
+  }
+  .data-card .val {
+    font-family: 'Inter', sans-serif;
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .data-card.blue .val { color: #1E90FF; text-shadow: 0 0 20px rgba(30,144,255,0.4); }
+  .data-card.green .val { color: #00C853; text-shadow: 0 0 20px rgba(0,200,83,0.4); }
+  .data-card.orange .val { color: #FF9800; text-shadow: 0 0 20px rgba(255,152,0,0.4); }
+  .data-card.purple .val { color: #8B5CF6; text-shadow: 0 0 20px rgba(139,92,246,0.4); }
+  .data-card .val .unit {
+    font-size: 28px;
+    font-weight: 500;
+    opacity: 0.7;
+  }
+  .data-card .label {
+    font-size: 20px;
+    color: #8899AC;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+
+  /* ===== FEATURE CARDS (MOD-2) ===== */
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .feature-card {
+    padding: 24px;
+    border-radius: 12px;
+    position: relative;
+  }
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    border-radius: 12px 0 0 12px;
+  }
+  .feature-card.blue {
+    background: linear-gradient(135deg, rgba(15,52,96,0.6) 0%, rgba(15,52,96,0.3) 100%);
+    border: 1px solid rgba(30,144,255,0.3);
+  }
+  .feature-card.blue::before { background: #1E90FF; }
+  .feature-card.green {
+    background: linear-gradient(135deg, rgba(13,71,161,0.6) 0%, rgba(13,71,161,0.3) 100%);
+    border: 1px solid rgba(0,200,83,0.3);
+  }
+  .feature-card.green::before { background: #00C853; }
+  .feature-card.orange {
+    background: linear-gradient(135deg, rgba(62,39,35,0.6) 0%, rgba(62,39,35,0.3) 100%);
+    border: 1px solid rgba(255,152,0,0.3);
+  }
+  .feature-card.orange::before { background: #FF9800; }
+  .feature-card .icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+  .feature-card.blue .icon { background: rgba(30,144,255,0.2); }
+  .feature-card.green .icon { background: rgba(0,200,83,0.2); }
+  .feature-card.orange .icon { background: rgba(255,152,0,0.2); }
+  .feature-card h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 8px;
+  }
+  .feature-card p {
+    font-size: 18px;
+    color: #8899AC;
+    line-height: 1.6;
+  }
+  .feature-card .stat {
+    font-family: 'Inter', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-top: 12px;
+  }
+  .feature-card .stat-label {
+    font-size: 14px;
+    color: #8899AC;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* ===== SPECTRUM CARDS (MOD-3) ===== */
+  .spectrum-section {
+    padding: 28px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+  }
+  .spectrum-section h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .spectrum-section h2::before {
+    content: '';
+    width: 4px;
+    height: 24px;
+    background: #1E90FF;
+    border-radius: 2px;
+  }
+  .spectrum-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .spectrum-item {
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: all 0.3s;
+  }
+  .spectrum-item.low {
+    background: rgba(255,255,255,0.03);
+    border-color: rgba(136,153,172,0.3);
+  }
+  .spectrum-item.mid {
+    background: rgba(30,144,255,0.08);
+    border-color: rgba(30,144,255,0.3);
+  }
+  .spectrum-item.high {
+    background: rgba(0,200,83,0.1);
+    border-color: rgba(0,200,83,0.5);
+    box-shadow: 0 0 20px rgba(0,200,83,0.15);
+  }
+  .spectrum-item .badge {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+  }
+  .spectrum-item.low .badge { background: rgba(136,153,172,0.2); color: #8899AC; }
+  .spectrum-item.mid .badge { background: rgba(30,144,255,0.2); color: #1E90FF; }
+  .spectrum-item.high .badge { background: rgba(0,200,83,0.2); color: #00C853; }
+  .spectrum-item h4 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 6px;
+  }
+  .spectrum-item p {
+    font-size: 16px;
+    color: #8899AC;
+    line-height: 1.5;
+  }
+
+  /* ===== INSIGHT BOX (MOD-4) ===== */
+  .insight-box {
+    padding: 28px 32px;
+    background: linear-gradient(135deg, rgba(30,144,255,0.15) 0%, rgba(30,144,255,0.05) 100%);
+    border: 1px solid rgba(30,144,255,0.3);
+    border-radius: 12px;
+    position: relative;
+  }
+  .insight-box::before {
+    content: '💡';
+    position: absolute;
+    top: -16px;
+    left: 24px;
+    width: 40px;
+    height: 40px;
+    background: #FF9800;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    box-shadow: 0 4px 12px rgba(255,152,0,0.4);
+  }
+  .insight-box h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 12px;
+    margin-left: 12px;
+  }
+  .insight-box p {
+    font-size: 20px;
+    color: #B8C5D9;
+    line-height: 1.7;
+  }
+  .insight-box .highlight {
+    color: #1E90FF;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(30,144,255,0.3);
+  }
+
+  /* ===== WARNING (MOD-5) ===== */
+  .warning-box {
+    padding: 24px 28px;
+    background: rgba(220, 38, 38, 0.1);
+    border: 1px solid rgba(220, 38, 38, 0.4);
+    border-radius: 12px;
+  }
+  .warning-box h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #F87171;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .warning-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .warning-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 18px;
+    color: #B8C5D9;
+    line-height: 1.6;
+  }
+  .warning-item .icon {
+    color: #F87171;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .warning-item strong {
+    color: #FFFFFF;
+    font-weight: 600;
+  }
+
+  /* ===== BOTTOM TAGS ===== */
+  .tag-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .tag-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .tag-item.blue { background: rgba(30,144,255,0.15); color: #1E90FF; }
+  .tag-item.green { background: rgba(0,200,83,0.15); color: #00C853; }
+  .tag-item.orange { background: rgba(255,152,0,0.15); color: #FF9800; }
+  .tag-item.purple { background: rgba(139,92,246,0.15); color: #8B5CF6; }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 16px;
+    color: #8899AC;
+    letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <span class="coord">SEC-00</span>
+    <div class="tag">INSIGHT BRIEF</div>
+    <h1>Agent<span class="highlight">认知</span>：OS与Application</h1>
+    <p class="subtitle">垂类不该做Agent，该做Agent上面的应用。战场不同，壁垒不同。</p>
+  </div>
+
+  <!-- MOD-1: 核心数据 -->
+  <div class="data-strip">
+    <span class="coord">A-01</span>
+    <div class="data-card blue">
+      <div class="val">2<span class="unit">个</span></div>
+      <div class="label">物理约束</div>
+    </div>
+    <div class="data-card green">
+      <div class="val">3<span class="unit">层</span></div>
+      <div class="label">光谱递进</div>
+    </div>
+    <div class="data-card orange">
+      <div class="val">2<span class="unit">种</span></div>
+      <div class="label">核心价值</div>
+    </div>
+    <div class="data-card purple">
+      <div class="val">3<span class="unit">样</span></div>
+      <div class="label">不可复制</div>
+    </div>
+  </div>
+
+  <!-- MOD-2: 三大核心卡片 -->
+  <div class="feature-grid">
+    <span class="coord">B-05</span>
+    <div class="feature-card blue">
+      <div class="icon">🧠</div>
+      <h3>上下文容量</h3>
+      <p>Context是有限容器，塞得越多性能越差。装不下的领域知识，Application在外面管着。</p>
+    </div>
+    <div class="feature-card green">
+      <div class="icon">⚡</div>
+      <h3>注意力带宽</h3>
+      <p>多任务争抢同一份注意力，每件事质量都下降。注意力是零和的。</p>
+    </div>
+    <div class="feature-card orange">
+      <div class="icon">🚀</div>
+      <h3>认知共生</h3>
+      <div class="stat">1+1</div>
+      <div class="stat-label">大于2的飞轮效应</div>
+    </div>
+  </div>
+
+  <!-- MOD-3: 三层光谱 -->
+  <div class="spectrum-section">
+    <span class="coord">C-12</span>
+    <h2>从指令到服务的三层光谱</h2>
+    <div class="spectrum-grid">
+      <div class="spectrum-item low">
+        <div class="badge">壁垒 = 零</div>
+        <h4>Prompt 指令</h4>
+        <p>给Agent点拨方向<br>活还是Agent干</p>
+      </div>
+      <div class="spectrum-item mid">
+        <div class="badge">壁垒 = 低</div>
+        <h4>Script 工具</h4>
+        <p>外部代劳返回结果<br>但无状态可复现</p>
+      </div>
+      <div class="spectrum-item high">
+        <div class="badge">壁垒 = 高</div>
+        <h4>Application</h4>
+        <p>外部代劳+持久状态<br>+基础设施</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOD-4: 核心洞察 -->
+  <div class="insight-box">
+    <span class="coord">D-03</span>
+    <h3>核心洞察</h3>
+    <p>
+      好的Application让Agent OS<span class="highlight">变得更聪明</span>。领域推理搬到外部，干扰消失，其他任务更准，于是更精准调用更多Application——<span class="highlight">认知共生飞轮</span>转起来了。<br><br>
+      The best context is <span class="highlight">no context</span>。Agent越轻，表现越好。
+    </p>
+  </div>
+
+  <!-- MOD-5: 避坑警告 -->
+  <div class="warning-box">
+    <span class="coord">E-08</span>
+    <h3>⚠️ 垂类做OS的三个致命理由</h3>
+    <div class="warning-list">
+      <div class="warning-item">
+        <span class="icon">•</span>
+        <span><strong>战场错：</strong>拿领域知识跟OpenAI比推理能力，是拿刀打坦克</span>
+      </div>
+      <div class="warning-item">
+        <span class="icon">•</span>
+        <span><strong>市场收敛：</strong>OS层天然赢家通吃，不会有几十个赢家</span>
+      </div>
+      <div class="warning-item">
+        <span class="icon">•</span>
+        <span><strong>机会成本：</strong>花三年正面硬刚，本可以在自己领域建一座别人进不来的根据地</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOD-6: 标签 -->
+  <div class="tag-row">
+    <span class="coord">F-15</span>
+    <div class="tag-item blue">能力解锁</div>
+    <div class="tag-item green">认知卸载</div>
+    <div class="tag-item orange">飞轮效应</div>
+    <div class="tag-item purple">越用越厚</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>AGENT COGNITION · DEEP BLUE TECH</span>
+    <span>OS × APPLICATION · 2026</span>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>蓝绿流程风 · 【文章标题】</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  .coord { display: none; }
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 40px 20px;
+    background: #F0F4F8;
+    font-family: 'Noto Sans SC', 'Inter', sans-serif;
+  }
+
+  .container {
+    width: 1080px;
+    min-height: 1440px;
+    background: #FFFFFF;
+    position: relative;
+    padding: 40px 52px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  }
+
+  /* ===== HEADER ===== */
+  .header {
+    text-align: center;
+    padding: 16px 0 20px;
+    border-bottom: 2px solid #007BFF;
+    position: relative;
+  }
+  .header .badge {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #FFFFFF;
+    background: #007BFF;
+    padding: 6px 16px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 52px;
+    font-weight: 900;
+    color: #1A1A1A;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .header h1 .blue {
+    color: #007BFF;
+  }
+  .header .subtitle {
+    font-size: 22px;
+    color: #666666;
+    font-weight: 400;
+  }
+
+  /* ===== PROCESS STEPS (MOD-1) ===== */
+  .process-section {
+    padding: 24px;
+    background: #F8F9FA;
+    border-radius: 12px;
+  }
+  .process-section h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1A1A1A;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .process-section h2::before {
+    content: '';
+    width: 4px;
+    height: 20px;
+    background: #007BFF;
+    border-radius: 2px;
+  }
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+  }
+  .process-step {
+    background: #FFFFFF;
+    border: 1px solid #E6F0FF;
+    border-radius: 8px;
+    padding: 16px 12px;
+    text-align: center;
+    position: relative;
+  }
+  .process-step .num {
+    width: 32px;
+    height: 32px;
+    background: #007BFF;
+    color: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 auto 10px;
+  }
+  .process-step .step-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1A1A1A;
+    margin-bottom: 4px;
+  }
+  .process-step .step-sub {
+    font-size: 14px;
+    color: #666666;
+  }
+  .process-step .arrow {
+    position: absolute;
+    right: -14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #007BFF;
+    font-size: 18px;
+  }
+
+  /* ===== DUAL CARDS (MOD-2) ===== */
+  .dual-card-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .dual-card {
+    padding: 24px;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+  .dual-card.blue {
+    background: linear-gradient(135deg, #E6F0FF 0%, #F0F7FF 100%);
+    border: 1px solid #B8D4FE;
+  }
+  .dual-card.green {
+    background: linear-gradient(135deg, #ECFDF5 0%, #F0FDF4 100%);
+    border: 1px solid #A7F3D0;
+  }
+  .dual-card h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .dual-card.blue h3 { color: #007BFF; }
+  .dual-card.green h3 { color: #10B981; }
+  .dual-card p {
+    font-size: 18px;
+    color: #333333;
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+  .dual-card .btn {
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s;
+  }
+  .dual-card.blue .btn {
+    background: #007BFF;
+    color: #FFFFFF;
+  }
+  .dual-card.blue .btn:hover {
+    background: #0056B3;
+  }
+  .dual-card.green .btn {
+    background: #10B981;
+    color: #FFFFFF;
+  }
+  .dual-card.green .btn:hover {
+    background: #059669;
+  }
+
+  /* ===== SPECTRUM CARDS (MOD-3) ===== */
+  .spectrum-section {
+    padding: 24px;
+    background: #FFFFFF;
+    border: 1px solid #E9ECEF;
+    border-radius: 12px;
+  }
+  .spectrum-section h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1A1A1A;
+    margin-bottom: 20px;
+  }
+  .spectrum-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .spectrum-card {
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid transparent;
+  }
+  .spectrum-card.low {
+    background: #F8F9FA;
+    border-color: #E9ECEF;
+  }
+  .spectrum-card.mid {
+    background: #FFF7ED;
+    border-color: #FED7AA;
+  }
+  .spectrum-card.high {
+    background: #ECFDF5;
+    border-color: #10B981;
+  }
+  .spectrum-card .tag {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+  }
+  .spectrum-card.low .tag { background: #E9ECEF; color: #666666; }
+  .spectrum-card.mid .tag { background: #FED7AA; color: #EA580C; }
+  .spectrum-card.high .tag { background: #10B981; color: #FFFFFF; }
+  .spectrum-card h4 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1A1A1A;
+    margin-bottom: 6px;
+  }
+  .spectrum-card p {
+    font-size: 16px;
+    color: #666666;
+    line-height: 1.5;
+  }
+
+  /* ===== INFO BOX (MOD-4) ===== */
+  .info-box {
+    padding: 20px 24px;
+    background: #FFF7ED;
+    border-left: 4px solid #F59E0B;
+    border-radius: 8px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .info-box .icon {
+    width: 40px;
+    height: 40px;
+    background: #F59E0B;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .info-box .content h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1A1A1A;
+    margin-bottom: 8px;
+  }
+  .info-box .content p {
+    font-size: 18px;
+    color: #333333;
+    line-height: 1.6;
+  }
+
+  /* ===== VALUE CARDS (MOD-5) ===== */
+  .value-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .value-card {
+    padding: 20px;
+    background: #F8F9FA;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid #E9ECEF;
+  }
+  .value-card .val {
+    font-family: 'Inter', sans-serif;
+    font-size: 48px;
+    font-weight: 800;
+    color: #007BFF;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .value-card .val .unit {
+    font-size: 20px;
+    font-weight: 500;
+    color: #666666;
+  }
+  .value-card .label {
+    font-size: 18px;
+    color: #333333;
+    font-weight: 600;
+  }
+
+  /* ===== LIFECYCLE (MOD-6) ===== */
+  .lifecycle-section {
+    padding: 24px;
+    background: #FFFFFF;
+    border: 1px solid #E9ECEF;
+    border-radius: 12px;
+  }
+  .lifecycle-section h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1A1A1A;
+    margin-bottom: 18px;
+  }
+  .lifecycle-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  .lifecycle-step {
+    padding: 18px 16px;
+    background: #F8F9FA;
+    border: 1px solid #E6F0FF;
+    border-radius: 8px;
+    text-align: center;
+  }
+  .lifecycle-step .icon {
+    width: 36px;
+    height: 36px;
+    background: #007BFF;
+    color: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    margin: 0 auto 10px;
+  }
+  .lifecycle-step h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1A1A1A;
+    margin-bottom: 4px;
+  }
+  .lifecycle-step p {
+    font-size: 16px;
+    color: #666666;
+    line-height: 1.4;
+  }
+
+  /* ===== WARNING (MOD-7) ===== */
+  .warning-section {
+    padding: 20px 24px;
+    background: #FEF2F2;
+    border-left: 4px solid #DC2626;
+    border-radius: 8px;
+  }
+  .warning-section h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #DC2626;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .warning-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .warning-item {
+    padding: 16px;
+    background: #FFFFFF;
+    border-radius: 8px;
+    border: 1px solid #FECACA;
+  }
+  .warning-item h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #DC2626;
+    margin-bottom: 6px;
+  }
+  .warning-item p {
+    font-size: 16px;
+    color: #333333;
+    line-height: 1.5;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0 0;
+    border-top: 1px solid #E9ECEF;
+    font-size: 16px;
+    color: #999999;
+  }
+  .footer .blue {
+    color: #007BFF;
+    font-weight: 600;
+  }
+  .footer .green {
+    color: #10B981;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <span class="coord">SEC-00</span>
+    <div class="badge">EVENT DRIVEN ARCHITECTURE</div>
+    <h1>Agent<span class="blue">认知</span>：OS与Application</h1>
+    <p class="subtitle">从物理约束出发，理解Agent生态的分工逻辑</p>
+  </div>
+
+  <!-- MOD-1: 流程步骤 -->
+  <div class="process-section">
+    <span class="coord">A-01</span>
+    <h2>Agent认知的五个核心步骤</h2>
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="num">1</div>
+        <div class="step-name">理解约束</div>
+        <div class="step-sub">物理限制</div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="process-step">
+        <div class="num">2</div>
+        <div class="step-name">识别战场</div>
+        <div class="step-sub">OS vs App</div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="process-step">
+        <div class="num">3</div>
+        <div class="step-name">三层光谱</div>
+        <div class="step-sub">递进关系</div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="process-step">
+        <div class="num">4</div>
+        <div class="step-name">构建壁垒</div>
+        <div class="step-sub">不可复制</div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="process-step">
+        <div class="num">5</div>
+        <div class="step-name">认知共生</div>
+        <div class="step-sub">飞轮效应</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOD-2: 双列对比 -->
+  <div class="dual-card-section">
+    <span class="coord">B-05</span>
+    <div class="dual-card blue">
+      <h3>SQLite + FTS5</h3>
+      <p>全文检索引擎，高效存储文本索引。适合结构化数据和关键词搜索。</p>
+      <div class="btn">查看文档</div>
+    </div>
+    <div class="dual-card green">
+      <h3>Chroma 向量库</h3>
+      <p>语义理解与向量检索，支持Embedding相似度匹配。适合模糊搜索。</p>
+      <div class="btn">查看文档</div>
+    </div>
+  </div>
+
+  <!-- MOD-3: 三层光谱 -->
+  <div class="spectrum-section">
+    <span class="coord">C-12</span>
+    <h2>从指令到服务的三层光谱</h2>
+    <div class="spectrum-cards">
+      <div class="spectrum-card low">
+        <div class="tag">壁垒 = 零</div>
+        <h4>Prompt 指令</h4>
+        <p>给Agent点拨方向<br>活还是Agent干</p>
+      </div>
+      <div class="spectrum-card mid">
+        <div class="tag">壁垒 = 低</div>
+        <h4>Script 工具</h4>
+        <p>外部代劳返回结果<br>但无外部状态</p>
+      </div>
+      <div class="spectrum-card high">
+        <div class="tag">壁垒 = 高</div>
+        <h4>Application</h4>
+        <p>外部代劳+持久状态<br>+基础设施</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOD-4: 核心思想 -->
+  <div class="info-box">
+    <span class="coord">D-03</span>
+    <div class="icon">💡</div>
+    <div class="content">
+      <h3>核心思想</h3>
+      <p>Agent有两个物理约束：上下文容量和注意力带宽。这不是bug，像光速一样只能围绕它做工程。Application通过把领域推理搬走，释放OS的带宽，让两者都变得更强。</p>
+    </div>
+  </div>
+
+  <!-- MOD-5: 核心数据 -->
+  <div class="value-section">
+    <span class="coord">E-08</span>
+    <div class="value-card">
+      <div class="val">2<span class="unit">个</span></div>
+      <div class="label">物理约束</div>
+    </div>
+    <div class="value-card">
+      <div class="val">3<span class="unit">层</span></div>
+      <div class="label">光谱递进</div>
+    </div>
+    <div class="value-card">
+      <div class="val">3<span class="unit">样</span></div>
+      <div class="label">不可复制</div>
+    </div>
+    <div class="value-card">
+      <div class="val">2<span class="unit">种</span></div>
+      <div class="label">核心价值</div>
+    </div>
+  </div>
+
+  <!-- MOD-6: 生命周期 -->
+  <div class="lifecycle-section">
+    <span class="coord">F-15</span>
+    <h2>一次记忆的完整生命周期</h2>
+    <div class="lifecycle-grid">
+      <div class="lifecycle-step">
+        <div class="icon">📝</div>
+        <h4>捕获</h4>
+        <p>自动捕获编码会话操作</p>
+      </div>
+      <div class="lifecycle-step">
+        <div class="icon">💾</div>
+        <h4>存储</h4>
+        <p>SQLite + Chroma混合存储</p>
+      </div>
+      <div class="lifecycle-step">
+        <div class="icon">🔍</div>
+        <h4>检索</h4>
+        <p>三层渐进检索策略</p>
+      </div>
+      <div class="lifecycle-step">
+        <div class="icon">♻️</div>
+        <h4>复用</h4>
+        <p>跨会话记住架构决策</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOD-7: 避坑警告 -->
+  <div class="warning-section">
+    <span class="coord">G-20</span>
+    <h3>⚠️ 避坑指南</h3>
+    <div class="warning-grid">
+      <div class="warning-item">
+        <h4>战场错位</h4>
+        <p>垂类做OS是找死，领域深度在OS战场上没用</p>
+      </div>
+      <div class="warning-item">
+        <h4>Skill裸奔</h4>
+        <p>接口背后什么都没有，天花板就是卖copy</p>
+      </div>
+      <div class="warning-item">
+        <h4>概念混淆</h4>
+        <p>领域状态≠Memory，一个是业务上下文</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>AGENT COGNITION</span>
+    <span><span class="blue">BLUE</span> × <span class="green">GREEN</span> PROCESS</span>
+    <span>2026</span>
+  </div>
+
+</div>
+</body>
+</html>
