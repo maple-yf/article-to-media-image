@@ -16,7 +16,7 @@
     align-items: flex-start;
     min-height: 100vh;
     padding: 40px 20px;
-    background: #1A0E00;
+    background: #1a1a2e;
     font-family: 'Noto Sans SC', sans-serif;
   }
 
@@ -420,124 +420,180 @@
     margin-right: 8px;
     vertical-align: middle;
   }
+
+  .slide-card {
+    width: 810px;
+    height: 1080px;
+    background: inherit;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .card-inner {
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    border-radius: 18px;
+    padding: 60px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .slide-number {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #667eea;
+    background: rgba(102, 126, 234, 0.1);
+    padding: 6px 14px;
+    border-radius: 20px;
+    letter-spacing: 2px;
+  }
 </style>
 </head>
 <body>
 <div class="container">
-  <div class="crt-grid"></div>
 
-  <!-- HEADER -->
-  <div class="header">
-    <span class="coord">SEC-00</span>
-    <div class="boot-line">AGENT COGNITION LOADED — OS.KERNEL v1.0</div>
-    <h1>Agent认知：<span class="amber">OS与Application</span></h1>
-    <div class="terminal-meta">
-      <span>PARADIGM: AGENT-NATIVE</span>
-      <span>MODULES: 5</span>
-      <span>THESIS: SYMBIOSIS</span>
-    </div>
-  </div>
-
-  <!-- MOD-1: 三层光谱 — Prompt / Script / Application -->
-  <div class="panel">
-    <span class="coord">A-01</span>
-    <h2>THREE-LAYER SPECTRUM</h2>
-    <div class="grid-3col">
-      <div class="matrix-card">
-        <div class="name">Prompt 指令</div>
-        <div class="desc">给 Agent 点拨方向，活还是它自己干，带宽不减。文本可复制。</div>
-        <div class="barrier barrier-zero">BARRIER: ⬜ ZERO</div>
-      </div>
-      <div class="matrix-card">
-        <div class="name">Script 工具</div>
-        <div class="desc">外部代劳返回结果，带宽降低。但无状态，逻辑可复现。</div>
-        <div class="barrier barrier-low">BARRIER: ▣ LOW</div>
-      </div>
-      <div class="matrix-card active">
-        <div class="badge">OPTIMAL</div>
-        <div class="name">Application</div>
-        <div class="desc">外部代劳 + 持久状态 + 基础设施，不可复制。</div>
-        <div class="barrier barrier-high">BARRIER: ■ HIGH</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- MOD-2: 壁垒仪表盘 -->
-  <div class="panel phosphor">
-    <span class="coord">B-05</span>
-    <h2>BARRIER GAUGES</h2>
-    <div class="gauge-group">
-      <div class="gauge-item">
-        <span class="gauge-label">Prompt</span>
-        <div class="gauge-track"><div class="gauge-fill danger" style="width:5%"></div></div>
-        <span class="gauge-val danger-text">≈ 0</span>
-      </div>
-      <div class="gauge-item">
-        <span class="gauge-label">Script</span>
-        <div class="gauge-track"><div class="gauge-fill" style="width:30%"></div></div>
-        <span class="gauge-val">LOW</span>
-      </div>
-      <div class="gauge-item">
-        <span class="gauge-label">Application</span>
-        <div class="gauge-track"><div class="gauge-fill phosphor" style="width:92%"></div></div>
-        <span class="gauge-val phosphor-text">HIGH</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="grid-2col">
-    <!-- MOD-3: 两个物理约束 -->
-    <div class="panel">
-      <span class="coord">C-12</span>
-      <h2>PHYSICAL LIMITS</h2>
-      <p class="analysis-text">
-        Agent 有 <span class="num">2</span> 个物理约束——不是 bug，像光速一样不能许愿消失。<br><br>
-        <span class="hl">上下文容量</span>：有限容器，塞得越多性能越差。<br>
-        <span class="hl">注意力带宽</span>：多任务争抢同一份注意力，<span class="green">零和博弈</span>，每件事质量都下降。
-      </p>
-    </div>
-
-    <!-- MOD-4: OS vs Application -->
-    <div class="panel phosphor">
-      <span class="coord">D-03</span>
-      <h2>OS vs APPLICATION</h2>
-      <div class="scene-grid">
-        <div class="scene-card before">
-          <div class="scene-title">OS — WHAT</div>
-          <div class="scene-body"><strong>做什么？</strong>在有限容量和带宽下，帮用户完成尽可能多的事。持有用户意图与跨域上下文。</div>
+  <!-- Slide 1: Header + Three-Layer Spectrum -->
+  <div class="slide-card">
+    <span class="slide-number">01</span>
+    <div class="card-inner">
+      <!-- HEADER -->
+      <div class="header">
+        <span class="coord">SEC-00</span>
+        <div class="boot-line">AGENT COGNITION LOADED — OS.KERNEL v1.0</div>
+        <h1>Agent认知：<span class="amber">OS与Application</span></h1>
+        <div class="terminal-meta">
+          <span>PARADIGM: AGENT-NATIVE</span>
+          <span>MODULES: 5</span>
+          <span>THESIS: SYMBIOSIS</span>
         </div>
-        <div class="scene-card after">
-          <div class="scene-title">APP — HOW</div>
-          <div class="scene-body"><strong>怎么做？</strong>每次被调用时提供最大领域价值。持有领域状态与业务历史。</div>
+      </div>
+
+      <!-- MOD-1: 三层光谱 — Prompt / Script / Application -->
+      <div class="panel">
+        <span class="coord">A-01</span>
+        <h2>THREE-LAYER SPECTRUM</h2>
+        <div class="grid-3col">
+          <div class="matrix-card">
+            <div class="name">Prompt 指令</div>
+            <div class="desc">给 Agent 点拨方向，活还是它自己干，带宽不减。文本可复制。</div>
+            <div class="barrier barrier-zero">BARRIER: ⬜ ZERO</div>
+          </div>
+          <div class="matrix-card">
+            <div class="name">Script 工具</div>
+            <div class="desc">外部代劳返回结果，带宽降低。但无状态，逻辑可复现。</div>
+            <div class="barrier barrier-low">BARRIER: ▣ LOW</div>
+          </div>
+          <div class="matrix-card active">
+            <div class="badge">OPTIMAL</div>
+            <div class="name">Application</div>
+            <div class="desc">外部代劳 + 持久状态 + 基础设施，不可复制。</div>
+            <div class="barrier barrier-high">BARRIER: ■ HIGH</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- MOD-5: 警告区 -->
-  <div class="panel alert">
-    <span class="coord">E-08</span>
-    <h2>WARNING ZONE</h2>
-    <div class="warn-list">
-      <div class="warn-item">
-        <span class="icon">[!]</span>
-        <span><strong>垂类做OS = 拿刀打坦克。</strong>Agent 战场是推理与编排，领域知识在这里毫无用处。OS 天然收敛，不会有几十个赢家。</span>
+  <!-- Slide 2: Barrier Gauges + Physical Limits -->
+  <div class="slide-card">
+    <span class="slide-number">02</span>
+    <div class="card-inner">
+      <!-- MOD-2: 壁垒仪表盘 -->
+      <div class="panel phosphor">
+        <span class="coord">B-05</span>
+        <h2>BARRIER GAUGES</h2>
+        <div class="gauge-group">
+          <div class="gauge-item">
+            <span class="gauge-label">Prompt</span>
+            <div class="gauge-track"><div class="gauge-fill danger" style="width:5%"></div></div>
+            <span class="gauge-val danger-text">≈ 0</span>
+          </div>
+          <div class="gauge-item">
+            <span class="gauge-label">Script</span>
+            <div class="gauge-track"><div class="gauge-fill" style="width:30%"></div></div>
+            <span class="gauge-val">LOW</span>
+          </div>
+          <div class="gauge-item">
+            <span class="gauge-label">Application</span>
+            <div class="gauge-track"><div class="gauge-fill phosphor" style="width:92%"></div></div>
+            <span class="gauge-val phosphor-text">HIGH</span>
+          </div>
+        </div>
       </div>
-      <div class="warn-item">
-        <span class="icon">[!]</span>
-        <span><strong>Skill 天花板是卖 copy。</strong>做得越好抄得越容易，越成功越多人涌进来。接口背后什么都没有，就是在裸奔。</span>
-      </div>
-      <div class="warn-item">
-        <span class="icon">[!]</span>
-        <span><strong>领域状态 ≠ Memory。</strong>Memory 是 OS 层通用记忆。领域状态是垂类业务上下文——资产沉淀，越用越厚，越难迁移。</span>
+
+      <!-- MOD-3: 两个物理约束 -->
+      <div class="panel">
+        <span class="coord">C-12</span>
+        <h2>PHYSICAL LIMITS</h2>
+        <p class="analysis-text">
+          Agent 有 <span class="num">2</span> 个物理约束——不是 bug，像光速一样不能许愿消失。<br><br>
+          <span class="hl">上下文容量</span>：有限容器，塞得越多性能越差。<br>
+          <span class="hl">注意力带宽</span>：多任务争抢同一份注意力，<span class="green">零和博弈</span>，每件事质量都下降。
+        </p>
       </div>
     </div>
   </div>
 
-  <!-- STATUS BAR -->
-  <div class="status-bar">
-    <span><span class="led"></span>THE BEST CONTEXT IS NO CONTEXT</span>
-    <span>AGENT.OS v1.0 · COGNITIVE SYMBIOSIS</span>
+  <!-- Slide 3: OS vs Application -->
+  <div class="slide-card">
+    <span class="slide-number">03</span>
+    <div class="card-inner">
+      <!-- MOD-4: OS vs Application -->
+      <div class="panel phosphor">
+        <span class="coord">D-03</span>
+        <h2>OS vs APPLICATION</h2>
+        <div class="scene-grid">
+          <div class="scene-card before">
+            <div class="scene-title">OS — WHAT</div>
+            <div class="scene-body"><strong>做什么？</strong>在有限容量和带宽下，帮用户完成尽可能多的事。持有用户意图与跨域上下文。</div>
+          </div>
+          <div class="scene-card after">
+            <div class="scene-title">APP — HOW</div>
+            <div class="scene-body"><strong>怎么做？</strong>每次被调用时提供最大领域价值。持有领域状态与业务历史。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 4: Warning + Status Bar -->
+  <div class="slide-card">
+    <span class="slide-number">04</span>
+    <div class="card-inner">
+      <!-- MOD-5: 警告区 -->
+      <div class="panel alert">
+        <span class="coord">E-08</span>
+        <h2>WARNING ZONE</h2>
+        <div class="warn-list">
+          <div class="warn-item">
+            <span class="icon">[!]</span>
+            <span><strong>垂类做OS = 拿刀打坦克。</strong>Agent 战场是推理与编排，领域知识在这里毫无用处。OS 天然收敛，不会有几十个赢家。</span>
+          </div>
+          <div class="warn-item">
+            <span class="icon">[!]</span>
+            <span><strong>Skill 天花板是卖 copy。</strong>做得越好抄得越容易，越成功越多人涌进来。接口背后什么都没有，就是在裸奔。</span>
+          </div>
+          <div class="warn-item">
+            <span class="icon">[!]</span>
+            <span><strong>领域状态 ≠ Memory。</strong>Memory 是 OS 层通用记忆。领域状态是垂类业务上下文——资产沉淀，越用越厚，越难迁移。</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STATUS BAR -->
+      <div class="status-bar">
+        <span><span class="led"></span>THE BEST CONTEXT IS NO CONTEXT</span>
+        <span>AGENT.OS v1.0 · COGNITIVE SYMBIOSIS</span>
+      </div>
+    </div>
   </div>
 
 </div>
