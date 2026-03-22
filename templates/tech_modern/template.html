@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1080">
+  <title>Tech Modern</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0F172A;
+      font-family: 'Rajdhani', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 1080px;
+      min-height: 1440px;
+      padding: 56px;
+      margin: 0;
+      background: #0F172A;
+      color: #E2E8F0;
+      position: relative;
+    }
+
+    .container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(6,182,212,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .container::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(139,92,246,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 72px;
+      font-weight: 900;
+      background: linear-gradient(to right, #06B6D4, #8B5CF6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 48px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      position: relative;
+    }
+
+    .title::after {
+      content: '';
+      position: absolute;
+      bottom: -16px;
+      left: 0;
+      width: 120px;
+      height: 4px;
+      background: linear-gradient(to right, #06B6D4, #8B5CF6);
+    }
+
+    .content {
+      font-size: 34px;
+      line-height: 1.7;
+      color: #CBD5E1;
+      margin-bottom: 36px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .highlight {
+      background: linear-gradient(135deg, rgba(6,182,212,0.2), rgba(139,92,246,0.2));
+      border: 1px solid rgba(6,182,212,0.4);
+      padding: 28px 32px;
+      border-radius: 12px;
+      font-size: 36px;
+      font-weight: 600;
+      color: #06B6D4;
+      margin: 28px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .highlight::before {
+      content: '◆';
+      margin-right: 12px;
+      color: #8B5CF6;
+    }
+
+    .quote {
+      font-size: 32px;
+      color: #94A3B8;
+      font-style: italic;
+      padding-left: 28px;
+      border-left: 3px solid #8B5CF6;
+      margin: 36px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .code {
+      font-family: 'JetBrains Mono', monospace;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(6,182,212,0.3);
+      padding: 24px;
+      border-radius: 10px;
+      font-size: 23px;
+      color: #E2E8F0;
+      white-space: pre-wrap;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 0 30px rgba(6,182,212,0.1);
+    }
+
+    .decorative-line {
+      position: absolute;
+      background: linear-gradient(to bottom, transparent, rgba(6,182,212,0.3), transparent);
+      width: 1px;
+      height: 200px;
+      top: 200px;
+      right: 80px;
+    }
+
+    .decorative-dot {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: #06B6D4;
+      border-radius: 50%;
+      opacity: 0.6;
+    }
+
+    .footer {
+      margin-top: 80px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(6,182,212,0.2);
+      font-size: 22px;
+      color: #64748B;
+      font-family: 'Orbitron', sans-serif;
+      letter-spacing: 3px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="decorative-line"></div>
+    <div class="decorative-dot" style="top: 180px; right: 76px;"></div>
+    <div class="decorative-dot" style="top: 400px; right: 76px;"></div>
+
+    {% for segment in segments %}
+    {% if segment.type == 'title' %}
+    <h1 class="title">{{ segment.text }}</h1>
+    {% elif segment.type == 'content' %}
+    <p class="content">{{ segment.text }}</p>
+    {% elif segment.type == 'highlight' %}
+    <p class="highlight">{{ segment.text }}</p>
+    {% elif segment.type == 'quote' %}
+    <p class="quote">{{ segment.text }}</p>
+    {% elif segment.type == 'code' %}
+    <pre class="code">{{ segment.text }}</pre>
+    {% endif %}
+    {% endfor %}
+
+    <div class="footer">
+      &lt; ARTICLE-TO-MEDIA-IMAGE /&gt;
+    </div>
+  </div>
+</body>
+</html>

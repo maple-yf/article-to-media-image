@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1080">
+  <title>Dark Tech</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0D1117;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .container {
+      width: 1080px;
+      min-height: 1440px;
+      padding: 60px 56px;
+      margin: 0;
+      background: #0D1117;
+      color: #C9D1D9;
+    }
+
+    .title {
+      font-size: 68px;
+      font-weight: 700;
+      color: #58A6FF;
+      margin-bottom: 48px;
+      border-bottom: 2px solid #30363D;
+      padding-bottom: 24px;
+    }
+
+    .content {
+      font-size: 32px;
+      line-height: 1.7;
+      color: #C9D1D9;
+      margin-bottom: 32px;
+    }
+
+    .highlight {
+      background: rgba(88,166,255,0.1);
+      border: 1px solid #58A6FF;
+      border-left: 4px solid #58A6FF;
+      padding: 24px 28px;
+      border-radius: 8px;
+      font-size: 32px;
+      color: #58A6FF;
+      margin: 24px 0;
+    }
+
+    .quote {
+      color: #8B949E;
+      font-size: 30px;
+      font-style: italic;
+      border-left: 3px solid #8B949E;
+      padding-left: 24px;
+      margin: 32px 0;
+    }
+
+    .code {
+      font-family: 'JetBrains Mono', monospace;
+      background: #161B22;
+      border: 1px solid #30363D;
+      padding: 24px;
+      border-radius: 8px;
+      font-size: 24px;
+      color: #C9D1D9;
+      white-space: pre-wrap;
+      overflow-x: auto;
+    }
+
+    .code .keyword { color: #FF7B72; }
+    .code .string { color: #A5D6FF; }
+    .code .comment { color: #8B949E; }
+
+    .footer {
+      margin-top: 60px;
+      padding-top: 24px;
+      border-top: 1px solid #30363D;
+      font-size: 22px;
+      color: #484F58;
+    }
+
+    .glow {
+      text-shadow: 0 0 20px rgba(88,166,255,0.5);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    {% for segment in segments %}
+    {% if segment.type == 'title' %}
+    <h1 class="title glow">{{ segment.text }}</h1>
+    {% elif segment.type == 'content' %}
+    <p class="content">{{ segment.text }}</p>
+    {% elif segment.type == 'highlight' %}
+    <p class="highlight">▶ {{ segment.text }}</p>
+    {% elif segment.type == 'quote' %}
+    <p class="quote">{{ segment.text }}</p>
+    {% elif segment.type == 'code' %}
+    <pre class="code">{{ segment.text }}</pre>
+    {% endif %}
+    {% endfor %}
+
+    <div class="footer">
+      // Generated with article-to-media-image
+    </div>
+  </div>
+</body>
+</html>
