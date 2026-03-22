@@ -16,7 +16,7 @@
     align-items: flex-start;
     min-height: 100vh;
     padding: 40px 20px;
-    background: #D4C5B2;
+    background: #1a1a2e;
     font-family: 'Noto Sans SC', sans-serif;
   }
 
@@ -431,156 +431,216 @@
     color: #B8956A;
     padding-top: 2px;
   }
+
+  .slide-card {
+    width: 810px;
+    height: 1080px;
+    background: inherit;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .card-inner {
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    border-radius: 18px;
+    padding: 60px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .slide-number {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #667eea;
+    background: rgba(102, 126, 234, 0.1);
+    padding: 6px 14px;
+    border-radius: 20px;
+    letter-spacing: 2px;
+  }
 </style>
 </head>
 <body>
 <div class="container">
-  <div class="tape t1"></div>
-  <div class="tape t2"></div>
 
-  <!-- HEADER -->
-  <div class="header">
-    <span class="coord">SEC-00</span>
-    <div class="date">✎ Agent Cognition · Study Notes</div>
-    <h1>Agent认知：OS与Application</h1>
-    <div class="sub">垂类别做手机，要做手机上的应用</div>
-  </div>
+  <!-- CARD 01: Header + MOD-1 -->
+  <div class="slide-card" data-slide="1">
+    <div class="card-inner">
+      <div class="tape t1"></div>
+      <div class="tape t2"></div>
 
-  <!-- MOD-1: 三层光谱 — Prompt / Script / Application -->
-  <div class="sticky">
-    <span class="coord">A-01</span>
-    <h2><span class="icon">📌</span>三层光谱：从指令到服务</h2>
-    <div class="grid-3col">
-      <div class="opt-card low">
-        <div class="emoji">💬</div>
-        <div class="name">Prompt</div>
-        <div class="meta">给 Agent 指路<br/>活还是它自己干</div>
+      <!-- HEADER -->
+      <div class="header">
+        <span class="coord">SEC-00</span>
+        <div class="date">✎ Agent Cognition · Study Notes</div>
+        <h1>Agent认知：OS与Application</h1>
+        <div class="sub">垂类别做手机，要做手机上的应用</div>
       </div>
-      <div class="opt-card mid">
-        <div class="emoji">⚙️</div>
-        <div class="name">Script</div>
-        <div class="meta">外部代劳<br/>但无状态可复现</div>
-      </div>
-      <div class="opt-card best">
-        <div class="emoji">🏗️</div>
-        <div class="name">Application</div>
-        <div class="meta">代劳 + 持久状态<br/>+ 基础设施</div>
-      </div>
-    </div>
-  </div>
 
-  <div class="grid-2col">
-    <!-- MOD-2: 三样不可复制 -->
-    <div class="sticky green">
-      <span class="coord">B-05</span>
-      <h2><span class="icon">✅</span>三样不可复制</h2>
-      <div class="check-list">
-        <div class="check-item done">
-          <span class="box"></span>
-          <span><strong>领域状态</strong>｜每次交互都在生长，从零追不上</span>
-        </div>
-        <div class="check-item done">
-          <span class="box"></span>
-          <span><strong>基础设施</strong>｜真金白银持续投入，复制代码拿不到</span>
-        </div>
-        <div class="check-item done">
-          <span class="box"></span>
-          <span><strong>规模经济</strong>｜十万用户摊成本，数学碾压</span>
+      <!-- MOD-1: 三层光谱 — Prompt / Script / Application -->
+      <div class="sticky">
+        <span class="coord">A-01</span>
+        <h2><span class="icon">📌</span>三层光谱：从指令到服务</h2>
+        <div class="grid-3col">
+          <div class="opt-card low">
+            <div class="emoji">💬</div>
+            <div class="name">Prompt</div>
+            <div class="meta">给 Agent 指路<br/>活还是它自己干</div>
+          </div>
+          <div class="opt-card mid">
+            <div class="emoji">⚙️</div>
+            <div class="name">Script</div>
+            <div class="meta">外部代劳<br/>但无状态可复现</div>
+          </div>
+          <div class="opt-card best">
+            <div class="emoji">🏗️</div>
+            <div class="name">Application</div>
+            <div class="meta">代劳 + 持久状态<br/>+ 基础设施</div>
+          </div>
         </div>
       </div>
+      <span class="slide-number">01</span>
     </div>
+  </div>
 
-    <!-- MOD-3: OS vs Application -->
-    <div class="doodle-box">
-      <span class="coord">C-12</span>
-      <h2>📊 OS vs Application</h2>
-      <div class="vs-container">
-        <div class="vs-side">
-          <h3>Agent OS</h3>
-          <ul>
-            <li>命题：WHAT</li>
-            <li>持有用户意图</li>
-            <li>跨域上下文</li>
-            <li>推理 + 编排</li>
-          </ul>
+  <!-- CARD 02: MOD-2 + MOD-3 -->
+  <div class="slide-card" data-slide="2">
+    <div class="card-inner">
+      <div class="grid-2col">
+        <!-- MOD-2: 三样不可复制 -->
+        <div class="sticky green">
+          <span class="coord">B-05</span>
+          <h2><span class="icon">✅</span>三样不可复制</h2>
+          <div class="check-list">
+            <div class="check-item done">
+              <span class="box"></span>
+              <span><strong>领域状态</strong>｜每次交互都在生长，从零追不上</span>
+            </div>
+            <div class="check-item done">
+              <span class="box"></span>
+              <span><strong>基础设施</strong>｜真金白银持续投入，复制代码拿不到</span>
+            </div>
+            <div class="check-item done">
+              <span class="box"></span>
+              <span><strong>规模经济</strong>｜十万用户摊成本，数学碾压</span>
+            </div>
+          </div>
         </div>
-        <div class="vs-divider"><span>VS</span></div>
-        <div class="vs-side">
-          <h3>Application</h3>
-          <ul>
-            <li>命题：HOW</li>
-            <li>持有领域状态</li>
-            <li>业务历史</li>
-            <li>认知卸载</li>
-          </ul>
+
+        <!-- MOD-3: OS vs Application -->
+        <div class="doodle-box">
+          <span class="coord">C-12</span>
+          <h2>📊 OS vs Application</h2>
+          <div class="vs-container">
+            <div class="vs-side">
+              <h3>Agent OS</h3>
+              <ul>
+                <li>命题：WHAT</li>
+                <li>持有用户意图</li>
+                <li>跨域上下文</li>
+                <li>推理 + 编排</li>
+              </ul>
+            </div>
+            <div class="vs-divider"><span>VS</span></div>
+            <div class="vs-side">
+              <h3>Application</h3>
+              <ul>
+                <li>命题：HOW</li>
+                <li>持有领域状态</li>
+                <li>业务历史</li>
+                <li>认知卸载</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
+      <span class="slide-number">02</span>
     </div>
   </div>
 
-  <!-- MOD-4: 两个物理约束 -->
-  <div class="sticky blue">
-    <span class="coord">D-03</span>
-    <h2><span class="icon">💡</span>两个物理约束（不是 bug，像光速一样不可消除）</h2>
-    <div class="insight-pair">
-      <div class="insight-item">
-        <div class="emoji-lg">📦</div>
-        <div class="title">上下文容量</div>
-        <div class="desc">Context 是有限容器，<strong>塞得越多性能越差</strong>。装不下的领域知识，Application 在外面管着。</div>
+  <!-- CARD 03: MOD-4 + MOD-5 -->
+  <div class="slide-card" data-slide="3">
+    <div class="card-inner">
+      <!-- MOD-4: 两个物理约束 -->
+      <div class="sticky blue">
+        <span class="coord">D-03</span>
+        <h2><span class="icon">💡</span>两个物理约束（不是 bug，像光速一样不可消除）</h2>
+        <div class="insight-pair">
+          <div class="insight-item">
+            <div class="emoji-lg">📦</div>
+            <div class="title">上下文容量</div>
+            <div class="desc">Context 是有限容器，<strong>塞得越多性能越差</strong>。装不下的领域知识，Application 在外面管着。</div>
+          </div>
+          <div class="insight-item">
+            <div class="emoji-lg">🧠</div>
+            <div class="title">注意力带宽</div>
+            <div class="desc">像周伯通双手互搏——<strong>多任务争抢同一份注意力</strong>，每件事质量都下降。注意力是零和的。</div>
+          </div>
+        </div>
       </div>
-      <div class="insight-item">
-        <div class="emoji-lg">🧠</div>
-        <div class="title">注意力带宽</div>
-        <div class="desc">像周伯通双手互搏——<strong>多任务争抢同一份注意力</strong>，每件事质量都下降。注意力是零和的。</div>
+
+      <!-- MOD-5: 踩坑提醒 -->
+      <div class="warn-sticky">
+        <span class="coord">E-08</span>
+        <h2>⚠️ 踩坑提醒</h2>
+        <ul>
+          <li>垂类做 Agent OS：拿领域知识跟 OpenAI 比推理能力，是拿刀打坦克。OS 天然收敛，不会有几十个赢家</li>
+          <li>Skill 裸奔：接口背后什么都没有。做得越好抄得越容易，天花板就是卖 copy</li>
+        </ul>
       </div>
+      <span class="slide-number">03</span>
     </div>
   </div>
 
-  <!-- MOD-5: 踩坑提醒 -->
-  <div class="warn-sticky">
-    <span class="coord">E-08</span>
-    <h2>⚠️ 踩坑提醒</h2>
-    <ul>
-      <li>垂类做 Agent OS：拿领域知识跟 OpenAI 比推理能力，是拿刀打坦克。OS 天然收敛，不会有几十个赢家</li>
-      <li>Skill 裸奔：接口背后什么都没有。做得越好抄得越容易，天花板就是卖 copy</li>
-    </ul>
-  </div>
+  <!-- CARD 04: MOD-6 + MOD-7 + Footer -->
+  <div class="slide-card" data-slide="4">
+    <div class="card-inner">
+      <div class="grid-2col">
+        <!-- MOD-6: 关键概念速查 -->
+        <div class="doodle-box">
+          <span class="coord">F-15</span>
+          <h2>📋 关键概念速查</h2>
+          <div class="data-row">
+            <span class="key">能力解锁</span>
+            <span class="val">破容量 · 做不到 → 做到</span>
+          </div>
+          <div class="data-row">
+            <span class="key">认知卸载</span>
+            <span class="val">释放带宽 · 干扰消失</span>
+          </div>
+          <div class="data-row">
+            <span class="key">认知共生</span>
+            <span class="val star">好 App 让 OS 更聪明</span>
+          </div>
+          <div class="data-row">
+            <span class="key">领域状态</span>
+            <span class="val">≠ Memory，是业务资产</span>
+          </div>
+        </div>
 
-  <div class="grid-2col">
-    <!-- MOD-6: 关键概念速查 -->
-    <div class="doodle-box">
-      <span class="coord">F-15</span>
-      <h2>📋 关键概念速查</h2>
-      <div class="data-row">
-        <span class="key">能力解锁</span>
-        <span class="val">破容量 · 做不到 → 做到</span>
+        <!-- MOD-7: 核心金句 -->
+        <div class="doodle-box quote-box">
+          <span class="coord">G-20</span>
+          <div class="eng">✦ Core Insight ✦</div>
+          <div class="main-quote">The best context<br/>is no context.</div>
+          <div class="sub-quote">Agent 越轻量，表现越好<br/>好的 Application 帮 Agent 减负</div>
+        </div>
       </div>
-      <div class="data-row">
-        <span class="key">认知卸载</span>
-        <span class="val">释放带宽 · 干扰消失</span>
+
+      <!-- FOOTER -->
+      <div class="footer">
+        made with ♡ · journal style · Agent认知笔记
       </div>
-      <div class="data-row">
-        <span class="key">认知共生</span>
-        <span class="val star">好 App 让 OS 更聪明</span>
-      </div>
-      <div class="data-row">
-        <span class="key">领域状态</span>
-        <span class="val">≠ Memory，是业务资产</span>
-      </div>
+      <span class="slide-number">04</span>
     </div>
-
-    <!-- MOD-7: 核心金句 -->
-    <div class="doodle-box quote-box">
-      <span class="coord">G-20</span>
-      <div class="eng">✦ Core Insight ✦</div>
-      <div class="main-quote">The best context<br/>is no context.</div>
-      <div class="sub-quote">Agent 越轻量，表现越好<br/>好的 Application 帮 Agent 减负</div>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <div class="footer">
-    made with ♡ · journal style · Agent认知笔记
   </div>
 
 </div>
