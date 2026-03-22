@@ -16,7 +16,7 @@
     align-items: flex-start;
     min-height: 100vh;
     padding: 40px 20px;
-    background: #F0F0F0;
+    background: #1a1a2e;
     font-family: 'Noto Sans SC', sans-serif;
   }
 
@@ -607,202 +607,267 @@
   .footer .dot:nth-child(3) { background: #FF6B6B; }
   .footer .dot:nth-child(5) { background: #4169E1; }
   .footer .dot:nth-child(7) { background: #9B59B6; }
+
+  .slide-card {
+    width: 810px;
+    height: 1080px;
+    background: inherit;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .card-inner {
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    border-radius: 18px;
+    padding: 60px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .slide-number {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #667eea;
+    background: rgba(102, 126, 234, 0.1);
+    padding: 6px 14px;
+    border-radius: 20px;
+    letter-spacing: 2px;
+  }
 </style>
 </head>
 <body>
 <div class="container">
 
-  <!-- 散布几何装饰 -->
-  <div class="geo-deco circle-1"></div>
-  <div class="geo-deco circle-2"></div>
-  <div class="geo-deco tri-1"></div>
-  <div class="geo-deco tri-2"></div>
-  <div class="geo-deco cross-1"></div>
-  <div class="geo-deco zigzag"></div>
-  <div class="geo-deco dots"></div>
-  <div class="geo-deco square-1"></div>
-  <div class="geo-deco wave"></div>
+  <!-- CARD 01: Header + MOD-1 -->
+  <div class="slide-card" data-slide="1">
+    <div class="card-inner">
+      <!-- 散布几何装饰 -->
+      <div class="geo-deco circle-1"></div>
+      <div class="geo-deco circle-2"></div>
+      <div class="geo-deco tri-1"></div>
+      <div class="geo-deco tri-2"></div>
+      <div class="geo-deco cross-1"></div>
+      <div class="geo-deco zigzag"></div>
+      <div class="geo-deco dots"></div>
+      <div class="geo-deco square-1"></div>
+      <div class="geo-deco wave"></div>
 
-  <!-- HEADER -->
-  <div class="header">
-    <span class="coord">SEC-00</span>
-    <div class="badge">AGENT INSIGHT</div>
-    <h1>Agent认知：<span class="pop">OS与Application</span></h1>
-    <div class="sub">从物理约束出发，理解 Agent 生态的分工逻辑</div>
-  </div>
+      <!-- HEADER -->
+      <div class="header">
+        <span class="coord">SEC-00</span>
+        <div class="badge">AGENT INSIGHT</div>
+        <h1>Agent认知：<span class="pop">OS与Application</span></h1>
+        <div class="sub">从物理约束出发，理解 Agent 生态的分工逻辑</div>
+      </div>
 
-  <!-- MOD-1: 三种形态 -->
-  <div class="memphis-box yellow shadow-offset">
-    <span class="coord">A-01</span>
-    <h2><span class="tag">形态</span>从指令到服务的三层光谱</h2>
-    <div class="grid-3col">
-      <div class="opt-card">
-        <div class="icon-circle">💬</div>
-        <div class="name">Prompt</div>
-        <div class="meta">给 Agent 指路<br>活还是它自己干</div>
+      <!-- MOD-1: 三种形态 -->
+      <div class="memphis-box yellow shadow-offset">
+        <span class="coord">A-01</span>
+        <h2><span class="tag">形态</span>从指令到服务的三层光谱</h2>
+        <div class="grid-3col">
+          <div class="opt-card">
+            <div class="icon-circle">💬</div>
+            <div class="name">Prompt</div>
+            <div class="meta">给 Agent 指路<br>活还是它自己干</div>
+          </div>
+          <div class="opt-card">
+            <div class="icon-circle">⚙️</div>
+            <div class="name">Script</div>
+            <div class="meta">外部代劳<br>但逻辑可复现</div>
+          </div>
+          <div class="opt-card best">
+            <div class="icon-circle">🏗️</div>
+            <div class="name">Application</div>
+            <div class="meta">代劳 + 持久状态<br>不可复制</div>
+          </div>
+        </div>
       </div>
-      <div class="opt-card">
-        <div class="icon-circle">⚙️</div>
-        <div class="name">Script</div>
-        <div class="meta">外部代劳<br>但逻辑可复现</div>
-      </div>
-      <div class="opt-card best">
-        <div class="icon-circle">🏗️</div>
-        <div class="name">Application</div>
-        <div class="meta">代劳 + 持久状态<br>不可复制</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- MOD-2: 三层光谱壁垒 -->
-  <div class="memphis-box shadow-blue">
-    <span class="coord">B-05</span>
-    <h2><span class="tag blue-tag">壁垒</span>三层光谱的壁垒递进</h2>
-    <div class="spectrum-wrap">
-      <div class="spectrum-col">
-        <h3>Prompt</h3>
-        <div><span class="barrier-badge zero">壁垒 = 0</span></div>
-        <div class="s-desc">文本可复制<br>带宽不减</div>
-      </div>
-      <div class="spectrum-col">
-        <h3>Script</h3>
-        <div><span class="barrier-badge low">壁垒低</span></div>
-        <div class="s-desc">带宽降低<br>但无外部状态</div>
-      </div>
-      <div class="spectrum-col">
-        <h3>Application</h3>
-        <div><span class="barrier-badge high">壁垒高</span></div>
-        <div class="s-desc">领域状态+基础设施<br>+规模经济</div>
-      </div>
+      <span class="slide-number">01</span>
     </div>
   </div>
 
-  <!-- MOD-3: 两个物理约束 -->
-  <div class="memphis-box blue shadow-coral">
-    <span class="coord">C-12</span>
-    <h2><span class="tag coral-tag">核心</span>两个物理约束</h2>
-    <div class="insight-text">
-      不是 bug，不是下一代模型能修的。像<span class="highlight">光速</span>一样，只能围绕它做工程。
-    </div>
-    <div class="constraint-row">
-      <div class="constraint-card">
-        <div class="c-icon">📦</div>
-        <div class="c-title">上下文容量</div>
-        <div class="c-desc">Context 有限，塞得越多性能越差</div>
+  <!-- CARD 02: MOD-2 + MOD-3 -->
+  <div class="slide-card" data-slide="2">
+    <div class="card-inner">
+      <!-- MOD-2: 三层光谱壁垒 -->
+      <div class="memphis-box shadow-blue">
+        <span class="coord">B-05</span>
+        <h2><span class="tag blue-tag">壁垒</span>三层光谱的壁垒递进</h2>
+        <div class="spectrum-wrap">
+          <div class="spectrum-col">
+            <h3>Prompt</h3>
+            <div><span class="barrier-badge zero">壁垒 = 0</span></div>
+            <div class="s-desc">文本可复制<br>带宽不减</div>
+          </div>
+          <div class="spectrum-col">
+            <h3>Script</h3>
+            <div><span class="barrier-badge low">壁垒低</span></div>
+            <div class="s-desc">带宽降低<br>但无外部状态</div>
+          </div>
+          <div class="spectrum-col">
+            <h3>Application</h3>
+            <div><span class="barrier-badge high">壁垒高</span></div>
+            <div class="s-desc">领域状态+基础设施<br>+规模经济</div>
+          </div>
+        </div>
       </div>
-      <div class="constraint-card">
-        <div class="c-icon">🧠</div>
-        <div class="c-title">注意力带宽</div>
-        <div class="c-desc">多任务争抢同一份注意力，质量全部下降</div>
+
+      <!-- MOD-3: 两个物理约束 -->
+      <div class="memphis-box blue shadow-coral">
+        <span class="coord">C-12</span>
+        <h2><span class="tag coral-tag">核心</span>两个物理约束</h2>
+        <div class="insight-text">
+          不是 bug，不是下一代模型能修的。像<span class="highlight">光速</span>一样，只能围绕它做工程。
+        </div>
+        <div class="constraint-row">
+          <div class="constraint-card">
+            <div class="c-icon">📦</div>
+            <div class="c-title">上下文容量</div>
+            <div class="c-desc">Context 有限，塞得越多性能越差</div>
+          </div>
+          <div class="constraint-card">
+            <div class="c-icon">🧠</div>
+            <div class="c-title">注意力带宽</div>
+            <div class="c-desc">多任务争抢同一份注意力，质量全部下降</div>
+          </div>
+        </div>
       </div>
+      <span class="slide-number">02</span>
     </div>
   </div>
 
-  <div class="grid-2col">
-    <!-- MOD-4: Application 的两种价值 -->
-    <div class="memphis-box green shadow-offset">
-      <span class="coord">D-03</span>
-      <h2 style="margin-bottom: 10px;"><span class="tag green-tag">价值</span>Application 给 Agent</h2>
-      <div class="scene-grid">
-        <div class="scene-card">
-          <span class="scene-num">01</span>
-          <div class="scene-title">能力解锁</div>
-          <div class="scene-desc">突破上下文容量，做不到的事做到了</div>
+  <!-- CARD 03: MOD-4 + MOD-5 -->
+  <div class="slide-card" data-slide="3">
+    <div class="card-inner">
+      <div class="grid-2col">
+        <!-- MOD-4: Application 的两种价值 -->
+        <div class="memphis-box green shadow-offset">
+          <span class="coord">D-03</span>
+          <h2 style="margin-bottom: 10px;"><span class="tag green-tag">价值</span>Application 给 Agent</h2>
+          <div class="scene-grid">
+            <div class="scene-card">
+              <span class="scene-num">01</span>
+              <div class="scene-title">能力解锁</div>
+              <div class="scene-desc">突破上下文容量，做不到的事做到了</div>
+            </div>
+            <div class="scene-card">
+              <span class="scene-num">02</span>
+              <div class="scene-title">认知卸载</div>
+              <div class="scene-desc">释放注意力带宽，干扰消失每件事更准</div>
+            </div>
+            <div class="scene-card">
+              <span class="scene-num">03</span>
+              <div class="scene-title">认知共生</div>
+              <div class="scene-desc">好 App 让 OS 更聪明，OS 更精准调用 App</div>
+            </div>
+            <div class="scene-card">
+              <span class="scene-num">04</span>
+              <div class="scene-title">飞轮效应</div>
+              <div class="scene-desc">通用+专精耦合，越转越强，前所未有</div>
+            </div>
+          </div>
         </div>
-        <div class="scene-card">
-          <span class="scene-num">02</span>
-          <div class="scene-title">认知卸载</div>
-          <div class="scene-desc">释放注意力带宽，干扰消失每件事更准</div>
-        </div>
-        <div class="scene-card">
-          <span class="scene-num">03</span>
-          <div class="scene-title">认知共生</div>
-          <div class="scene-desc">好 App 让 OS 更聪明，OS 更精准调用 App</div>
-        </div>
-        <div class="scene-card">
-          <span class="scene-num">04</span>
-          <div class="scene-title">飞轮效应</div>
-          <div class="scene-desc">通用+专精耦合，越转越强，前所未有</div>
-        </div>
-      </div>
-    </div>
 
-    <!-- MOD-5: OS vs Application 分界 -->
-    <div class="memphis-box purple shadow-purple">
-      <span class="coord">E-08</span>
-      <h2><span class="tag purple-tag">分界</span>OS vs App</h2>
-      <div class="split-panel">
-        <div class="panel-block">
-          <div class="p-label">Agent OS</div>
-          <div>命题 = <span class="p-keyword" style="color: #FF6B6B;">WHAT</span></div>
-          <div>持有用户意图 + 跨域上下文</div>
+        <!-- MOD-5: OS vs Application 分界 -->
+        <div class="memphis-box purple shadow-purple">
+          <span class="coord">E-08</span>
+          <h2><span class="tag purple-tag">分界</span>OS vs App</h2>
+          <div class="split-panel">
+            <div class="panel-block">
+              <div class="p-label">Agent OS</div>
+              <div>命题 = <span class="p-keyword" style="color: #FF6B6B;">WHAT</span></div>
+              <div>持有用户意图 + 跨域上下文</div>
+            </div>
+            <hr class="p-divider">
+            <div class="panel-block">
+              <div class="p-label">Agent App</div>
+              <div>命题 = <span class="p-keyword" style="color: #4169E1;">HOW</span></div>
+              <div>持有领域状态 + 业务历史</div>
+            </div>
+            <hr class="p-divider">
+            <div class="panel-block" style="font-size: 24px; color: #666;">
+              The best context is no context.<br>Agent 越轻量，表现越好。
+            </div>
+          </div>
         </div>
-        <hr class="p-divider">
-        <div class="panel-block">
-          <div class="p-label">Agent App</div>
-          <div>命题 = <span class="p-keyword" style="color: #4169E1;">HOW</span></div>
-          <div>持有领域状态 + 业务历史</div>
-        </div>
-        <hr class="p-divider">
-        <div class="panel-block" style="font-size: 24px; color: #666;">
-          The best context is no context.<br>Agent 越轻量，表现越好。
-        </div>
       </div>
-    </div>
-  </div>
-
-  <!-- MOD-6: 避坑指南 -->
-  <div class="warn-bar">
-    <span class="coord">F-15</span>
-    <h2><span class="warn-icon">⚠</span>避坑指南</h2>
-    <div class="warn-list">
-      <div class="warn-item">
-        <span class="x-mark">✕</span>
-        <span>垂类做 Agent OS 是找死——战场错、对手错，OS 天然收敛到 2-3 家</span>
-      </div>
-      <div class="warn-item">
-        <span class="x-mark">✕</span>
-        <span>Skill 没有外部状态就是裸奔——天花板是卖 copy，做得越好抄得越容易</span>
-      </div>
-      <div class="warn-item">
-        <span class="x-mark">✕</span>
-        <span>领域状态 ≠ Memory——Memory 是 OS 层课题，领域状态是业务上下文资产</span>
-      </div>
+      <span class="slide-number">03</span>
     </div>
   </div>
 
-  <!-- MOD-7: 状态栏 -->
-  <div class="memphis-box" style="border: none; padding: 0; background: transparent;">
-    <span class="coord">G-20</span>
-    <div class="status-bar">
-      <div class="status-item">
-        <div class="num">2</div>
-        <div class="lbl">物理约束</div>
+  <!-- CARD 04: MOD-6 -->
+  <div class="slide-card" data-slide="4">
+    <div class="card-inner">
+      <!-- MOD-6: 避坑指南 -->
+      <div class="warn-bar">
+        <span class="coord">F-15</span>
+        <h2><span class="warn-icon">⚠</span>避坑指南</h2>
+        <div class="warn-list">
+          <div class="warn-item">
+            <span class="x-mark">✕</span>
+            <span>垂类做 Agent OS 是找死——战场错、对手错，OS 天然收敛到 2-3 家</span>
+          </div>
+          <div class="warn-item">
+            <span class="x-mark">✕</span>
+            <span>Skill 没有外部状态就是裸奔——天花板是卖 copy，做得越好抄得越容易</span>
+          </div>
+          <div class="warn-item">
+            <span class="x-mark">✕</span>
+            <span>领域状态 ≠ Memory——Memory 是 OS 层课题，领域状态是业务上下文资产</span>
+          </div>
+        </div>
       </div>
-      <div class="status-item">
-        <div class="num">3</div>
-        <div class="lbl">形态光谱</div>
-      </div>
-      <div class="status-item">
-        <div class="num">3</div>
-        <div class="lbl">不可复制壁垒</div>
-      </div>
-      <div class="status-item">
-        <div class="num">2</div>
-        <div class="lbl">核心价值</div>
-      </div>
+      <span class="slide-number">04</span>
     </div>
   </div>
 
-  <!-- FOOTER -->
-  <div class="footer">
-    <span class="dot"></span>
-    <span>AGENT</span>
-    <span class="dot"></span>
-    <span>OS</span>
-    <span class="dot"></span>
-    <span>APPLICATION</span>
-    <span class="dot"></span>
+  <!-- CARD 05: MOD-7 + Footer -->
+  <div class="slide-card" data-slide="5">
+    <div class="card-inner">
+      <!-- MOD-7: 状态栏 -->
+      <div class="memphis-box" style="border: none; padding: 0; background: transparent;">
+        <span class="coord">G-20</span>
+        <div class="status-bar">
+          <div class="status-item">
+            <div class="num">2</div>
+            <div class="lbl">物理约束</div>
+          </div>
+          <div class="status-item">
+            <div class="num">3</div>
+            <div class="lbl">形态光谱</div>
+          </div>
+          <div class="status-item">
+            <div class="num">3</div>
+            <div class="lbl">不可复制壁垒</div>
+          </div>
+          <div class="status-item">
+            <div class="num">2</div>
+            <div class="lbl">核心价值</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER -->
+      <div class="footer">
+        <span class="dot"></span>
+        <span>AGENT</span>
+        <span class="dot"></span>
+        <span>OS</span>
+        <span class="dot"></span>
+        <span>APPLICATION</span>
+        <span class="dot"></span>
+      </div>
+      <span class="slide-number">05</span>
+    </div>
   </div>
 
 </div>
