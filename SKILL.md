@@ -90,3 +90,5 @@ Templates use independent card viewport design:
 
 See `templates/README.md` for details.
 
+## Output Directory
+All generated files MUST be saved output/ under the AGENT'S current working directory (NOT the skill directory). Every script call MUST include an explicit --output / -o argument pointing to this location. Never omit the output argument or rely on script defaults.
